@@ -14,8 +14,9 @@ html{
 
 body{
 
-    background:#08111f;
+    background:#F8F7F3;
     color:#f8fafc;
+   
 
     font-family:'Inter',sans-serif;
 
@@ -33,11 +34,11 @@ body{
     --card:#111c2d;
     --card2:#162234;
 
-    --accent:#4f8cff;
+    --accent:#1E40AF;
     --accent2:#74b0ff;
 
-    --text:#ffffff;
-    --secondary:#9ca9bd;
+    --text:#171717;
+    --secondary:#6B6B6B;
 
     --border:#22324b;
 
