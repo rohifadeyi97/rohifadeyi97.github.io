@@ -5,147 +5,251 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Case study: Power BI revenue diagnostics for Who's AUX across Shopify, Amazon, and TikTok.">
     <title>Who's AUX Revenue Analytics — Oluwaseun Fadeyi</title>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
+    <style>
+        /* Page-specific case-study layout. Kept here so this page only depends on ../style.css. */
+        .case-hero {
+            width: min(calc(100% - 48px), var(--max-width));
+            margin: 0 auto;
+            padding: 138px 0 5rem;
+        }
+        .case-hero-heading {
+            max-width: 980px;
+            margin-bottom: 2.4rem;
+        }
+        .case-hero-heading h1 {
+            margin: .8rem 0 0;
+            font-size: clamp(3rem, 6vw, 6.2rem);
+            line-height: .98;
+            letter-spacing: -.06em;
+            font-weight: 600;
+        }
+        .case-hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.65fr) minmax(290px, .72fr);
+            gap: clamp(2rem, 5vw, 5rem);
+            align-items: start;
+        }
+        .case-hero-media {
+            margin: 0;
+            width: 100%;
+            background: var(--surface);
+            overflow: hidden;
+        }
+        .case-hero-media img {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+        .case-hero-copy {
+            padding-top: .25rem;
+        }
+        .case-hero-summary {
+            margin: 0;
+            color: var(--muted);
+            font-size: 1.05rem;
+            line-height: 1.75;
+        }
+        .case-hero-copy .hero-actions {
+            margin-top: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        .case-hero + .section {
+            padding-top: 5rem;
+        }
+        @media (max-width: 900px) {
+            .case-hero { padding-top: 125px; }
+            .case-hero-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .case-hero-copy { max-width: 680px; }
+        }
+        @media (max-width: 680px) {
+            .case-hero {
+                width: min(calc(100% - 32px), var(--max-width));
+                padding-top: 112px;
+                padding-bottom: 3.5rem;
+            }
+            .case-hero-heading { margin-bottom: 1.7rem; }
+            .case-hero-heading h1 { font-size: clamp(2.7rem, 14vw, 4.2rem); }
+            .case-hero + .section { padding-top: 3.5rem; }
+        }
+
+        /* Tighter case-study sections and responsive explanatory diagrams. */
+        .case-study-section {
+            padding-top: 4.25rem;
+            padding-bottom: 4.25rem;
+        }
+        .case-study-section .section-heading {
+            padding-bottom: 1.75rem;
+        }
+        /* Keep the section metadata compact, but let every main heading align
+           with the left edge of the section instead of inheriting the number indent. */
+        .case-study-section .section-heading > div {
+            display: contents;
+        }
+        .case-study-section .section-heading h2 {
+            grid-column: 1 / -1;
+            max-width: 900px;
+            margin-top: 1rem;
+        }
+        /* Section 03 already ends with the metric-grid rule; avoid a second rule
+           from the base .about-section styling immediately above section 04. */
+        .about-section.case-study-section {
+            border-top: 0;
+        }
+        .case-study-content {
+            display: grid;
+            grid-template-columns: minmax(0, .9fr) minmax(360px, 1.1fr);
+            gap: clamp(2.5rem, 6vw, 6rem);
+            align-items: start;
+            padding-top: 1.75rem;
+        }
+        .case-study-content .about-copy p:first-child { margin-top: 0; }
+        .case-study-content .about-copy p:last-child { margin-bottom: 0; }
+        .case-study-content .project-details { margin: 2rem 0 0; }
+
+        .case-diagram {
+            min-height: 310px;
+            padding: 1.5rem;
+            border: 1px solid var(--line);
+            background: rgba(235, 232, 223, .42);
+        }
+        .diagram-label {
+            margin: 0 0 1.3rem;
+            color: var(--accent);
+            font-family: "DM Mono", monospace;
+            font-size: .68rem;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+        .diagram-node {
+            display: flex;
+            min-height: 62px;
+            padding: .8rem 1rem;
+            border: 1px solid var(--line);
+            background: var(--paper);
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: .78rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        .diagram-node strong { display: block; }
+        .diagram-node span {
+            display: block;
+            margin-top: .2rem;
+            color: var(--muted);
+            font-size: .67rem;
+            font-weight: 500;
+        }
+        .diagram-arrow {
+            display: grid;
+            place-items: center;
+            color: var(--accent);
+            font-family: "DM Mono", monospace;
+            font-size: 1rem;
+        }
+
+        .source-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: .75rem;
+        }
+        .warehouse-flow {
+            display: grid;
+            grid-template-columns: 1fr 34px 1.05fr 34px .9fr;
+            align-items: center;
+            margin-top: 1rem;
+        }
+        .warehouse-node {
+            border-color: var(--accent);
+            background: var(--white);
+        }
+
+        .match-flow {
+            display: grid;
+            grid-template-columns: 1fr 34px 1fr 34px 1fr;
+            align-items: center;
+            margin-top: 1.2rem;
+        }
+        .match-tier {
+            min-height: 116px;
+            flex-direction: column;
+        }
+        .match-tier .tier-number {
+            margin-bottom: .55rem;
+            color: var(--accent);
+            font-family: "DM Mono", monospace;
+            font-size: .68rem;
+            letter-spacing: .08em;
+        }
+        .match-note {
+            margin: 1rem 0 0;
+            padding-top: 1rem;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: .72rem;
+            line-height: 1.55;
+        }
+
+        @media (max-width: 900px) {
+            .case-study-content { grid-template-columns: 1fr; gap: 2.5rem; }
+            .case-diagram { min-height: auto; }
+        }
+        @media (max-width: 680px) {
+            .case-study-section { padding-top: 3.25rem; padding-bottom: 3.25rem; }
+            .case-study-section .section-heading { padding-bottom: 1.35rem; }
+            .case-study-section .section-heading h2 { margin-top: .8rem; }
+            .case-study-content { padding-top: 1.35rem; }
+            .warehouse-flow,
+            .match-flow {
+                grid-template-columns: 1fr;
+                gap: .55rem;
+            }
+            .warehouse-flow .diagram-arrow,
+            .match-flow .diagram-arrow { transform: rotate(90deg); }
+            .source-grid { grid-template-columns: 1fr; }
+        }
+    
+
+.case-diagram .diagram-stack { display:grid; gap:.7rem; }
+.case-diagram .diagram-row { display:grid; grid-template-columns:1fr 30px 1fr; align-items:center; gap:.2rem; }
+.case-diagram .diagram-row.three { grid-template-columns:1fr 30px 1fr 30px 1fr; }
+.case-diagram .diagram-caption { margin:1rem 0 0; padding-top:1rem; border-top:1px solid var(--line); color:var(--muted); font-size:.72rem; line-height:1.55; }
+.case-diagram .timeline { display:grid; grid-template-columns:repeat(4,1fr); gap:.65rem; }
+.case-diagram .timeline .diagram-node { min-height:100px; flex-direction:column; }
+.case-diagram .timeline .diagram-node b { color:var(--accent); font-family:"DM Mono",monospace; font-size:.68rem; margin-bottom:.5rem; }
+@media(max-width:680px){.case-diagram .diagram-row,.case-diagram .diagram-row.three,.case-diagram .timeline{grid-template-columns:1fr}.case-diagram .diagram-arrow{transform:rotate(90deg)}}
+</style>
 </head>
 
 <body>
     <a class="skip-link" href="#main">Skip to content</a>
-
     <header class="site-header">
         <nav class="nav-shell" aria-label="Primary navigation">
-            <a class="wordmark" href="../index.html#top" aria-label="Oluwaseun Fadeyi, home">
-                <span>OF</span>
-                <span class="wordmark-name">Oluwaseun Fadeyi</span>
-            </a>
-
-            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
-                <span class="sr-only">Toggle navigation</span>
-                <span></span><span></span>
-            </button>
-
-            <div class="nav-links" id="nav-links">
-                <a href="../index.html#projects">Work</a>
-                <a href="../index.html#skills">Expertise</a>
-                <a href="../index.html#about">About</a>
-                <a href="../resume.pdf" target="_blank" rel="noopener">Résumé</a>
-            </div>
+            <a class="wordmark" href="../index.html#top" aria-label="Oluwaseun Fadeyi, home"><span>OF</span><span class="wordmark-name">Oluwaseun Fadeyi</span></a>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links"><span class="sr-only">Toggle navigation</span><span></span><span></span></button>
+            <div class="nav-links" id="nav-links"><a href="../index.html#projects">Work</a><a href="../index.html#skills">Expertise</a><a href="../index.html#about">About</a><a href="../resume.pdf" target="_blank" rel="noopener">Résumé</a></div>
         </nav>
     </header>
 
     <main id="main">
-        <section class="hero" id="top">
-            <div class="hero-grid">
-                <div class="hero-intro">
-                    <p class="kicker">Case study / Power BI · SQL</p>
-                    <h1>Who's AUX Revenue Analytics</h1>
-                </div>
-                <div class="hero-summary">
-                    <p>Revenue diagnostics across Shopify, Amazon, and TikTok advertising — tracing a period of declining performance back to the channel and product shifts driving it.</p>
-                    <div class="hero-actions">
-                        <a class="text-link" href="../index.html#projects">← Back to all projects</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <section class="case-hero" id="top"><div class="case-hero-heading"><p class="kicker">Case study / Power BI · SQL</p><h1>Who's AUX Revenue Analytics</h1></div><div class="case-hero-grid"><figure class="case-hero-media"><img src="../assets/images/Aux.png" alt="Who's AUX Power BI revenue diagnostic dashboard, showing channel breakdown and trend over time"></figure><div class="case-hero-copy"><p class="case-hero-summary">Revenue diagnostics across Shopify, Amazon, and TikTok advertising — tracing a period of declining performance back to the channel and product shifts driving it.</p><div class="hero-actions"><a class="text-link" href="../index.html#projects">← Back to all projects</a></div></div></div></section>
+        <section class="section case-study-section"><div class="section-heading"><p class="section-number">01</p><div><p class="kicker">Overview</p><h2>Where the revenue was slipping, and why.</h2></div></div><div class="case-study-content"><div class="about-copy"><p>Who's AUX sells across Shopify, Amazon, and TikTok Shop. Revenue had declined from a 2024 peak, but with three disconnected sales channels and no unified reporting layer, it wasn't clear which channel — or which products within it — was actually driving the drop. This project built the model needed to answer that question directly instead of guessing from three separate exports.</p></div><div class="case-diagram"><p class="diagram-label">Disconnected channel view</p><div class="source-grid"><div class="diagram-node">Shopify<span>Orders, refunds, products</span></div><div class="diagram-node">Amazon<span>Seller Central data</span></div><div class="diagram-node">TikTok Shop<span>Commerce activity</span></div><div class="diagram-node">TikTok Ads<span>Paid-media performance</span></div></div><div class="warehouse-flow"><div></div><div class="diagram-arrow">↓</div><div class="diagram-node warehouse-node">Unified revenue model<span>One diagnostic layer</span></div><div class="diagram-arrow">→</div><div class="diagram-node">Business question<span>Channel and product drivers</span></div></div></div></div></section>
+        <section class="section case-study-section"><div class="section-heading"><p class="section-number">02</p><div><p class="kicker">Approach</p><h2>One model, three channels, no double-counting.</h2></div></div><div class="case-study-content"><div class="about-copy"><p>The core challenge was structural, not visual: Shopify, Amazon, and TikTok each define orders, refunds, and product identifiers differently. A star schema normalized all three into shared fact and dimension tables, so a single set of DAX measures could answer questions like "which channel" and "which product" without channel-specific logic scattered across the report.</p><dl class="project-details"><div><dt>Data sources</dt><dd>Shopify, Amazon Seller Central, TikTok Shop</dd></div><div><dt>Model</dt><dd>Star schema, custom DAX measures</dd></div><div><dt>Tools</dt><dd>Power BI, SQL</dd></div></dl></div><div class="case-diagram"><p class="diagram-label">Normalized model</p><div class="diagram-row three"><div class="diagram-node">Channel exports<span>Different order and refund logic</span></div><div class="diagram-arrow">→</div><div class="diagram-node warehouse-node">Shared star schema<span>Fact and dimension tables</span></div><div class="diagram-arrow">→</div><div class="diagram-node">Reusable DAX<span>Channel and product analysis</span></div></div><p class="diagram-caption">Normalization removes channel-specific definitions from the reporting layer and reduces the risk of double-counting.</p></div></div></section>
+        <section class="section expertise-section case-study-section"><div class="section-heading"><p class="section-number">03</p><div><p class="kicker">Findings</p><h2>What the model actually showed.</h2></div></div><div class="expertise-grid"><article class="expertise-item"><p class="expertise-number">01</p><h3>Channel mix</h3><p>[Which channel's share of revenue moved most, and by how much.]</p></article><article class="expertise-item"><p class="expertise-number">02</p><h3>Product-level shift</h3><p>[Which SKUs or product lines drove the change, isolated from channel noise.]</p></article><article class="expertise-item"><p class="expertise-number">03</p><h3>Ad efficiency</h3><p>[What TikTok/Amazon ad spend looked like relative to the revenue it drove.]</p></article><article class="expertise-item"><p class="expertise-number">04</p><h3>Timing</h3><p>[When the decline actually started versus when it became visible.]</p></article></div></section>
+        <section class="section about-section case-study-section"><div class="section-heading"><p class="section-number">04</p><div><p class="kicker">What I'd do differently</p></div></div><div class="about-copy"><p>[One real lesson from building this model — a modeling choice you'd revisit, a data-quality issue you'd catch earlier next time, or a measure you'd simplify.]</p></div></section>
 
-        <section class="section">
-            <div class="project-media">
-                <img src="../assets/images/Aux.png" alt="Who's AUX Power BI revenue diagnostic dashboard, showing channel breakdown and trend over time">
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="section-heading">
-                <p class="section-number">01</p>
-                <div>
-                    <p class="kicker">Overview</p>
-                    <h2>Where the revenue was slipping, and why.</h2>
-                </div>
-            </div>
-            <div class="about-copy">
-                <!-- UPDATE: replace with the real framing of the decline — timeframe, rough magnitude if you're comfortable sharing it, which channels were involved -->
-                <p>Who's AUX sells across Shopify, Amazon, and TikTok Shop. Revenue had declined from a 2024 peak, but with three disconnected sales channels and no unified reporting layer, it wasn't clear which channel — or which products within it — was actually driving the drop. This project built the model needed to answer that question directly instead of guessing from three separate exports.</p>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="section-heading">
-                <p class="section-number">02</p>
-                <div>
-                    <p class="kicker">Approach</p>
-                    <h2>One model, three channels, no double-counting.</h2>
-                </div>
-            </div>
-            <div class="about-copy">
-                <p>The core challenge was structural, not visual: Shopify, Amazon, and TikTok each define orders, refunds, and product identifiers differently. A star schema normalized all three into shared fact and dimension tables, so a single set of DAX measures could answer questions like "which channel" and "which product" without channel-specific logic scattered across the report.</p>
-            </div>
-            <dl class="project-details">
-                <div><dt>Data sources</dt><dd>Shopify, Amazon Seller Central, TikTok Shop</dd></div>
-                <div><dt>Model</dt><dd>Star schema, custom DAX measures</dd></div>
-                <div><dt>Tools</dt><dd>Power BI, SQL</dd></div>
-            </dl>
-        </section>
-
-        <section class="section expertise-section">
-            <div class="section-heading">
-                <p class="section-number">03</p>
-                <div>
-                    <p class="kicker">Findings</p>
-                    <h2>What the model actually showed.</h2>
-                </div>
-            </div>
-            <!-- UPDATE: swap in the real findings — these four are structural placeholders, one per major result -->
-            <div class="expertise-grid">
-                <article class="expertise-item">
-                    <p class="expertise-number">01</p>
-                    <h3>Channel mix</h3>
-                    <p>[Which channel's share of revenue moved most, and by how much.]</p>
-                </article>
-                <article class="expertise-item">
-                    <p class="expertise-number">02</p>
-                    <h3>Product-level shift</h3>
-                    <p>[Which SKUs or product lines drove the change, isolated from channel noise.]</p>
-                </article>
-                <article class="expertise-item">
-                    <p class="expertise-number">03</p>
-                    <h3>Ad efficiency</h3>
-                    <p>[What TikTok/Amazon ad spend looked like relative to the revenue it drove.]</p>
-                </article>
-                <article class="expertise-item">
-                    <p class="expertise-number">04</p>
-                    <h3>Timing</h3>
-                    <p>[When the decline actually started versus when it became visible.]</p>
-                </article>
-            </div>
-        </section>
-
-        <section class="section about-section">
-            <div class="section-heading">
-                <p class="section-number">04</p>
-                <div><p class="kicker">What I'd do differently</p></div>
-            </div>
-            <div class="about-copy">
-                <!-- UPDATE: one honest lesson from building this — signals judgment, not just execution -->
-                <p>[One real lesson from building this model — a modeling choice you'd revisit, a data-quality issue you'd catch earlier next time, or a measure you'd simplify.]</p>
-            </div>
-        </section>
-
-        <section class="contact-section">
-            <p class="kicker">More like this</p>
-            <h2>See the rest of the work.</h2>
-            <a class="button button-light" href="../index.html#projects">Back to projects</a>
-        </section>
+        <section class="contact-section"><p class="kicker">More like this</p><h2>See the rest of the work.</h2><a class="button button-light" href="../index.html#projects">Back to projects</a></section>
     </main>
-
-    <footer>
-        <p>© 2026 Oluwaseun Fadeyi</p>
-        <a href="#top">Back to top ↑</a>
-    </footer>
-
+    <footer><p>© 2026 Oluwaseun Fadeyi</p><a href="#top">Back to top ↑</a></footer>
     <script src="../script.js"></script>
 </body>
 </html>
