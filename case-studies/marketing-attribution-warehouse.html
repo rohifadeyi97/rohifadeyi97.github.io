@@ -9,7 +9,79 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style-case-study-v2.css">
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        /* Page-specific case-study layout. Kept here so this page only depends on ../style.css. */
+        .case-hero {
+            width: min(calc(100% - 48px), var(--max-width));
+            margin: 0 auto;
+            padding: 138px 0 5rem;
+        }
+        .case-hero-heading {
+            max-width: 980px;
+            margin-bottom: 2.4rem;
+        }
+        .case-hero-heading h1 {
+            margin: .8rem 0 0;
+            font-size: clamp(3rem, 6vw, 6.2rem);
+            line-height: .98;
+            letter-spacing: -.06em;
+            font-weight: 600;
+        }
+        .case-hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.65fr) minmax(290px, .72fr);
+            gap: clamp(2rem, 5vw, 5rem);
+            align-items: start;
+        }
+        .case-hero-media {
+            margin: 0;
+            width: 100%;
+            background: var(--surface);
+            overflow: hidden;
+        }
+        .case-hero-media img {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+        .case-hero-copy {
+            padding-top: .25rem;
+        }
+        .case-hero-summary {
+            margin: 0;
+            color: var(--muted);
+            font-size: 1.05rem;
+            line-height: 1.75;
+        }
+        .case-hero-copy .hero-actions {
+            margin-top: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        .case-hero + .section {
+            padding-top: 5rem;
+        }
+        @media (max-width: 900px) {
+            .case-hero { padding-top: 125px; }
+            .case-hero-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .case-hero-copy { max-width: 680px; }
+        }
+        @media (max-width: 680px) {
+            .case-hero {
+                width: min(calc(100% - 32px), var(--max-width));
+                padding-top: 112px;
+                padding-bottom: 3.5rem;
+            }
+            .case-hero-heading { margin-bottom: 1.7rem; }
+            .case-hero-heading h1 { font-size: clamp(2.7rem, 14vw, 4.2rem); }
+            .case-hero + .section { padding-top: 3.5rem; }
+        }
+    </style>
 </head>
 
 <body>
