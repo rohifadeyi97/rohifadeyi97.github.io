@@ -209,6 +209,9 @@ button { font: inherit; }
 .project-number, .project-tools { color: var(--muted); }
 .project-thumbnail { aspect-ratio: 16 / 10; overflow: hidden; background: var(--surface); }
 .project-row-copy h3 { margin: 0; font-size: 1.35rem; letter-spacing: -.025em; }
+.project-row-copy h3 a { text-decoration: none; text-underline-offset: .3rem; }
+.project-row-copy h3 a:hover { text-decoration: underline; }
+.project-actions { display: flex; flex-direction: column; align-items: flex-start; gap: .6rem; }
 .project-row-copy p { margin: .3rem 0 0; color: var(--muted); font-size: .9rem; }
 .project-tools { text-align: right; }
 
