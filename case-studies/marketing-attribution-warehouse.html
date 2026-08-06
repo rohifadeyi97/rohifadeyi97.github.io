@@ -81,6 +81,127 @@
             .case-hero-heading h1 { font-size: clamp(2.7rem, 14vw, 4.2rem); }
             .case-hero + .section { padding-top: 3.5rem; }
         }
+
+        /* Tighter case-study sections and responsive explanatory diagrams. */
+        .case-study-section {
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+        }
+        .case-study-section .section-heading {
+            padding-bottom: 2.2rem;
+        }
+        .case-study-content {
+            display: grid;
+            grid-template-columns: minmax(0, .9fr) minmax(360px, 1.1fr);
+            gap: clamp(2.5rem, 6vw, 6rem);
+            align-items: start;
+            padding-top: 2.5rem;
+        }
+        .case-study-content .about-copy p:first-child { margin-top: 0; }
+        .case-study-content .about-copy p:last-child { margin-bottom: 0; }
+        .case-study-content .project-details { margin: 2rem 0 0; }
+
+        .case-diagram {
+            min-height: 310px;
+            padding: 1.5rem;
+            border: 1px solid var(--line);
+            background: rgba(235, 232, 223, .42);
+        }
+        .diagram-label {
+            margin: 0 0 1.3rem;
+            color: var(--accent);
+            font-family: "DM Mono", monospace;
+            font-size: .68rem;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+        .diagram-node {
+            display: flex;
+            min-height: 62px;
+            padding: .8rem 1rem;
+            border: 1px solid var(--line);
+            background: var(--paper);
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: .78rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        .diagram-node strong { display: block; }
+        .diagram-node span {
+            display: block;
+            margin-top: .2rem;
+            color: var(--muted);
+            font-size: .67rem;
+            font-weight: 500;
+        }
+        .diagram-arrow {
+            display: grid;
+            place-items: center;
+            color: var(--accent);
+            font-family: "DM Mono", monospace;
+            font-size: 1rem;
+        }
+
+        .source-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: .75rem;
+        }
+        .warehouse-flow {
+            display: grid;
+            grid-template-columns: 1fr 34px 1.05fr 34px .9fr;
+            align-items: center;
+            margin-top: 1rem;
+        }
+        .warehouse-node {
+            border-color: var(--accent);
+            background: var(--white);
+        }
+
+        .match-flow {
+            display: grid;
+            grid-template-columns: 1fr 34px 1fr 34px 1fr;
+            align-items: center;
+            margin-top: 1.2rem;
+        }
+        .match-tier {
+            min-height: 116px;
+            flex-direction: column;
+        }
+        .match-tier .tier-number {
+            margin-bottom: .55rem;
+            color: var(--accent);
+            font-family: "DM Mono", monospace;
+            font-size: .68rem;
+            letter-spacing: .08em;
+        }
+        .match-note {
+            margin: 1rem 0 0;
+            padding-top: 1rem;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: .72rem;
+            line-height: 1.55;
+        }
+
+        @media (max-width: 900px) {
+            .case-study-content { grid-template-columns: 1fr; gap: 2.5rem; }
+            .case-diagram { min-height: auto; }
+        }
+        @media (max-width: 680px) {
+            .case-study-section { padding-top: 4.5rem; padding-bottom: 4.5rem; }
+            .case-study-content { padding-top: 1.75rem; }
+            .warehouse-flow,
+            .match-flow {
+                grid-template-columns: 1fr;
+                gap: .55rem;
+            }
+            .warehouse-flow .diagram-arrow,
+            .match-flow .diagram-arrow { transform: rotate(90deg); }
+            .source-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 
@@ -128,7 +249,7 @@
             </div>
         </section>
 
-        <section class="section">
+        <section class="section case-study-section">
             <div class="section-heading">
                 <p class="section-number">01</p>
                 <div>
@@ -136,13 +257,31 @@
                     <h2>Marketing and revenue systems don't share a key by default.</h2>
                 </div>
             </div>
-            <div class="about-copy">
-                <p>Email platforms, web analytics, and CRM systems each track engagement in their own way, with no shared identifier connecting a campaign click to an actual registration or order. This project builds that connection: a warehouse that ingests Constant Contact, GA4, Salesforce, and WooCommerce data, matches engagement to CRM contacts, and traces the chain through to registrations, material orders, and revenue.</p>
-                <p>This is the public version of a system originally built against a real production database for a workforce training and certification organization. The schema and matching logic are reproduced exactly; every row of data here is synthetically generated.</p>
+            <div class="case-study-content">
+                <div class="about-copy">
+                    <p>Email platforms, web analytics, and CRM systems each track engagement in their own way, with no shared identifier connecting a campaign click to an actual registration or order. This project builds that connection: a warehouse that ingests Constant Contact, GA4, Salesforce, and WooCommerce data, matches engagement to CRM contacts, and traces the chain through to registrations, material orders, and revenue.</p>
+                    <p>This is the public version of a system originally built against a real production database for a workforce training and certification organization. The schema and matching logic are reproduced exactly; every row of data here is synthetically generated.</p>
+                </div>
+                <figure class="case-diagram" aria-labelledby="overview-diagram-title">
+                    <figcaption class="diagram-label" id="overview-diagram-title">System architecture</figcaption>
+                    <div class="source-grid">
+                        <div class="diagram-node"><div><strong>Constant Contact</strong><span>Email engagement</span></div></div>
+                        <div class="diagram-node"><div><strong>GA4</strong><span>Web sessions</span></div></div>
+                        <div class="diagram-node"><div><strong>Salesforce</strong><span>Contacts & registrations</span></div></div>
+                        <div class="diagram-node"><div><strong>WooCommerce</strong><span>Orders & revenue</span></div></div>
+                    </div>
+                    <div class="warehouse-flow">
+                        <div class="diagram-node"><div><strong>Source data</strong><span>Different identifiers</span></div></div>
+                        <div class="diagram-arrow" aria-hidden="true">→</div>
+                        <div class="diagram-node warehouse-node"><div><strong>Attribution warehouse</strong><span>32-table unified model</span></div></div>
+                        <div class="diagram-arrow" aria-hidden="true">→</div>
+                        <div class="diagram-node"><div><strong>Power BI</strong><span>Revenue reporting</span></div></div>
+                    </div>
+                </figure>
             </div>
         </section>
 
-        <section class="section">
+        <section class="section case-study-section">
             <div class="section-heading">
                 <p class="section-number">02</p>
                 <div>
@@ -150,18 +289,33 @@
                     <h2>Confidence-ranked matching, not a single hard join.</h2>
                 </div>
             </div>
-            <div class="about-copy">
-                <p>Each engagement gets matched to a CRM contact through a ranked hierarchy — exact email match first, falling back to company-domain match when no exact match exists. Every match carries its confidence level and match type through to the report, so the dashboard shows not just attributed revenue but how certain that attribution actually is.</p>
-                <p>The warehouse itself is 32 tables across five source systems, built by a single Python loader that creates the schema, loads the data, and populates the attribution fact table Power BI reads from — one entry point, no manual SQL steps for a new environment to stand up.</p>
+            <div class="case-study-content">
+                <div>
+                    <div class="about-copy">
+                        <p>Each engagement gets matched to a CRM contact through a ranked hierarchy — exact email match first, falling back to company-domain match when no exact match exists. Every match carries its confidence level and match type through to the report, so the dashboard shows not just attributed revenue but how certain that attribution actually is.</p>
+                        <p>The warehouse itself is 32 tables across five source systems, built by a single Python loader that creates the schema, loads the data, and populates the attribution fact table Power BI reads from — one entry point, no manual SQL steps for a new environment to stand up.</p>
+                    </div>
+                    <dl class="project-details">
+                        <div><dt>Sources</dt><dd>Constant Contact, GA4, Salesforce, WooCommerce</dd></div>
+                        <div><dt>Model</dt><dd>32-table warehouse, confidence-ranked attribution</dd></div>
+                        <div><dt>Tools</dt><dd>Python, MySQL, SQLAlchemy, Power BI, DAX</dd></div>
+                    </dl>
+                </div>
+                <figure class="case-diagram" aria-labelledby="match-diagram-title">
+                    <figcaption class="diagram-label" id="match-diagram-title">Attribution logic</figcaption>
+                    <div class="match-flow">
+                        <div class="diagram-node match-tier"><span class="tier-number">01 / strongest</span><strong>Exact email match</strong><span>Direct contact-level attribution</span></div>
+                        <div class="diagram-arrow" aria-hidden="true">→</div>
+                        <div class="diagram-node match-tier"><span class="tier-number">02 / fallback</span><strong>Company-domain match</strong><span>Used when no exact email exists</span></div>
+                        <div class="diagram-arrow" aria-hidden="true">→</div>
+                        <div class="diagram-node match-tier warehouse-node"><span class="tier-number">03 / output</span><strong>Attributed outcome</strong><span>Registration, order, or revenue</span></div>
+                    </div>
+                    <p class="match-note">The report retains the match type and confidence level, so attributed revenue can be read together with the strength of the underlying connection.</p>
+                </figure>
             </div>
-            <dl class="project-details">
-                <div><dt>Sources</dt><dd>Constant Contact, GA4, Salesforce, WooCommerce</dd></div>
-                <div><dt>Model</dt><dd>32-table warehouse, confidence-ranked attribution</dd></div>
-                <div><dt>Tools</dt><dd>Python, MySQL, SQLAlchemy, Power BI, DAX</dd></div>
-            </dl>
         </section>
 
-        <section class="section expertise-section">
+        <section class="section expertise-section case-study-section">
             <div class="section-heading">
                 <p class="section-number">03</p>
                 <div>
@@ -193,7 +347,7 @@
             </div>
         </section>
 
-        <section class="section about-section">
+        <section class="section about-section case-study-section">
             <div class="section-heading">
                 <p class="section-number">04</p>
                 <div><p class="kicker">What I'd do differently</p></div>
