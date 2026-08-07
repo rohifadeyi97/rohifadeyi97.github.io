@@ -74,10 +74,18 @@
             transform: none;
         }
 
-        /* Smaller project thumbnails keep a consistent row size,
-           but display the full image instead of cropping it. */
+        /* Small project thumbnails act as editorial previews:
+           fill the frame cleanly rather than letterboxing the full screenshot. */
+        #projects .project-thumbnail {
+            aspect-ratio: 16 / 10;
+            background: transparent;
+            overflow: hidden;
+        }
+
         #projects .project-thumbnail img {
-            object-fit: contain;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             object-position: center;
             transform: none;
         }
@@ -260,32 +268,32 @@
             <div class="project-list">
                 <article class="project-row reveal">
                     <p class="project-number">02</p>
-                    <div class="project-thumbnail"><img src="assets/images/Aux.png" alt="Who's AUX revenue analytics dashboard"></div>
+                    <div class="project-thumbnail"><img src="assets/images/Aux.png" alt="Who's AUX diagnostic analytics dashboard"></div>
                     <div class="project-row-copy">
-                        <h3><a href="case-studies/whos-aux.html">Who's AUX Revenue Analytics</a></h3>
-                        <p>Revenue diagnostics across Shopify, Amazon, and TikTok advertising.</p>
+                        <h3><a href="case-studies/whos-aux.html">Who's AUX Diagnostic Analytics</a></h3>
+                        <p>Cross-channel diagnostics across Shopify, Amazon, TikTok Shop, and paid media.</p>
                     </div>
-                    <p class="project-tools">Power BI / SQL</p>
+                    <p class="project-tools">Power BI / SQL / Excel</p>
                 </article>
 
                 <article class="project-row reveal">
                     <p class="project-number">03</p>
-                    <div class="project-thumbnail"><img src="assets/images/Vinyl.png" alt="Vinyl subscription forecast model"></div>
+                    <div class="project-thumbnail"><img src="assets/images/Vinyl.png" alt="Vinyl Club predictive analytics model"></div>
                     <div class="project-row-copy">
-                        <h3><a href="case-studies/vinyl-club.html">Vinyl Club Forecast Model</a></h3>
-                        <p>A subscription forecast built from historical revenue and customer trends.</p>
+                        <h3><a href="case-studies/vinyl-club.html">Vinyl Club Predictive Analytics</a></h3>
+                        <p>Scenario modeling and product-line forecasting for a proposed recurring-revenue launch.</p>
                     </div>
                     <p class="project-tools">Power BI / SQL / Excel</p>
                 </article>
 
                 <article class="project-row reveal">
                     <p class="project-number">04</p>
-                    <div class="project-thumbnail"><img src="assets/images/salesforce.png" alt="Salesforce automation and reporting project"></div>
+                    <div class="project-thumbnail"><img src="assets/images/salesforce.png" alt="Operational data integration and automation workflow"></div>
                     <div class="project-row-copy">
-                        <h3><a href="case-studies/salesforce-automation.html">Salesforce Automation</a></h3>
-                        <p>CRM architecture, workflow automation, API integrations, and operational reporting.</p>
+                        <h3><a href="case-studies/salesforce-automation.html">Operational Data Integration</a></h3>
+                        <p>Lead, registration, product, pricing, and order workflows across CRM, ecommerce, and automation systems.</p>
                     </div>
-                    <p class="project-tools">Salesforce / Zapier / APIs</p>
+                    <p class="project-tools">Salesforce / Zapier / REST APIs / WooCommerce</p>
                 </article>
             </div>
         </section>
