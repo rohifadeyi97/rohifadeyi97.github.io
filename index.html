@@ -10,6 +10,155 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
+    <!-- Homepage-only spacing/layout refinements. Safe to remove later if folded into style.css. -->
+    <style>
+        /* Keep the text-only hero substantial without forcing it to fill the viewport. */
+        #top.hero {
+            min-height: auto;
+            padding-top: 132px;
+            padding-bottom: 52px;
+        }
+
+        #top .hero-grid {
+            align-items: center;
+            gap: clamp(3rem, 7vw, 7rem);
+        }
+
+        #top.hero h1 {
+            max-width: 850px;
+            font-size: clamp(3.35rem, 6.45vw, 6.6rem);
+            line-height: .96;
+        }
+
+        #top .hero-summary {
+            padding-bottom: 0;
+        }
+
+        #top .capability-line {
+            margin-top: 4.25rem;
+        }
+
+        /* Pull the homepage sections into a more continuous editorial rhythm. */
+        main > .section {
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+        }
+
+        #projects {
+            padding-top: 5.25rem;
+        }
+
+        .section-heading {
+            padding-bottom: 2.75rem;
+        }
+
+        .featured-project {
+            padding-top: 3.5rem;
+            padding-bottom: 4.5rem;
+        }
+
+        /* Show the complete portfolio screenshots instead of cropping them. */
+        #projects .project-media img,
+        #projects .project-thumbnail img {
+            object-fit: contain;
+            object-position: center;
+            transform: none;
+        }
+
+        #projects .featured-project:hover .project-media img,
+        #projects .project-row:hover .project-thumbnail img {
+            transform: none;
+        }
+
+        /* Expertise had an extra-large bottom gap in the base stylesheet. */
+        #skills.expertise-section {
+            padding-bottom: 6rem;
+        }
+
+        #skills .expertise-item {
+            min-height: 225px;
+        }
+
+        #skills .expertise-item h3 {
+            margin-top: 3.25rem;
+        }
+
+        /* The base stylesheet adds a second divider immediately before About. */
+        #about.about-section {
+            border-top: 0;
+            padding-top: 5.5rem;
+            padding-bottom: 6rem;
+        }
+
+        #about.about-section .section-heading {
+            padding-bottom: 2.25rem;
+        }
+
+        /* Keep the transition into the final CTA tighter too. */
+        .contact-section {
+            padding-top: 6.5rem;
+            padding-bottom: 6.5rem;
+        }
+
+        @media (max-width: 900px) {
+            #top.hero {
+                padding-top: 125px;
+                padding-bottom: 44px;
+            }
+
+            #top .hero-grid {
+                gap: 2.4rem;
+            }
+
+            #top .capability-line {
+                margin-top: 3.25rem;
+            }
+
+            main > .section,
+            #skills.expertise-section,
+            #about.about-section {
+                padding-top: 5rem;
+                padding-bottom: 5rem;
+            }
+        }
+
+        @media (max-width: 680px) {
+            #top.hero {
+                padding-top: 112px;
+                padding-bottom: 36px;
+            }
+
+            #top.hero h1 {
+                font-size: clamp(2.85rem, 13.5vw, 4rem);
+            }
+
+            #top .capability-line {
+                margin-top: 2.75rem;
+            }
+
+            main > .section,
+            #skills.expertise-section,
+            #about.about-section {
+                padding-top: 4.25rem;
+                padding-bottom: 4.25rem;
+            }
+
+            .section-heading {
+                padding-bottom: 2rem;
+            }
+
+            .featured-project {
+                padding-top: 2.5rem;
+                padding-bottom: 3.25rem;
+            }
+
+            .contact-section {
+                padding-top: 5rem;
+                padding-bottom: 5rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
