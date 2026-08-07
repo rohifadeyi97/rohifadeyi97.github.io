@@ -3,22 +3,23 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Case study: Salesforce CRM architecture, workflow automation, and API integrations.">
-    <title>Salesforce Automation — Oluwaseun Fadeyi</title>
+    <meta name="description" content="Case study: Salesforce integrations and automation connecting lead capture, registrations, ecommerce, pricing, and operational reporting.">
+    <title>Salesforce Integration &amp; Automation — Oluwaseun Fadeyi</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
+
     <style>
-        /* Page-specific case-study layout. Kept here so this page only depends on ../style.css. */
         .case-hero {
             width: min(calc(100% - 48px), var(--max-width));
             margin: 0 auto;
-            padding: 138px 0 5rem;
+            padding: 138px 0 4.25rem;
         }
         .case-hero-heading {
-            max-width: 980px;
-            margin-bottom: 2.4rem;
+            max-width: 1040px;
+            margin-bottom: 2.15rem;
         }
         .case-hero-heading h1 {
             margin: .8rem 0 0;
@@ -29,25 +30,11 @@
         }
         .case-hero-grid {
             display: grid;
-            grid-template-columns: minmax(0, 1.65fr) minmax(290px, .72fr);
-            gap: clamp(2rem, 5vw, 5rem);
+            grid-template-columns: minmax(0, 1.55fr) minmax(300px, .72fr);
+            gap: clamp(2.5rem, 5vw, 5rem);
             align-items: start;
         }
-        .case-hero-media {
-            margin: 0;
-            width: 100%;
-            background: var(--surface);
-            overflow: hidden;
-        }
-        .case-hero-media img {
-            display: block;
-            width: 100%;
-            height: auto;
-            object-fit: contain;
-        }
-        .case-hero-copy {
-            padding-top: .25rem;
-        }
+        .case-hero-copy { padding-top: .15rem; }
         .case-hero-summary {
             margin: 0;
             color: var(--muted);
@@ -59,83 +46,77 @@
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            gap: 1rem;
+            gap: .9rem;
         }
-        .case-hero + .section {
-            padding-top: 5rem;
-        }
-        @media (max-width: 900px) {
-            .case-hero { padding-top: 125px; }
-            .case-hero-grid { grid-template-columns: 1fr; gap: 2rem; }
-            .case-hero-copy { max-width: 680px; }
-        }
-        @media (max-width: 680px) {
-            .case-hero {
-                width: min(calc(100% - 32px), var(--max-width));
-                padding-top: 112px;
-                padding-bottom: 3.5rem;
-            }
-            .case-hero-heading { margin-bottom: 1.7rem; }
-            .case-hero-heading h1 { font-size: clamp(2.7rem, 14vw, 4.2rem); }
-            .case-hero + .section { padding-top: 3.5rem; }
-        }
+        .case-hero + .section { padding-top: 4.25rem; }
 
-        /* Tighter case-study sections and responsive explanatory diagrams. */
-        .case-study-section {
-            padding-top: 4.25rem;
-            padding-bottom: 4.25rem;
+        .hero-architecture {
+            min-height: 390px;
+            padding: 1.7rem;
+            border: 1px solid var(--line);
+            background: rgba(235, 232, 223, .42);
         }
-        .case-study-section .section-heading {
-            padding-bottom: 1.75rem;
+        .hero-architecture .diagram-label { margin-bottom: 1.5rem; }
+        .hero-source-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: .7rem;
         }
-        /* Keep the section metadata compact, but let every main heading align
-           with the left edge of the section instead of inheriting the number indent. */
-        .case-study-section .section-heading > div {
-            display: contents;
-        }
-        .case-study-section .section-heading h2 {
-            grid-column: 1 / -1;
-            max-width: 900px;
+        .hero-flow {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 34px minmax(0, 1fr) 34px minmax(0, 1fr);
+            align-items: center;
             margin-top: 1rem;
         }
-        /* Section 03 already ends with the metric-grid rule; avoid a second rule
-           from the base .about-section styling immediately above section 04. */
-        .about-section.case-study-section {
-            border-top: 0;
+
+        .case-study-section {
+            padding-top: 4.1rem;
+            padding-bottom: 4.1rem;
         }
+        .case-study-section .section-heading { padding-bottom: 1.65rem; }
+        .case-study-section .section-heading > div { display: contents; }
+        .case-study-section .section-heading h2 {
+            grid-column: 1 / -1;
+            max-width: 980px;
+            margin-top: 1rem;
+        }
+        .about-section.case-study-section { border-top: 0; }
+
         .case-study-content {
             display: grid;
-            grid-template-columns: minmax(0, .9fr) minmax(360px, 1.1fr);
+            grid-template-columns: minmax(0, .9fr) minmax(390px, 1.1fr);
             gap: clamp(2.5rem, 6vw, 6rem);
             align-items: start;
-            padding-top: 1.75rem;
+            padding-top: 1.65rem;
         }
         .case-study-content .about-copy p:first-child { margin-top: 0; }
         .case-study-content .about-copy p:last-child { margin-bottom: 0; }
         .case-study-content .project-details { margin: 2rem 0 0; }
 
         .case-diagram {
-            min-height: 310px;
+            min-height: 300px;
             padding: 1.5rem;
             border: 1px solid var(--line);
             background: rgba(235, 232, 223, .42);
         }
         .diagram-label {
-            margin: 0 0 1.3rem;
+            margin: 0 0 1.2rem;
             color: var(--accent);
             font-family: "DM Mono", monospace;
             font-size: .68rem;
+            line-height: 1.4;
             letter-spacing: .08em;
             text-transform: uppercase;
         }
         .diagram-node {
             display: flex;
-            min-height: 62px;
+            min-height: 70px;
             padding: .8rem 1rem;
             border: 1px solid var(--line);
             background: var(--paper);
             align-items: center;
             justify-content: center;
+            flex-direction: column;
             text-align: center;
             font-size: .78rem;
             font-weight: 700;
@@ -149,6 +130,10 @@
             font-size: .67rem;
             font-weight: 500;
         }
+        .diagram-node.key-node {
+            border-color: var(--accent);
+            background: var(--white);
+        }
         .diagram-arrow {
             display: grid;
             place-items: center;
@@ -156,41 +141,7 @@
             font-family: "DM Mono", monospace;
             font-size: 1rem;
         }
-
-        .source-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: .75rem;
-        }
-        .warehouse-flow {
-            display: grid;
-            grid-template-columns: 1fr 34px 1.05fr 34px .9fr;
-            align-items: center;
-            margin-top: 1rem;
-        }
-        .warehouse-node {
-            border-color: var(--accent);
-            background: var(--white);
-        }
-
-        .match-flow {
-            display: grid;
-            grid-template-columns: 1fr 34px 1fr 34px 1fr;
-            align-items: center;
-            margin-top: 1.2rem;
-        }
-        .match-tier {
-            min-height: 116px;
-            flex-direction: column;
-        }
-        .match-tier .tier-number {
-            margin-bottom: .55rem;
-            color: var(--accent);
-            font-family: "DM Mono", monospace;
-            font-size: .68rem;
-            letter-spacing: .08em;
-        }
-        .match-note {
+        .diagram-caption {
             margin: 1rem 0 0;
             padding-top: 1rem;
             border-top: 1px solid var(--line);
@@ -199,75 +150,313 @@
             line-height: 1.55;
         }
 
-        @media (max-width: 900px) {
-            .case-study-content { grid-template-columns: 1fr; gap: 2.5rem; }
-            .case-diagram { min-height: auto; }
+        .silo-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: .7rem;
         }
-        @media (max-width: 680px) {
-            .case-study-section { padding-top: 3.25rem; padding-bottom: 3.25rem; }
-            .case-study-section .section-heading { padding-bottom: 1.35rem; }
-            .case-study-section .section-heading h2 { margin-top: .8rem; }
-            .case-study-content { padding-top: 1.35rem; }
-            .warehouse-flow,
-            .match-flow {
+        .silo-converge {
+            position: relative;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 38px minmax(0, .92fr);
+            gap: .75rem;
+            align-items: center;
+            margin-top: 1.15rem;
+            padding-top: 1.4rem;
+        }
+        .silo-converge::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 25%;
+            right: 25%;
+            height: 1px;
+            background: var(--line);
+        }
+        .silo-converge::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 1px;
+            height: 1.4rem;
+            background: var(--line);
+        }
+
+        .integration-flow {
+            display: grid;
+            grid-template-columns: 1fr 28px 1fr 28px 1fr 28px 1fr;
+            align-items: stretch;
+            gap: .15rem;
+        }
+        .integration-flow .diagram-node { min-height: 122px; }
+
+        .case-study-section .expertise-grid { margin-top: 0; }
+        .case-study-section .expertise-item {
+            min-height: 245px;
+            padding: 2.1rem;
+        }
+        .case-study-section .expertise-item h3 {
+            margin-top: 2.8rem;
+            margin-bottom: .8rem;
+        }
+
+        .principle-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: .7rem;
+        }
+        .principle-grid .diagram-node {
+            min-height: 118px;
+            align-items: flex-start;
+            text-align: left;
+            justify-content: flex-start;
+        }
+        .principle-grid .principle-num {
+            margin-bottom: .7rem;
+            color: var(--accent);
+            font-family: "DM Mono", monospace;
+            font-size: .67rem;
+            letter-spacing: .07em;
+        }
+
+        @media (max-width: 1000px) {
+            .hero-flow,
+            .integration-flow {
                 grid-template-columns: 1fr;
                 gap: .55rem;
             }
-            .warehouse-flow .diagram-arrow,
-            .match-flow .diagram-arrow { transform: rotate(90deg); }
-            .source-grid { grid-template-columns: 1fr; }
+            .hero-flow .diagram-arrow,
+            .integration-flow .diagram-arrow { transform: rotate(90deg); }
         }
-    
-
-.case-diagram .diagram-stack { display:grid; gap:.7rem; }
-.case-diagram .diagram-row { display:grid; grid-template-columns:1fr 30px 1fr; align-items:center; gap:.2rem; }
-.case-diagram .diagram-row.three { grid-template-columns:1fr 30px 1fr 30px 1fr; }
-.case-diagram .diagram-caption { margin:1rem 0 0; padding-top:1rem; border-top:1px solid var(--line); color:var(--muted); font-size:.72rem; line-height:1.55; }
-.case-diagram .timeline { display:grid; grid-template-columns:repeat(4,1fr); gap:.65rem; }
-.case-diagram .timeline .diagram-node { min-height:100px; flex-direction:column; }
-.case-diagram .timeline .diagram-node b { color:var(--accent); font-family:"DM Mono",monospace; font-size:.68rem; margin-bottom:.5rem; }
-@media(max-width:680px){.case-diagram .diagram-row,.case-diagram .diagram-row.three,.case-diagram .timeline{grid-template-columns:1fr}.case-diagram .diagram-arrow{transform:rotate(90deg)}}
-</style>
+        @media (max-width: 900px) {
+            .case-hero { padding-top: 125px; }
+            .case-hero-grid,
+            .case-study-content { grid-template-columns: 1fr; gap: 2.25rem; }
+            .case-hero-copy { max-width: 680px; }
+            .hero-architecture, .case-diagram { min-height: auto; }
+        }
+        @media (max-width: 680px) {
+            .case-hero {
+                width: min(calc(100% - 32px), var(--max-width));
+                padding-top: 112px;
+                padding-bottom: 3.25rem;
+            }
+            .case-hero-heading { margin-bottom: 1.6rem; }
+            .case-hero-heading h1 { font-size: clamp(2.7rem, 14vw, 4.2rem); }
+            .case-hero + .section { padding-top: 3.25rem; }
+            .case-study-section { padding-top: 3.15rem; padding-bottom: 3.15rem; }
+            .case-study-section .section-heading { padding-bottom: 1.3rem; }
+            .case-study-section .section-heading h2 { margin-top: .8rem; }
+            .case-study-content { padding-top: 1.3rem; }
+            .hero-source-grid,
+            .silo-grid,
+            .principle-grid { grid-template-columns: 1fr; }
+            .silo-converge {
+                grid-template-columns: 1fr;
+                gap: .6rem;
+                padding-top: 1rem;
+            }
+            .silo-converge::before {
+                left: 50%;
+                right: auto;
+                width: 1px;
+                height: 1rem;
+            }
+            .silo-converge::after { display: none; }
+            .silo-converge .diagram-arrow { transform: rotate(90deg); }
+            .case-study-section .expertise-item { min-height: 210px; padding: 1.8rem 0; }
+        }
+    </style>
 </head>
-
 <body>
     <a class="skip-link" href="#main">Skip to content</a>
+
     <header class="site-header">
         <nav class="nav-shell" aria-label="Primary navigation">
-            <a class="wordmark" href="../index.html#top" aria-label="Oluwaseun Fadeyi, home"><span>OF</span><span class="wordmark-name">Oluwaseun Fadeyi</span></a>
-            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links"><span class="sr-only">Toggle navigation</span><span></span><span></span></button>
-            <div class="nav-links" id="nav-links"><a href="../index.html#projects">Work</a><a href="../index.html#skills">Expertise</a><a href="../index.html#about">About</a><a href="../resume.pdf" target="_blank" rel="noopener">Résumé</a></div>
+            <a class="wordmark" href="../index.html#top" aria-label="Oluwaseun Fadeyi, home">
+                <span>OF</span><span class="wordmark-name">Oluwaseun Fadeyi</span>
+            </a>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+                <span class="sr-only">Toggle navigation</span><span></span><span></span>
+            </button>
+            <div class="nav-links" id="nav-links">
+                <a href="../index.html#projects">Work</a>
+                <a href="../index.html#skills">Expertise</a>
+                <a href="../index.html#about">About</a>
+                <a href="../resume.pdf" target="_blank" rel="noopener">Résumé</a>
+            </div>
         </nav>
     </header>
 
     <main id="main">
         <section class="case-hero" id="top">
-            <div class="case-hero-heading"><p class="kicker">Case study / Salesforce · Zapier · APIs</p><h1>Salesforce Automation</h1></div>
-            <div class="case-hero-grid">
-                <figure class="case-hero-media"><img src="../assets/images/salesforce.png" alt="Salesforce automation and workflow diagram"></figure>
-                <div class="case-hero-copy"><p class="case-hero-summary">[One-line summary: what business process this automated, and why it mattered.]</p><div class="hero-actions"><a class="text-link" href="../index.html#projects">← Back to all projects</a></div></div>
+            <div class="case-hero-heading">
+                <p class="kicker">Case study / Salesforce · Zapier · REST APIs · WooCommerce</p>
+                <h1>Salesforce Integration &amp; Automation</h1>
             </div>
-        </section>
-        <section class="section case-study-section">
-            <div class="section-heading"><p class="section-number">01</p><div><p class="kicker">Overview</p><h2>[The problem this solved.]</h2></div></div>
-            <div class="case-study-content"><div class="about-copy"><p>[What was manual, error-prone, or disconnected before this project — and who was affected by it.]</p></div>
-                <div class="case-diagram"><p class="diagram-label">Operational gap</p><div class="diagram-row three"><div class="diagram-node">Manual request<span>Entry, handoff, or update</span></div><div class="diagram-arrow">→</div><div class="diagram-node">Disconnected systems<span>CRM and external tools</span></div><div class="diagram-arrow">→</div><div class="diagram-node">Reporting delay<span>Incomplete operational view</span></div></div><p class="diagram-caption">This diagram is intentionally structural until the exact business process and affected teams are confirmed.</p></div>
-            </div>
-        </section>
-        <section class="section case-study-section">
-            <div class="section-heading"><p class="section-number">02</p><div><p class="kicker">Approach</p><h2>[How the automation was structured.]</h2></div></div>
-            <div class="case-study-content"><div class="about-copy"><p>[What the CRM architecture and automation actually do — which objects, which triggers, which systems get connected via API/Zapier.]</p><dl class="project-details"><div><dt>Scope</dt><dd>[e.g. Lead routing, record sync, reporting]</dd></div><div><dt>Integrations</dt><dd>[Systems connected via API/webhook]</dd></div><div><dt>Tools</dt><dd>Salesforce, Zapier, REST APIs</dd></div></dl></div>
-                <div class="case-diagram"><p class="diagram-label">Automation framework</p><div class="diagram-row three"><div class="diagram-node">Trigger<span>Record or user action</span></div><div class="diagram-arrow">→</div><div class="diagram-node warehouse-node">Salesforce logic<span>Validation, routing, updates</span></div><div class="diagram-arrow">→</div><div class="diagram-node">Zapier / API<span>Sync and downstream action</span></div></div><p class="diagram-caption">The final labels can be replaced with the real objects, triggers, and connected systems without changing the layout.</p></div>
-            </div>
-        </section>
-        <section class="section expertise-section case-study-section">
-            <div class="section-heading"><p class="section-number">03</p><div><p class="kicker">Results</p><h2>[What changed after this shipped.]</h2></div></div>
-            <div class="expertise-grid"><article class="expertise-item"><p class="expertise-number">01</p><h3>[Result one]</h3><p>[e.g. manual hours eliminated per week.]</p></article><article class="expertise-item"><p class="expertise-number">02</p><h3>[Result two]</h3><p>[e.g. error rate or data-quality improvement.]</p></article><article class="expertise-item"><p class="expertise-number">03</p><h3>[Result three]</h3><p>[e.g. reporting visibility that didn't exist before.]</p></article></div>
-        </section>
-        <section class="section about-section case-study-section"><div class="section-heading"><p class="section-number">04</p><div><p class="kicker">What I'd do differently</p></div></div><div class="about-copy"><p>[One real lesson — a trigger you'd design differently, an edge case that broke the automation, a permission/governance issue you'd handle earlier.]</p></div></section>
 
-        <section class="contact-section"><p class="kicker">More like this</p><h2>See the rest of the work.</h2><a class="button button-light" href="../index.html#projects">Back to projects</a></section>
+            <div class="case-hero-grid">
+                <div class="hero-architecture" aria-label="High-level integration architecture">
+                    <p class="diagram-label">Operational data architecture</p>
+                    <div class="hero-source-grid">
+                        <div class="diagram-node"><strong>Lead capture</strong><span>Web forms, campaigns, events</span></div>
+                        <div class="diagram-node"><strong>Registrations</strong><span>Participants, courses, accounts</span></div>
+                        <div class="diagram-node"><strong>Products &amp; pricing</strong><span>Catalog, price books, fulfillment</span></div>
+                        <div class="diagram-node"><strong>Orders</strong><span>Ecommerce, payment, materials</span></div>
+                    </div>
+                    <div class="hero-flow">
+                        <div class="diagram-node"><strong>Normalize</strong><span>Transform arrays, multi-selects, identifiers</span></div>
+                        <div class="diagram-arrow">→</div>
+                        <div class="diagram-node key-node"><strong>Salesforce operating layer</strong><span>Relationships, routing, ownership, source-of-truth fields</span></div>
+                        <div class="diagram-arrow">→</div>
+                        <div class="diagram-node"><strong>Act &amp; interpret</strong><span>Commerce sync, follow-up, attribution, reporting</span></div>
+                    </div>
+                </div>
+
+                <div class="case-hero-copy">
+                    <p class="case-hero-summary">Modernized a fragmented operating stack by connecting website leads, course registrations, product data, pricing, and ecommerce activity to a governed Salesforce-centered workflow. The goal was bigger than automation: make operational data consistent enough to route work, reconcile systems, and support better business decisions.</p>
+                    <div class="hero-actions">
+                        <a class="button button-primary" href="../salesforce-integrations-case-study.pdf" target="_blank" rel="noopener">View sanitized project brief ↗</a>
+                        <a class="text-link" href="mailto:rohifadeyi97@gmail.com?subject=Salesforce%20Integration%20and%20Automation">Discuss this project <span aria-hidden="true">↗</span></a>
+                        <a class="text-link" href="../index.html#projects">← Back to all projects</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section case-study-section">
+            <div class="section-heading">
+                <p class="section-number">01</p>
+                <div>
+                    <p class="kicker">Overview</p>
+                    <h2>The problem wasn't a lack of data. It was that every system understood it differently.</h2>
+                </div>
+            </div>
+
+            <div class="case-study-content">
+                <div class="about-copy">
+                    <p>The organization already had functioning systems for CRM, ecommerce, course registrations, website inquiries, and marketing. Each worked for its immediate task, but the information needed to run the business was spread across separate workflows, field definitions, and identifiers.</p>
+                    <p>That made ordinary questions expensive to answer. A lead could arrive with useful campaign context but no consistent follow-up path. A product could exist in both CRM and ecommerce with pricing represented differently. Registration records connected people, companies, courses, and purchases, but those relationships were difficult to analyze together. The work focused on turning those transactions into one dependable operational spine.</p>
+                </div>
+
+                <div class="case-diagram">
+                    <p class="diagram-label">Before: valuable data, fragmented context</p>
+                    <div class="silo-grid">
+                        <div class="diagram-node"><strong>Website</strong><span>Inquiries, campaign parameters</span></div>
+                        <div class="diagram-node"><strong>Salesforce</strong><span>CRM records, products, relationships</span></div>
+                        <div class="diagram-node"><strong>Registration tools</strong><span>Courses, participants, attendance</span></div>
+                        <div class="diagram-node"><strong>WooCommerce</strong><span>Catalog, orders, pricing</span></div>
+                    </div>
+                    <div class="silo-converge">
+                        <div class="diagram-node key-node"><strong>Manual reconciliation</strong><span>Different formats, keys, ownership rules</span></div>
+                        <div class="diagram-arrow">→</div>
+                        <div class="diagram-node"><strong>Incomplete business view</strong><span>Slow answers and hidden data-quality issues</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section case-study-section">
+            <div class="section-heading">
+                <p class="section-number">02</p>
+                <div>
+                    <p class="kicker">Approach</p>
+                    <h2>Build a governed pipeline, not a chain of one-off automations.</h2>
+                </div>
+            </div>
+
+            <div class="case-study-content">
+                <div class="about-copy">
+                    <p>Salesforce became the central relationship and operational layer. Website forms captured intent and attribution, then transformed visitor-friendly values into CRM-compatible formats. Salesforce automation handled ownership, notifications, and follow-up. Product workflows queried core product and price-book data, Zapier normalized child records into explicit fields, and a custom WordPress REST endpoint validated create-versus-update behavior before writing to WooCommerce.</p>
+                    <p>Registration workflows followed the same principle without forcing every business object through one monolithic process: leads, products, and registrations used separate automation paths, then converged through governed identifiers and shared relationships. Names stayed descriptive; stable product, registration, contact, account, course, and order keys did the matching.</p>
+                    <dl class="project-details">
+                        <div><dt>Scope</dt><dd>Lead intake, routing, product sync, registrations, attribution</dd></div>
+                        <div><dt>Integrations</dt><dd>Salesforce, Zapier, WordPress REST API, WooCommerce, web forms</dd></div>
+                        <div><dt>Controls</dt><dd>Stable IDs, field ownership, transformation, validation, fallback rules</dd></div>
+                    </dl>
+                </div>
+
+                <div class="case-diagram">
+                    <p class="diagram-label">Integration architecture</p>
+                    <div class="integration-flow">
+                        <div class="diagram-node"><strong>Capture</strong><span>Leads, products, registrations, orders</span></div>
+                        <div class="diagram-arrow">→</div>
+                        <div class="diagram-node"><strong>Normalize</strong><span>Multi-selects, arrays, price-book rows, metadata</span></div>
+                        <div class="diagram-arrow">→</div>
+                        <div class="diagram-node key-node"><strong>Salesforce</strong><span>Records, relationships, routing, source-of-truth values</span></div>
+                        <div class="diagram-arrow">→</div>
+                        <div class="diagram-node"><strong>Downstream action</strong><span>WooCommerce, alerts, tasks, reporting</span></div>
+                    </div>
+                    <p class="diagram-caption">The automation layer handles the differences between systems so users do not have to. Complexity stays behind the scenes; business records remain reportable and traceable.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section expertise-section case-study-section">
+            <div class="section-heading">
+                <p class="section-number">03</p>
+                <div>
+                    <p class="kicker">Operational output</p>
+                    <h2>What the operating layer now supports.</h2>
+                </div>
+            </div>
+
+            <div class="expertise-grid">
+                <article class="expertise-item">
+                    <p class="expertise-number">01</p>
+                    <h3>Lead lifecycle</h3>
+                    <p>One reusable intake framework captures identity, intent, topic interest, open context, and campaign attribution, then creates a Salesforce Lead, assigns ownership, alerts the right people, and creates a follow-up activity.</p>
+                </article>
+                <article class="expertise-item">
+                    <p class="expertise-number">02</p>
+                    <h3>Commerce &amp; pricing</h3>
+                    <p>Product data moves from Salesforce into WooCommerce with standard and member prices separated explicitly, product families aligned to categories, fulfillment attributes preserved, and endpoint-level create/update controls.</p>
+                </article>
+                <article class="expertise-item">
+                    <p class="expertise-number">03</p>
+                    <h3>Registration relationships</h3>
+                    <p>Participants, accounts, courses, registrations, products, and orders can be connected through stable identifiers, supporting variable attendee counts without losing the relationships needed for participation and revenue analysis.</p>
+                </article>
+                <article class="expertise-item">
+                    <p class="expertise-number">04</p>
+                    <h3>Attribution &amp; reporting</h3>
+                    <p>Campaign parameters and normalized operational fields create a bridge from marketing activity to CRM outcomes, while cleaner product and registration data supports future pipeline, demand, pricing, fulfillment, and customer analysis.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section about-section case-study-section">
+            <div class="section-heading">
+                <p class="section-number">04</p>
+                <div><p class="kicker">What I'd do differently</p></div>
+            </div>
+
+            <div class="case-study-content">
+                <div class="about-copy">
+                    <p>The hardest failures were rarely the API calls themselves. They came from assumptions about the data: multi-select values arriving in the wrong delimiter, child price-book records behaving like one field, line-item arrays needing explicit loops, environment-specific IDs breaking matches, and incomplete attributes quietly moving downstream.</p>
+                    <p>I would now front-load the data contract before building the automation: define a field dictionary, assign a source of truth to each field, choose stable cross-system identifiers, document create-versus-update rules, and decide which exceptions must be visible in reporting. I would also keep distinct business-object workflows separate — leads, products, and registrations should not be one giant automation — while making them converge on the same governed data model.</p>
+                </div>
+
+                <div class="case-diagram">
+                    <p class="diagram-label">Design principles carried forward</p>
+                    <div class="principle-grid">
+                        <div class="diagram-node"><span class="principle-num">01</span><strong>Model before mapping</strong><span>Define fields, types, ownership, and valid values first.</span></div>
+                        <div class="diagram-node"><span class="principle-num">02</span><strong>Names are not keys</strong><span>Use stable external identifiers for matching and migration.</span></div>
+                        <div class="diagram-node"><span class="principle-num">03</span><strong>Transform before transmit</strong><span>Normalize arrays, multi-selects, prices, and metadata before posting.</span></div>
+                        <div class="diagram-node"><span class="principle-num">04</span><strong>Exceptions are data</strong><span>Missing prices, links, categories, or dimensions should be measurable.</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <p class="kicker">More like this</p>
+            <h2>See the rest of the work.</h2>
+            <a class="button button-light" href="../index.html#projects">Back to projects</a>
+        </section>
     </main>
+
     <footer><p>© 2026 Oluwaseun Fadeyi</p><a href="#top">Back to top ↑</a></footer>
     <script src="../script.js"></script>
 </body>
