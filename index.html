@@ -58,8 +58,24 @@
             padding-bottom: 4.5rem;
         }
 
-        /* Show the complete portfolio screenshots instead of cropping them. */
-        #projects .project-media img,
+        /* Keep the featured dashboard at its natural aspect ratio.
+           This removes the letterbox bands created by the base 16/10 media wrapper. */
+        #projects .featured-project .project-media {
+            aspect-ratio: auto;
+            background: transparent;
+            overflow: hidden;
+        }
+
+        #projects .featured-project .project-media img {
+            width: 100%;
+            height: auto;
+            object-fit: initial;
+            object-position: center;
+            transform: none;
+        }
+
+        /* Smaller project thumbnails keep a consistent row size,
+           but display the full image instead of cropping it. */
         #projects .project-thumbnail img {
             object-fit: contain;
             object-position: center;
