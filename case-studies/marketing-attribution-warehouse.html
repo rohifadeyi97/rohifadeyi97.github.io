@@ -309,8 +309,8 @@
             <div class="case-study-content">
                 <div>
                     <div class="about-copy">
-                        <p>Each engagement gets matched to a CRM contact through a ranked hierarchy — exact email match first, falling back to company-domain match when no exact match exists. Every match carries its confidence level and match type through to the report, so the dashboard shows not just attributed revenue but how certain that attribution actually is.</p>
-                        <p>The warehouse itself is 32 tables across five source systems, built by a single Python loader that creates the schema, loads the data, and populates the attribution fact table Power BI reads from — one entry point, no manual SQL steps for a new environment to stand up.</p>
+                        <p>Each engagement gets matched to a CRM contact through a ranked hierarchy. Exact emails match first, falling back to company-domain match when no exact match exists. Every match carries its confidence level and match type through to the report, so the dashboard shows not just attributed revenue but how certain that attribution actually is.</p>
+                        <p>The warehouse itself is 32 tables across five source systems, built by a single Python loader that creates the schema, loads the data, and populates the attribution fact table Power BI reads from one entry point.</p>
                     </div>
                     <dl class="project-details">
                         <div><dt>Sources</dt><dd>Constant Contact, GA4, Salesforce, WooCommerce</dd></div>
@@ -359,7 +359,7 @@
                 <article class="expertise-item">
                     <p class="expertise-number">04</p>
                     <h3>~75% / 25%</h3>
-                    <p>Split between exact-email and company-domain matches — most attribution holds at the highest confidence tier.</p>
+                    <p>Split between exact-email and company-domain matches, most attribution holds at the highest confidence tier.</p>
                 </article>
             </div>
         </section>
@@ -370,7 +370,7 @@
                 <div><p class="kicker">What I'd do differently</p></div>
             </div>
             <div class="about-copy">
-                <p>The first version of the public loader approximated the production schema instead of matching it exactly — Power BI's compatibility failures made it clear that "similar" isn't sufficient when a report file has hard-coded expectations about table and column structure. A later pass also over-scrubbed some attribution fields during sanitization and broke the report's revenue visuals, which reinforced a rule I now apply earlier: separate presentation fields, which are safe to genericize, from model-critical fields, which have to be preserved exactly.</p>
+                <p>The first version of the public loader approximated the production schema instead of matching it exactly, Power BI's compatibility failures made it clear that "similar" isn't sufficient when a report file has hard-coded expectations about table and column structure. A later pass also over-scrubbed some attribution fields during sanitization and broke the report's revenue visuals, which reinforced a rule I now apply earlier: separate presentation fields, which are safe to genericize, from model-critical fields, which have to be preserved exactly.</p>
             </div>
         </section>
 
