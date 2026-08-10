@@ -435,7 +435,7 @@
             <div class="case-study-content">
                 <div class="about-copy">
                     <p>The hardest failures were rarely the API calls themselves. They came from assumptions about the data: multi-select values arriving in the wrong delimiter, child price-book records behaving like one field, line-item arrays needing explicit loops, environment-specific IDs breaking matches, and incomplete attributes quietly moving downstream.</p>
-                    <p>I would now front-load the data contract before building the automation: define a field dictionary, assign a source of truth to each field, choose stable cross-system identifiers, document create-versus-update rules, and decide which exceptions must be visible in reporting. I would also keep distinct business-object workflows separate — leads, products, and registrations should not be one giant automation — while making them converge on the same governed data model.</p>
+                    <p>I would now front-load the data contract before building the automation: define a field dictionary, assign a source of truth to each field, choose stable cross-system identifiers, document create-versus-update rules, and decide which exceptions must be visible in reporting. I would also keep distinct business-object workflows separate. Leads, products, and registrations should not be one giant automation.</p>
                 </div>
 
                 <div class="case-diagram">
