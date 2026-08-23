@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Case study: an interconnected autonomous playlist and Vinyl Club editorial operations system built with Python, SQL, APIs, ETL, scheduling, local reference data, and human-in-the-loop controls.">
+    <meta name="description" content="Case study: an automated music operations system that supports playlist maintenance, editorial research, publishing, and content workflows.">
     <title>Autonomous Music Operations — Oluwaseun Fadeyi</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,34 +19,34 @@
         }
 
         .case-hero-heading {
-            max-width: 1100px;
+            max-width: 980px;
             margin-bottom: 2.4rem;
         }
 
         .case-hero-heading h1 {
             margin: .8rem 0 0;
-            font-size: clamp(3rem, 6.2vw, 6.5rem);
-            line-height: .97;
-            letter-spacing: -.062em;
+            font-size: clamp(3rem, 6vw, 6.2rem);
+            line-height: .98;
+            letter-spacing: -.06em;
             font-weight: 600;
         }
 
         .case-hero-grid {
             display: grid;
-            grid-template-columns: minmax(0, 1.5fr) minmax(310px, .78fr);
-            gap: clamp(2.5rem, 5vw, 5.25rem);
+            grid-template-columns: minmax(0, 1.55fr) minmax(300px, .75fr);
+            gap: clamp(2.5rem, 5vw, 5rem);
             align-items: center;
         }
 
         .case-hero-summary {
             margin: 0;
             color: var(--muted);
-            font-size: 1.06rem;
+            font-size: 1.05rem;
             line-height: 1.75;
         }
 
         .case-hero-copy .hero-actions {
-            margin-top: 1.8rem;
+            margin-top: 1.75rem;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
@@ -54,12 +54,12 @@
         }
 
         .case-study-section {
-            padding-top: 4.4rem;
-            padding-bottom: 4.4rem;
+            padding-top: 4.25rem;
+            padding-bottom: 4.25rem;
         }
 
         .case-study-section .section-heading {
-            padding-bottom: 1.8rem;
+            padding-bottom: 1.75rem;
         }
 
         .case-study-section .section-heading > div {
@@ -68,7 +68,7 @@
 
         .case-study-section .section-heading h2 {
             grid-column: 1 / -1;
-            max-width: 980px;
+            max-width: 900px;
             margin-top: 1rem;
         }
 
@@ -78,29 +78,24 @@
 
         .case-study-content {
             display: grid;
-            grid-template-columns: minmax(0, .94fr) minmax(360px, 1.06fr);
+            grid-template-columns: minmax(0, .9fr) minmax(360px, 1.1fr);
             gap: clamp(2.5rem, 6vw, 6rem);
             align-items: start;
-            padding-top: 1.85rem;
+            padding-top: 1.75rem;
         }
 
         .case-study-content .about-copy p:first-child { margin-top: 0; }
         .case-study-content .about-copy p:last-child { margin-bottom: 0; }
 
-        .system-map,
-        .case-diagram,
-        .architecture-note {
+        .case-diagram {
+            min-height: 300px;
             padding: 1.5rem;
             border: 1px solid var(--line);
             background: rgba(235, 232, 223, .42);
         }
 
-        .system-map {
-            min-height: 450px;
-        }
-
         .diagram-label {
-            margin: 0 0 1.15rem;
+            margin: 0 0 1.2rem;
             color: var(--accent);
             font-family: "DM Mono", monospace;
             font-size: .68rem;
@@ -114,13 +109,14 @@
         }
 
         .diagram-node {
-            min-height: 78px;
-            padding: .9rem 1rem;
+            min-height: 72px;
+            padding: .85rem 1rem;
             border: 1px solid var(--line);
             background: var(--paper);
             display: flex;
             flex-direction: column;
             justify-content: center;
+            text-align: center;
         }
 
         .diagram-node.accent {
@@ -129,14 +125,12 @@
         }
 
         .diagram-node strong {
-            display: block;
             font-size: .8rem;
             line-height: 1.3;
         }
 
         .diagram-node span {
-            display: block;
-            margin-top: .3rem;
+            margin-top: .25rem;
             color: var(--muted);
             font-size: .67rem;
             line-height: 1.45;
@@ -145,82 +139,28 @@
         .diagram-arrow {
             display: grid;
             place-items: center;
-            min-height: 28px;
+            min-height: 26px;
             color: var(--accent);
             font-family: "DM Mono", monospace;
-            font-size: .95rem;
+            font-size: 1rem;
         }
 
-        .hero-system {
-            display: grid;
-            grid-template-columns: 1fr 32px 1fr;
-            gap: .55rem .3rem;
-            align-items: stretch;
-        }
-
-        .hero-system .diagram-node {
-            min-height: 94px;
-        }
-
-        .shared-core {
-            grid-column: 1 / -1;
-            min-height: 90px !important;
-            text-align: center;
-            align-items: center;
-        }
-
-        .split-label {
-            margin: .2rem 0;
-            color: var(--muted);
-            font-family: "DM Mono", monospace;
-            font-size: .6rem;
-            letter-spacing: .06em;
-            text-transform: uppercase;
-            text-align: center;
-        }
-
-        .before-after {
-            display: grid;
-            grid-template-columns: 1fr 40px 1fr;
-            gap: .4rem;
-            align-items: stretch;
-        }
-
-        .before-after .diagram-node {
-            min-height: 280px;
-            justify-content: flex-start;
-        }
-
-        .before-after ul {
-            margin: .75rem 0 0;
-            padding-left: 1.15rem;
-            color: var(--muted);
-            font-size: .76rem;
-            line-height: 1.65;
-        }
-
-        .phase-grid,
-        .automation-grid,
-        .rule-grid,
-        .outcome-grid {
+        .impact-grid,
+        .process-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             border-top: 1px solid var(--line);
         }
 
-        .phase-item,
-        .automation-item,
-        .rule-item,
-        .outcome-item {
-            min-height: 210px;
+        .impact-item,
+        .process-item {
+            min-height: 195px;
             padding: 2rem;
             border-bottom: 1px solid var(--line);
         }
 
-        .phase-item:nth-child(odd),
-        .automation-item:nth-child(odd),
-        .rule-item:nth-child(odd),
-        .outcome-item:nth-child(odd) {
+        .impact-item:nth-child(odd),
+        .process-item:nth-child(odd) {
             border-right: 1px solid var(--line);
         }
 
@@ -232,94 +172,46 @@
             letter-spacing: .08em;
         }
 
-        .phase-item h3,
-        .automation-item h3,
-        .rule-item h3,
-        .outcome-item h3 {
+        .impact-item h3,
+        .process-item h3 {
             margin: 0 0 .7rem;
             font-size: 1.35rem;
             letter-spacing: -.025em;
         }
 
-        .phase-item p,
-        .automation-item p,
-        .rule-item p,
-        .outcome-item p {
+        .impact-item p,
+        .process-item p {
             margin: 0;
             color: var(--muted);
             font-size: .9rem;
         }
 
-        .workflow-line {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: .7rem;
-        }
-
-        .workflow-line .diagram-node {
-            min-height: 150px;
-        }
-
-        .flow-step {
-            margin: 0 0 .65rem;
-            color: var(--accent);
-            font-family: "DM Mono", monospace;
-            font-size: .62rem;
-            letter-spacing: .08em;
-        }
-
         .metric-emphasis {
-            font-size: 1.9rem !important;
+            font-size: 1.8rem !important;
             line-height: 1.08 !important;
             letter-spacing: -.04em !important;
         }
 
-        .architecture-note p {
+        .method-note {
+            padding: 1.5rem;
+            border: 1px solid var(--line);
+            background: rgba(235, 232, 223, .42);
+        }
+
+        .method-note p {
             margin: 0;
             color: var(--muted);
             font-size: .82rem;
             line-height: 1.65;
         }
 
-        .architecture-note strong {
-            color: var(--ink);
-        }
-
-        .bridge-flow {
-            display: grid;
-            grid-template-columns: 1fr 36px 1fr 36px 1fr;
-            gap: .35rem;
-            align-items: stretch;
-        }
-
-        .bridge-flow .diagram-node {
-            min-height: 130px;
-        }
-
-        .small-note {
-            margin: 1rem 0 0;
-            padding-top: 1rem;
-            border-top: 1px solid var(--line);
-            color: var(--muted);
-            font-size: .72rem;
-            line-height: 1.55;
-        }
-
-        @media (max-width: 1050px) {
-            .workflow-line {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .workflow-line .diagram-node:last-child {
-                grid-column: 1 / -1;
-            }
-        }
+        .method-note strong { color: var(--ink); }
 
         @media (max-width: 900px) {
             .case-hero { padding-top: 125px; }
             .case-hero-grid,
             .case-study-content { grid-template-columns: 1fr; }
-            .case-hero-copy { max-width: 700px; }
+            .case-hero-copy { max-width: 680px; }
         }
 
         @media (max-width: 680px) {
@@ -329,35 +221,8 @@
                 padding-bottom: 3.5rem;
             }
 
-            .case-hero-heading {
-                margin-bottom: 1.7rem;
-            }
-
-            .case-hero-heading h1 {
-                font-size: clamp(2.7rem, 14vw, 4.2rem);
-            }
-
-            .hero-system,
-            .before-after,
-            .bridge-flow,
-            .workflow-line,
-            .phase-grid,
-            .automation-grid,
-            .rule-grid,
-            .outcome-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-system .diagram-arrow,
-            .before-after .diagram-arrow,
-            .bridge-flow .diagram-arrow {
-                transform: rotate(90deg);
-            }
-
-            .shared-core,
-            .workflow-line .diagram-node:last-child {
-                grid-column: auto;
-            }
+            .case-hero-heading { margin-bottom: 1.7rem; }
+            .case-hero-heading h1 { font-size: clamp(2.7rem, 14vw, 4.2rem); }
 
             .case-study-section {
                 padding-top: 3.25rem;
@@ -366,12 +231,11 @@
 
             .case-study-content { padding-top: 1.35rem; }
 
-            .phase-item:nth-child(odd),
-            .automation-item:nth-child(odd),
-            .rule-item:nth-child(odd),
-            .outcome-item:nth-child(odd) {
-                border-right: 0;
-            }
+            .impact-grid,
+            .process-grid { grid-template-columns: 1fr; }
+
+            .impact-item:nth-child(odd),
+            .process-item:nth-child(odd) { border-right: 0; }
         }
     </style>
 </head>
@@ -403,53 +267,38 @@
     <main id="main">
         <section class="case-hero" id="top">
             <div class="case-hero-heading">
-                <p class="kicker">Case study / Python · SQL · ETL · APIs · Automation</p>
+                <p class="kicker">Case study / Python · SQL · APIs · Automation</p>
                 <h1>Autonomous Music Operations</h1>
             </div>
 
             <div class="case-hero-grid">
-                <div class="system-map">
-                    <p class="diagram-label">One data system, two operating workflows</p>
-
-                    <div class="hero-system">
+                <div class="case-diagram">
+                    <p class="diagram-label">Shared operating system</p>
+                    <div class="diagram-stack">
                         <div class="diagram-node">
-                            <strong>Autonomous playlists</strong>
-                            <span>Nine continuously maintained playlists across two music brands</span>
+                            <strong>Collect and normalize music data</strong>
+                            <span>Multiple APIs, editorial seeds, charts, catalog history, and local reference data</span>
                         </div>
-
-                        <div class="diagram-arrow">↘</div>
-
+                        <div class="diagram-arrow">↓</div>
+                        <div class="diagram-node accent">
+                            <strong>Apply rules and preserve history</strong>
+                            <span>Theme fit, identity, provenance, deduplication, manual edits, and prior decisions</span>
+                        </div>
+                        <div class="diagram-arrow">↓</div>
                         <div class="diagram-node">
-                            <strong>Vinyl Club</strong>
-                            <span>Monthly album research, playlist creation, publishing, and content support</span>
-                        </div>
-
-                        <div class="diagram-node accent shared-core">
-                            <strong>Shared music intelligence layer</strong>
-                            <span>Normalized catalog · provenance · provider APIs · local MusicBrainz data · scoring · deduplication · history</span>
-                        </div>
-
-                        <div class="diagram-node">
-                            <strong>Scheduled operations</strong>
-                            <span>Discovery, qualification, refresh, sync, reconciliation, quality reporting</span>
-                        </div>
-
-                        <div class="diagram-arrow">↗</div>
-
-                        <div class="diagram-node">
-                            <strong>Human-in-the-loop operations</strong>
-                            <span>START, recommendation shortlist, PICK, manual edits, READY, publish</span>
+                            <strong>Run two workflows</strong>
+                            <span>Autonomous playlist maintenance + Vinyl Club research and publishing</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="case-hero-copy">
                     <p class="case-hero-summary">
-                        I built an interconnected music operations system that started as an autonomous playlist-maintenance engine and evolved into the data and automation backbone for a monthly Vinyl Club editorial workflow. The same infrastructure now handles discovery, identity resolution, qualification, playlist generation, manual overrides, cross-platform publishing, history, and content-ready output.
+                        I built a shared data and automation system that maintains branded playlists and powers a monthly Vinyl Club workflow. It handles the repetitive work around discovery, data cleanup, qualification, playlist updates, publishing, and tracking so the human role can stay focused on taste and final decisions.
                     </p>
 
                     <div class="hero-actions">
-                        <a class="button button-primary" href="#system">See the system</a>
+                        <a class="button button-primary" href="#process">See how it works</a>
                         <a class="text-link" href="../index.html#projects">← Back to all projects</a>
                     </div>
                 </div>
@@ -460,85 +309,70 @@
             <div class="section-heading">
                 <p class="section-number">01</p>
                 <div>
-                    <p class="kicker">Business problem</p>
-                    <h2>What looked like playlist curation was really a recurring operations problem.</h2>
+                    <p class="kicker">Overview</p>
+                    <h2>The goal was to stop rebuilding the same music operation every month.</h2>
                 </div>
             </div>
 
             <div class="case-study-content">
                 <div class="about-copy">
                     <p>
-                        The original requirement was to keep nine branded playlists current across two music properties without manually rebuilding each one every cycle. That meant repeatedly discovering candidates, checking whether tracks actually fit, resolving inconsistent provider metadata, avoiding duplicates, applying different playlist rules, rotating membership, publishing updates, and remembering which human edits should persist.
+                        The project began with nine playlists across two brands. Keeping them fresh meant constantly finding new candidates, checking whether they fit, cleaning up provider metadata, managing duplicates, updating memberships, and remembering manual changes.
                     </p>
                     <p>
-                        Once that infrastructure existed, a second workflow became possible: use the same catalog, evidence, and provider logic to support a monthly Vinyl Club editorial process. Instead of creating another standalone tool, I extended the existing system so one data layer could support both always-on playlist maintenance and a higher-touch monthly recommendation and publishing workflow.
+                        I turned those tasks into a reusable system. Later, I extended the same data layer to support Vinyl Club, where one album can lead to a researched shortlist, a human selection, a generated playlist, cross-platform publishing, and a content brief for the month.
                     </p>
                 </div>
 
-                <div class="before-after">
-                    <div class="diagram-node">
-                        <strong>Without the system</strong>
-                        <ul>
-                            <li>Research candidates repeatedly</li>
-                            <li>Resolve tracks across providers by hand</li>
-                            <li>Remember playlist-specific rules</li>
-                            <li>Refresh multiple playlists manually</li>
-                            <li>Rebuild monthly editorial playlists from scratch</li>
-                            <li>Track edits and publishing state manually</li>
-                            <li>Create content context separately after publishing</li>
-                        </ul>
-                    </div>
-
-                    <div class="diagram-arrow">→</div>
-
-                    <div class="diagram-node accent">
-                        <strong>With the system</strong>
-                        <ul>
-                            <li>Discovery becomes reusable data</li>
-                            <li>Identity resolution is cached and normalized</li>
-                            <li>Rules are encoded once</li>
-                            <li>Recurring playlist refreshes are scheduled</li>
-                            <li>Vinyl Club starts from the same evidence layer</li>
-                            <li>Manual choices become durable workflow state</li>
-                            <li>Publishing creates a content-ready monthly packet</li>
-                        </ul>
+                <div class="case-diagram">
+                    <p class="diagram-label">What changed</p>
+                    <div class="diagram-stack">
+                        <div class="diagram-node">
+                            <strong>Before</strong>
+                            <span>Repeated research, manual updates, scattered provider data</span>
+                        </div>
+                        <div class="diagram-arrow">↓</div>
+                        <div class="diagram-node accent">
+                            <strong>After</strong>
+                            <span>One shared data layer with scheduled automation and human approval where it matters</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="section case-study-section" id="system">
+        <section class="section case-study-section" id="process">
             <div class="section-heading">
                 <p class="section-number">02</p>
                 <div>
-                    <p class="kicker">System architecture</p>
-                    <h2>I treated music curation like a data product: collect once, normalize once, reuse everywhere.</h2>
+                    <p class="kicker">Process</p>
+                    <h2>I connected data collection, decision rules, automation, and publishing into one workflow.</h2>
                 </div>
             </div>
 
-            <div class="phase-grid">
-                <article class="phase-item">
-                    <p class="item-number">01 / Ingest</p>
-                    <h3>Collect from multiple sources</h3>
-                    <p>Apple charts, editorial seed graphs, Last.fm, ListenBrainz, provider observations, and existing curated playlists expand the candidate universe without depending on a single API.</p>
+            <div class="process-grid">
+                <article class="process-item">
+                    <p class="item-number">01 / Collect</p>
+                    <h3>Build a reusable catalog</h3>
+                    <p>Music data comes from multiple sources, then gets normalized into persistent artist, track, album, identity, and provenance records.</p>
                 </article>
 
-                <article class="phase-item">
-                    <p class="item-number">02 / Normalize</p>
-                    <h3>Create durable identities</h3>
-                    <p>Artists, tracks, albums, release metadata, provider IDs, source keys, ISRCs, and provenance are reconciled into persistent catalog records rather than re-resolved every time.</p>
+                <article class="process-item">
+                    <p class="item-number">02 / Decide</p>
+                    <h3>Turn editorial rules into logic</h3>
+                    <p>Different playlists use different criteria. The system also tracks history, manual removals, confidence, duplicates, and provider availability.</p>
                 </article>
 
-                <article class="phase-item">
-                    <p class="item-number">03 / Decide</p>
-                    <h3>Turn editorial rules into data logic</h3>
-                    <p>Theme scores, release age, source corroboration, recurrence, manual suppression, artist diversity, confidence, and playlist-specific policies determine what can qualify.</p>
+                <article class="process-item">
+                    <p class="item-number">03 / Automate</p>
+                    <h3>Handle recurring maintenance</h3>
+                    <p>Scheduled jobs discover candidates, refresh eligible playlists, sync updates, reconcile manual edits, and report quality without starting from scratch each time.</p>
                 </article>
 
-                <article class="phase-item">
-                    <p class="item-number">04 / Operate</p>
-                    <h3>Use the same state for multiple workflows</h3>
-                    <p>Scheduled playlist refreshes and the Vinyl Club email workflow both read from the same persistent history, provider mappings, evidence, and catalog infrastructure.</p>
+                <article class="process-item">
+                    <p class="item-number">04 / Extend</p>
+                    <h3>Use the same system for Vinyl Club</h3>
+                    <p>The monthly workflow reuses the catalog and research layer for album recommendations, playlist generation, approval, Spotify and Apple publishing, and content support.</p>
                 </article>
             </div>
         </section>
@@ -547,201 +381,44 @@
             <div class="section-heading">
                 <p class="section-number">03</p>
                 <div>
-                    <p class="kicker">Workflow A / Autonomous playlists</p>
-                    <h2>The first layer removed the recurring maintenance burden from nine playlists.</h2>
-                </div>
-            </div>
-
-            <div class="automation-grid">
-                <article class="automation-item">
-                    <p class="item-number">01 / Discovery</p>
-                    <h3>Scheduled candidate generation</h3>
-                    <p>New music enters through Apple charts, seed relationships, Last.fm, and other observations instead of requiring repeated manual research for every list.</p>
-                </article>
-
-                <article class="automation-item">
-                    <p class="item-number">02 / Qualification</p>
-                    <h3>Different playlists use different rules</h3>
-                    <p>Throwbacks requires tracks to be at least ten years old; Anthems emphasizes recognition; Vibe, Party Starters, After Dark, Motivation, Meditation, Healing, and Focus use their own thematic evidence.</p>
-                </article>
-
-                <article class="automation-item">
-                    <p class="item-number">03 / Refresh</p>
-                    <h3>Membership rotates on schedule</h3>
-                    <p>Refresh jobs enforce artist diversity, quality floors, recurrence history, and different operating cadences rather than relying on someone to remember when each playlist needs attention.</p>
-                </article>
-
-                <article class="automation-item">
-                    <p class="item-number">04 / Reconciliation</p>
-                    <h3>Human edits survive automation</h3>
-                    <p>Manual additions and removals are observed and stored as events, so a scheduled refresh does not blindly undo an editorial correction.</p>
-                </article>
-            </div>
-        </section>
-
-        <section class="section case-study-section">
-            <div class="section-heading">
-                <p class="section-number">04</p>
-                <div>
-                    <p class="kicker">Workflow B / Vinyl Club</p>
-                    <h2>The second layer turned that same infrastructure into a monthly editorial production workflow.</h2>
-                </div>
-            </div>
-
-            <div class="workflow-line">
-                <article class="diagram-node">
-                    <p class="flow-step">01 / START</p>
-                    <strong>Resolve the anchor</strong>
-                    <span>An album or playlist link becomes the canonical starting point for the month.</span>
-                </article>
-
-                <article class="diagram-node">
-                    <p class="flow-step">02 / RESEARCH</p>
-                    <strong>Build a defensible shortlist</strong>
-                    <span>Local reference data and bounded provider discovery find records connected through credits, context, and listening evidence.</span>
-                </article>
-
-                <article class="diagram-node">
-                    <p class="flow-step">03 / PICK</p>
-                    <strong>Keep the editorial decision human</strong>
-                    <span>The editor chooses the two additional records instead of letting the scoring system silently make the final taste decision.</span>
-                </article>
-
-                <article class="diagram-node">
-                    <p class="flow-step">04 / DRAFT</p>
-                    <strong>Generate the monthly playlist</strong>
-                    <span>Representative tracks from the three records are expanded with discovery-first tracks while deduplication and diversity rules protect quality.</span>
-                </article>
-
-                <article class="diagram-node">
-                    <p class="flow-step">05 / READY</p>
-                    <strong>Publish and package</strong>
-                    <span>The approved state publishes across Spotify and Apple Music and generates a deterministic content packet for the month.</span>
-                </article>
-            </div>
-        </section>
-
-        <section class="section case-study-section">
-            <div class="section-heading">
-                <p class="section-number">05</p>
-                <div>
-                    <p class="kicker">Data manipulation</p>
-                    <h2>The hard part was making inconsistent provider data usable as one decision layer.</h2>
+                    <p class="kicker">Engineering decisions</p>
+                    <h2>I redesigned the system when API limits started shaping the product.</h2>
                 </div>
             </div>
 
             <div class="case-study-content">
                 <div class="about-copy">
                     <p>
-                        Each source answers a different question. A chart can indicate current demand. A seed relationship can indicate editorial adjacency. Last.fm and ListenBrainz contribute behavioral or similarity context. Spotify and Apple provide availability and provider-native identity. MusicBrainz provides canonical releases, recordings, works, credits, and relationship structure.
+                        An early version relied too heavily on Spotify for discovery. That created a slow and fragile process because of quotas, timeouts, and repeated lookups.
                     </p>
                     <p>
-                        I separated raw observations from normalized catalog entities, provenance, scores, recommendation evidence, manual events, and playlist state. That lets the system combine evidence without pretending every signal means the same thing, reuse previous identity work, audit where a candidate came from, and apply different logic depending on the workflow.
+                        I moved broad discovery to a mix of Apple, editorial seeds, Last.fm, stored observations, and local MusicBrainz data. Spotify became a more focused verification source. I also cached resolved identities and preserved source history so the system could reuse work instead of paying for the same lookup again.
                     </p>
                 </div>
 
                 <div class="case-diagram">
-                    <p class="diagram-label">Shared transformation layer</p>
+                    <p class="diagram-label">Architecture change</p>
                     <div class="diagram-stack">
                         <div class="diagram-node">
-                            <strong>Raw observations</strong>
-                            <span>Charts · seed graphs · artist/title strings · provider IDs · audience signals · credits</span>
+                            <strong>Provider-heavy</strong>
+                            <span>Too many live lookups and too much dependence on one API</span>
                         </div>
                         <div class="diagram-arrow">↓</div>
                         <div class="diagram-node accent">
-                            <strong>Normalized music intelligence</strong>
-                            <span>Canonical identities · ISRCs · provenance · cached resolutions · relationships · history</span>
-                        </div>
-                        <div class="diagram-arrow">↓</div>
-                        <div class="diagram-node">
-                            <strong>Workflow-specific decisions</strong>
-                            <span>Autonomous refresh eligibility OR Vinyl Club bridge, sonic-fit, draft, and publishing logic</span>
+                            <strong>Local-first and multi-source</strong>
+                            <span>Reuse stored data, query providers when new evidence is actually needed</span>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section class="section case-study-section">
-            <div class="section-heading">
-                <p class="section-number">06</p>
-                <div>
-                    <p class="kicker">Engineering judgment</p>
-                    <h2>Provider limitations became architecture decisions instead of recurring operational failures.</h2>
-                </div>
-            </div>
-
-            <div class="case-study-content">
-                <div class="about-copy">
-                    <p>
-                        An early version leaned too heavily on artist-by-artist Spotify discovery. It was straightforward, but repeated timeouts, quotas, and development-mode restrictions made it a poor backbone for unattended automation. Rather than keep increasing retries, I redesigned discovery around Apple, seed graphs, Last.fm, persisted catalog observations, and local MusicBrainz data.
-                    </p>
-                    <p>
-                        Spotify became a bounded verification and playability source instead of the system's universal discovery engine. Apple publishing was made conservative as well: confident matches publish, unavailable tracks are skipped and reported, and uncertain substitutions are rejected. These choices made the workflow more reliable because provider uncertainty is treated as data, not hidden behind retries.
-                    </p>
-                </div>
-
-                <div class="bridge-flow">
-                    <div class="diagram-node">
-                        <strong>Provider-heavy</strong>
-                        <span>Repeated live discovery and identity work</span>
-                    </div>
-                    <div class="diagram-arrow">→</div>
-                    <div class="diagram-node accent">
-                        <strong>Local-first + cached</strong>
-                        <span>Persisted catalog and MusicBrainz reference data do the reusable work</span>
-                    </div>
-                    <div class="diagram-arrow">→</div>
-                    <div class="diagram-node">
-                        <strong>Bounded provider calls</strong>
-                        <span>External APIs are used where they add new evidence or confirm playability</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section case-study-section">
-            <div class="section-heading">
-                <p class="section-number">07</p>
-                <div>
-                    <p class="kicker">Recommendation design</p>
-                    <h2>For Vinyl Club, the system needed to understand the difference between “connected” and “sounds similar.”</h2>
-                </div>
-            </div>
-
-            <div class="rule-grid">
-                <article class="rule-item">
-                    <p class="item-number">01 / Bridge strength</p>
-                    <h3>Why does the record belong?</h3>
-                    <p>Credits, collaborators, works, and other verified relationships establish a defensible editorial connection. A style tag alone cannot qualify an album.</p>
-                </article>
-
-                <article class="rule-item">
-                    <p class="item-number">02 / Listening fit</p>
-                    <h3>Does the playlist still make sense?</h3>
-                    <p>Sonic and listening evidence leads expansion selection. Producer or songwriter relationships can support a track, but cannot fill the playlist by themselves.</p>
-                </article>
-
-                <article class="rule-item">
-                    <p class="item-number">03 / Discovery</p>
-                    <h3>Popularity should not choose the month</h3>
-                    <p>Recognition is not a positive ranking signal for Vinyl Club expansion. More obvious tracks receive a mild penalty so discovery can do useful work.</p>
-                </article>
-
-                <article class="rule-item">
-                    <p class="item-number">04 / Diversity</p>
-                    <h3>One collaborator cannot dominate</h3>
-                    <p>Relationship discovery and portfolio ranking spread attention across credited people, artists, and albums so one prolific producer or writer does not monopolize the output.</p>
-                </article>
             </div>
         </section>
 
         <section class="section expertise-section case-study-section">
             <div class="section-heading">
-                <p class="section-number">08</p>
+                <p class="section-number">04</p>
                 <div>
-                    <p class="kicker">Operational leverage</p>
-                    <h2>The same infrastructure now supports maintenance, editorial decision-making, publishing, and content production.</h2>
+                    <p class="kicker">Impact</p>
+                    <h2>The value is the operating leverage, not just the playlists.</h2>
                 </div>
             </div>
 
@@ -749,123 +426,51 @@
                 <article class="expertise-item">
                     <p class="expertise-number">01 / Scale</p>
                     <h3 class="metric-emphasis">9 playlists / 2 brands</h3>
-                    <p>The autonomous layer maintains multiple playlist identities with different themes and cadences through one shared data model.</p>
+                    <p>One shared system supports different themes, rules, and refresh schedules.</p>
                 </article>
 
                 <article class="expertise-item">
-                    <p class="expertise-number">02 / Monthly workflow</p>
-                    <h3 class="metric-emphasis">Research → publish</h3>
-                    <p>The Vinyl Club layer reuses the same infrastructure to move from one editorial seed through recommendation, approval, playlist generation, and cross-platform publication.</p>
+                    <p class="expertise-number">02 / Time</p>
+                    <h3 class="metric-emphasis">Less recurring manual work</h3>
+                    <p>Research, qualification, refresh scheduling, syncing, and history moved into reusable automation.</p>
                 </article>
 
                 <article class="expertise-item">
-                    <p class="expertise-number">03 / Human effort</p>
-                    <h3 class="metric-emphasis">Exception-based</h3>
-                    <p>The recurring workload shifts away from repetitive research and maintenance toward seed selection, final taste decisions, and occasional corrections.</p>
+                    <p class="expertise-number">03 / Control</p>
+                    <h3 class="metric-emphasis">Human-in-the-loop</h3>
+                    <p>Editors can still make the final choice or change a playlist. The system records those decisions instead of fighting them.</p>
                 </article>
 
                 <article class="expertise-item">
-                    <p class="expertise-number">04 / Auditability</p>
-                    <h3 class="metric-emphasis">State + provenance</h3>
-                    <p>The database preserves where candidates came from, why they qualified, what the human changed, what published, and which criteria version governed the decision.</p>
-                </article>
-            </div>
-        </section>
-
-        <section class="section case-study-section">
-            <div class="section-heading">
-                <p class="section-number">09</p>
-                <div>
-                    <p class="kicker">End-to-end proof</p>
-                    <h2>The workflow has moved beyond a prototype: it can research, decide, publish, and report the final state.</h2>
-                </div>
-            </div>
-
-            <div class="outcome-grid">
-                <article class="outcome-item">
-                    <p class="item-number">01 / Autonomous operations</p>
-                    <h3>Scheduled ingestion and refresh</h3>
-                    <p>Recurring jobs ingest new observations, evaluate playlist readiness, refresh eligible lists, sync provider state, and produce quality reporting without rebuilding the workflow manually.</p>
-                </article>
-
-                <article class="outcome-item">
-                    <p class="item-number">02 / Manual-control loop</p>
-                    <h3>Human edits become data</h3>
-                    <p>Additions and removals are recorded as durable events and can influence future automation instead of disappearing outside the system.</p>
-                </article>
-
-                <article class="outcome-item">
-                    <p class="item-number">03 / Cross-platform publication</p>
-                    <h3>28 Spotify / 26 Apple</h3>
-                    <p>In one completed Vinyl Club run, all 28 approved Spotify tracks published successfully; Apple Music resolved 26 and safely reported the two unavailable tracks rather than substituting uncertain recordings.</p>
-                </article>
-
-                <article class="outcome-item">
-                    <p class="item-number">04 / Content reuse</p>
-                    <h3>Publishing creates the brief</h3>
-                    <p>The final approved playlist also generates a Monthly Content Packet with featured records, verified connections, playlist facts, discoveries, Substack framing, and YouTube talking points.</p>
-                </article>
-            </div>
-        </section>
-
-        <section class="section case-study-section">
-            <div class="section-heading">
-                <p class="section-number">10</p>
-                <div>
-                    <p class="kicker">Business value</p>
-                    <h2>The time saving is structural: one reusable system replaced several recurring workflows.</h2>
-                </div>
-            </div>
-
-            <div class="outcome-grid">
-                <article class="outcome-item">
-                    <p class="item-number">01 / Reusable research</p>
-                    <h3>Discovery becomes an asset</h3>
-                    <p>Candidate observations, identities, relationships, and prior resolutions are stored and reused instead of being researched from zero for every playlist or month.</p>
-                </article>
-
-                <article class="outcome-item">
-                    <p class="item-number">02 / Lower maintenance</p>
-                    <h3>Rules replace memory</h3>
-                    <p>Refresh cadence, theme requirements, recurrence controls, duplicate handling, and provider constraints are encoded in the system rather than carried as recurring manual checklist work.</p>
-                </article>
-
-                <article class="outcome-item">
-                    <p class="item-number">03 / Lower API dependence</p>
-                    <h3>Cache first, query when valuable</h3>
-                    <p>Local reference databases and persistent provider observations reduce unnecessary calls and make the operation less fragile when an external provider is slow, unavailable, or quota-limited.</p>
-                </article>
-
-                <article class="outcome-item">
-                    <p class="item-number">04 / More output per decision</p>
-                    <h3>One editorial choice feeds multiple channels</h3>
-                    <p>A monthly Vinyl Club decision does not stop at a playlist: the same frozen evidence feeds publication, reporting, and reusable editorial content.</p>
+                    <p class="expertise-number">04 / Output</p>
+                    <h3 class="metric-emphasis">Research to publish</h3>
+                    <p>Vinyl Club now connects recommendation research, playlist creation, cross-platform publishing, and monthly content preparation.</p>
                 </article>
             </div>
         </section>
 
         <section class="section about-section case-study-section">
             <div class="section-heading">
-                <p class="section-number">11</p>
+                <p class="section-number">05</p>
                 <div>
-                    <p class="kicker">What I learned</p>
-                    <h2>The project became more valuable when I stopped treating automation as a script and started treating it as an operating system.</h2>
+                    <p class="kicker">Takeaway</p>
+                    <h2>The project became more useful when I stopped thinking of it as playlist code.</h2>
                 </div>
             </div>
 
             <div class="case-study-content">
                 <div class="about-copy">
                     <p>
-                        The first useful insight was that “automate the playlist” was too narrow. A dependable system also needed source strategy, persistent state, provider fallbacks, quality controls, manual override handling, scheduling, provenance, and failure modes that stop safely.
+                        The bigger lesson was about systems design. The real opportunity was not to automate taste. It was to automate the work around taste: collecting evidence, cleaning data, applying repeatable rules, tracking history, handling provider differences, and moving approved decisions into production.
                     </p>
                     <p>
-                        The second was that the same infrastructure could support a different business workflow without being rebuilt. The autonomous playlists and Vinyl Club now share a common data foundation but use it differently: one optimizes recurring maintenance, while the other supports a deliberate monthly editorial decision. That is the part of the project I would reuse elsewhere — build the evidence layer once, then let multiple operational workflows consume it.
+                        That same pattern applies well outside music. Any recurring workflow that mixes research, business rules, human judgment, and execution can benefit from the same approach.
                     </p>
                 </div>
 
-                <aside class="architecture-note">
+                <aside class="method-note">
                     <p>
-                        <strong>About time saved:</strong> I did not run a formal before/after time study, so I do not claim a fabricated number of hours. The measurable operational change is that discovery, normalization, qualification, refresh scheduling, synchronization, history, reconciliation, monthly research, playlist generation, publishing, and content preparation are now handled by reusable system components rather than recreated manually each cycle.
+                        <strong>Tools:</strong> Python, SQL, REST APIs, webhooks, SQLite, MusicBrainz, Apple Music, Spotify, GitHub Actions, scheduled ETL, and persistent workflow state.
                     </p>
                 </aside>
             </div>
