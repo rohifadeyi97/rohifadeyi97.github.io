@@ -1,0 +1,647 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Case study: a human-in-the-loop music curation, publishing, and content workflow built with Python, SQL, APIs, and local reference data.">
+    <title>Autonomous Music Curation &amp; Publishing — Oluwaseun Fadeyi</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        .case-hero {
+            width: min(calc(100% - 48px), var(--max-width));
+            margin: 0 auto;
+            padding: 138px 0 5rem;
+        }
+
+        .case-hero-heading {
+            max-width: 1050px;
+            margin-bottom: 2.4rem;
+        }
+
+        .case-hero-heading h1 {
+            margin: .8rem 0 0;
+            font-size: clamp(3rem, 6vw, 6.2rem);
+            line-height: .98;
+            letter-spacing: -.06em;
+            font-weight: 600;
+        }
+
+        .case-hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.55fr) minmax(300px, .78fr);
+            gap: clamp(2.5rem, 5vw, 5.25rem);
+            align-items: center;
+        }
+
+        .case-hero-copy {
+            padding-top: .25rem;
+        }
+
+        .case-hero-summary {
+            margin: 0;
+            color: var(--muted);
+            font-size: 1.05rem;
+            line-height: 1.75;
+        }
+
+        .case-hero-copy .hero-actions {
+            margin-top: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .system-map {
+            min-height: 420px;
+            padding: 1.25rem;
+            display: grid;
+            grid-template-columns: 1fr 34px 1fr;
+            grid-template-rows: repeat(3, minmax(92px, auto));
+            gap: .7rem .35rem;
+            align-items: stretch;
+            border: 1px solid var(--line);
+            background: rgba(235, 232, 223, .45);
+        }
+
+        .system-node {
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: 1px solid var(--line);
+            background: var(--paper);
+        }
+
+        .system-node strong {
+            display: block;
+            font-size: .86rem;
+            line-height: 1.3;
+        }
+
+        .system-node span {
+            display: block;
+            margin-top: .35rem;
+            color: var(--muted);
+            font-size: .69rem;
+            line-height: 1.45;
+        }
+
+        .system-node.accent {
+            border-color: var(--accent);
+            background: var(--white);
+        }
+
+        .system-arrow {
+            display: grid;
+            place-items: center;
+            color: var(--accent);
+            font-family: "DM Mono", monospace;
+            font-size: 1rem;
+        }
+
+        .case-study-section {
+            padding-top: 4.5rem;
+            padding-bottom: 4.5rem;
+        }
+
+        .case-study-section .section-heading {
+            padding-bottom: 1.8rem;
+        }
+
+        .case-study-section .section-heading > div {
+            display: contents;
+        }
+
+        .case-study-section .section-heading h2 {
+            grid-column: 1 / -1;
+            max-width: 930px;
+            margin-top: 1rem;
+        }
+
+        .about-section.case-study-section {
+            border-top: 0;
+        }
+
+        .case-study-content {
+            display: grid;
+            grid-template-columns: minmax(0, .92fr) minmax(360px, 1.08fr);
+            gap: clamp(2.5rem, 6vw, 6rem);
+            align-items: start;
+            padding-top: 1.85rem;
+        }
+
+        .case-study-content .about-copy p:first-child { margin-top: 0; }
+        .case-study-content .about-copy p:last-child { margin-bottom: 0; }
+
+        .case-diagram {
+            min-height: 300px;
+            padding: 1.5rem;
+            border: 1px solid var(--line);
+            background: rgba(235, 232, 223, .42);
+        }
+
+        .diagram-label {
+            margin: 0 0 1.3rem;
+            color: var(--accent);
+            font-family: "DM Mono", monospace;
+            font-size: .68rem;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        .diagram-node {
+            display: flex;
+            min-height: 72px;
+            padding: .85rem 1rem;
+            border: 1px solid var(--line);
+            background: var(--paper);
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: .78rem;
+            font-weight: 700;
+            line-height: 1.3;
+            flex-direction: column;
+        }
+
+        .diagram-node span {
+            display: block;
+            margin-top: .25rem;
+            color: var(--muted);
+            font-size: .67rem;
+            font-weight: 500;
+            line-height: 1.45;
+        }
+
+        .diagram-node.accent {
+            border-color: var(--accent);
+            background: var(--white);
+        }
+
+        .diagram-arrow {
+            display: grid;
+            place-items: center;
+            min-height: 28px;
+            color: var(--accent);
+            font-family: "DM Mono", monospace;
+            font-size: 1rem;
+        }
+
+        .workflow {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: .7rem;
+        }
+
+        .workflow .diagram-node {
+            min-height: 132px;
+        }
+
+        .workflow .step {
+            margin-bottom: .6rem;
+            color: var(--accent);
+            font-family: "DM Mono", monospace;
+            font-size: .62rem;
+            letter-spacing: .08em;
+        }
+
+        .architecture-stack {
+            display: grid;
+            gap: .7rem;
+        }
+
+        .principle-grid,
+        .outcome-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            border-top: 1px solid var(--line);
+        }
+
+        .principle-item,
+        .outcome-item {
+            min-height: 205px;
+            padding: 2rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .principle-item:nth-child(odd),
+        .outcome-item:nth-child(odd) {
+            border-right: 1px solid var(--line);
+        }
+
+        .principle-item .step,
+        .outcome-item .step {
+            margin: 0 0 2rem;
+            color: var(--accent);
+            font-family: "DM Mono", monospace;
+            font-size: .68rem;
+            letter-spacing: .08em;
+        }
+
+        .principle-item h3,
+        .outcome-item h3 {
+            margin: 0 0 .7rem;
+            font-size: 1.35rem;
+            letter-spacing: -.025em;
+        }
+
+        .principle-item p,
+        .outcome-item p {
+            margin: 0;
+            color: var(--muted);
+            font-size: .9rem;
+        }
+
+        .metric-emphasis {
+            font-size: 1.85rem !important;
+            line-height: 1.08 !important;
+            letter-spacing: -.04em;
+        }
+
+        .method-note {
+            padding: 1.5rem;
+            border: 1px solid var(--line);
+            background: rgba(235, 232, 223, .42);
+        }
+
+        .method-note p {
+            margin: 0;
+            color: var(--muted);
+            font-size: .82rem;
+            line-height: 1.65;
+        }
+
+        .method-note strong { color: var(--ink); }
+
+        @media (max-width: 900px) {
+            .case-hero { padding-top: 125px; }
+            .case-hero-grid,
+            .case-study-content { grid-template-columns: 1fr; }
+            .case-hero-copy { max-width: 700px; }
+            .system-map { min-height: auto; }
+            .workflow { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 680px) {
+            .case-hero {
+                width: min(calc(100% - 32px), var(--max-width));
+                padding-top: 112px;
+                padding-bottom: 3.5rem;
+            }
+
+            .case-hero-heading { margin-bottom: 1.7rem; }
+            .case-hero-heading h1 { font-size: clamp(2.7rem, 14vw, 4.2rem); }
+
+            .system-map {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+
+            .system-arrow { transform: rotate(90deg); }
+
+            .case-study-section {
+                padding-top: 3.25rem;
+                padding-bottom: 3.25rem;
+            }
+
+            .case-study-content { padding-top: 1.35rem; }
+            .workflow,
+            .principle-grid,
+            .outcome-grid { grid-template-columns: 1fr; }
+
+            .principle-item:nth-child(odd),
+            .outcome-item:nth-child(odd) { border-right: 0; }
+        }
+    </style>
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <nav class="nav-shell" aria-label="Primary navigation">
+            <a class="wordmark" href="../index.html#top" aria-label="Oluwaseun Fadeyi, home">
+                <span>OF</span>
+                <span class="wordmark-name">Oluwaseun Fadeyi</span>
+            </a>
+
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+                <span class="sr-only">Toggle navigation</span>
+                <span></span><span></span>
+            </button>
+
+            <div class="nav-links" id="nav-links">
+                <a href="../index.html#projects">Work</a>
+                <a href="../index.html#skills">Expertise</a>
+                <a href="../index.html#about">About</a>
+                <a href="../resume.pdf" target="_blank" rel="noopener">Résumé</a>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main">
+        <section class="case-hero" id="top">
+            <div class="case-hero-heading">
+                <p class="kicker">Case study / Python · SQL · APIs · Automation</p>
+                <h1>Autonomous Music Curation &amp; Publishing</h1>
+            </div>
+
+            <div class="case-hero-grid">
+                <div class="system-map" aria-label="Vinyl Club curation workflow diagram">
+                    <div class="system-node accent">
+                        <strong>Editorial seed</strong>
+                        <span>One album or playlist starts the monthly research cycle</span>
+                    </div>
+                    <div class="system-arrow">→</div>
+                    <div class="system-node">
+                        <strong>Research engine</strong>
+                        <span>Local reference data + bounded provider discovery</span>
+                    </div>
+
+                    <div class="system-node">
+                        <strong>Human decision</strong>
+                        <span>Shortlist, PICK, manual edits, READY approval</span>
+                    </div>
+                    <div class="system-arrow">→</div>
+                    <div class="system-node accent">
+                        <strong>Playlist build</strong>
+                        <span>Representative tracks + discovery-first expansion</span>
+                    </div>
+
+                    <div class="system-node">
+                        <strong>Cross-platform publish</strong>
+                        <span>Spotify complete draft + safe Apple subset</span>
+                    </div>
+                    <div class="system-arrow">→</div>
+                    <div class="system-node">
+                        <strong>Content packet</strong>
+                        <span>Reusable monthly editorial angles and talking points</span>
+                    </div>
+                </div>
+
+                <div class="case-hero-copy">
+                    <p class="case-hero-summary">
+                        I built a human-in-the-loop system for a recurring Vinyl Club workflow: research connected records, turn an editorial choice into a defensible playlist, publish it across music platforms, and generate a reusable content brief — without removing the final editorial decision from the process.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a class="button button-primary" href="#system">See how it works</a>
+                        <a class="text-link" href="../index.html#projects">← Back to all projects</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section case-study-section">
+            <div class="section-heading">
+                <p class="section-number">01</p>
+                <div>
+                    <p class="kicker">Business problem</p>
+                    <h2>The recurring product needed an editorial operation that could scale with it.</h2>
+                </div>
+            </div>
+
+            <div class="case-study-content">
+                <div class="about-copy">
+                    <p>
+                        A monthly vinyl concept creates more than a product-selection problem. Every cycle can require research, recommendation logic, playlist building, platform matching, publishing, manual quality control, and enough editorial context to support email, social, video, or long-form content.
+                    </p>
+                    <p>
+                        Doing that manually each month would make the editorial process expensive to repeat and difficult to keep consistent. Fully automating taste would create the opposite problem: speed without enough judgment. The business use case was therefore operational — build a system that removes repetitive research and publishing work while preserving an explicit human approval point for the decisions that actually shape the brand.
+                    </p>
+                </div>
+
+                <div class="case-diagram">
+                    <p class="diagram-label">The operating problem</p>
+                    <div class="architecture-stack">
+                        <div class="diagram-node"><strong>Manual research</strong><span>Credits, adjacent artists, album history, platform availability</span></div>
+                        <div class="diagram-arrow">↓</div>
+                        <div class="diagram-node"><strong>Manual assembly</strong><span>Track selection, duplicates, platform matching, ordering</span></div>
+                        <div class="diagram-arrow">↓</div>
+                        <div class="diagram-node accent"><strong>Repeat every month</strong><span>A recurring workflow becomes recurring labor unless the system itself is reusable</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section case-study-section" id="system">
+            <div class="section-heading">
+                <p class="section-number">02</p>
+                <div>
+                    <p class="kicker">System design</p>
+                    <h2>I automated the repetitive work and kept the editorial decision visible.</h2>
+                </div>
+            </div>
+
+            <div class="workflow">
+                <article class="diagram-node">
+                    <p class="step">01 / START</p>
+                    <strong>Resolve the seed</strong>
+                    <span>An album or playlist link becomes the canonical anchor for that month's research.</span>
+                </article>
+                <article class="diagram-node">
+                    <p class="step">02 / RESEARCH</p>
+                    <strong>Build the shortlist</strong>
+                    <span>Local reference data and provider signals produce connected albums with frozen evidence.</span>
+                </article>
+                <article class="diagram-node">
+                    <p class="step">03 / PICK</p>
+                    <strong>Make the editorial choice</strong>
+                    <span>The editor selects two records, then can manually adjust the generated Spotify draft before approval.</span>
+                </article>
+                <article class="diagram-node">
+                    <p class="step">04 / PUBLISH</p>
+                    <strong>Ship the approved month</strong>
+                    <span>The system publishes, records skips, and generates a deterministic content packet from the final state.</span>
+                </article>
+            </div>
+        </section>
+
+        <section class="section case-study-section">
+            <div class="section-heading">
+                <p class="section-number">03</p>
+                <div>
+                    <p class="kicker">Data architecture</p>
+                    <h2>The recommendation layer is built on provenance, not a single black-box similarity score.</h2>
+                </div>
+            </div>
+
+            <div class="case-study-content">
+                <div class="about-copy">
+                    <p>
+                        The system combines provider APIs with local reference data so research can continue without turning every decision into a live API call. MusicBrainz canonical metadata and relationship graphs provide durable artist, release, recording, credit, and work identities; Apple Music, Spotify, Last.fm, ListenBrainz, and existing catalog observations provide bounded discovery and playability evidence.
+                    </p>
+                    <p>
+                        Candidate albums are normalized across providers, exact identifiers are frozen before the editorial decision, and track-level deduplication protects against duplicate Spotify IDs, ISRCs, alternate editions, remasters, and other false duplicates. The result is a recommendation workflow that can explain where an album came from and preserve the evidence that qualified it at the time.
+                    </p>
+                </div>
+
+                <div class="case-diagram">
+                    <p class="diagram-label">Evidence stack</p>
+                    <div class="architecture-stack">
+                        <div class="diagram-node accent"><strong>Local MusicBrainz reference</strong><span>Canonical artists, releases, recordings, works, credits, relationships, ISRCs</span></div>
+                        <div class="diagram-arrow">↓</div>
+                        <div class="diagram-node"><strong>Provider observations</strong><span>Apple Music, Spotify, Last.fm, ListenBrainz, existing catalog history</span></div>
+                        <div class="diagram-arrow">↓</div>
+                        <div class="diagram-node"><strong>Frozen recommendation evidence</strong><span>Auditable bridge stories, identities, rankings, and decision history</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section case-study-section">
+            <div class="section-heading">
+                <p class="section-number">04</p>
+                <div>
+                    <p class="kicker">Curation logic</p>
+                    <h2>The objective isn't “more similar.” It's “different enough to discover, connected enough to belong.”</h2>
+                </div>
+            </div>
+
+            <div class="principle-grid">
+                <article class="principle-item">
+                    <p class="step">01 / Bridge strength</p>
+                    <h3>Require a convincing reason</h3>
+                    <p>Credits, musical relationships, and other evidence explain why a candidate belongs in the same editorial conversation. Style similarity by itself is not enough.</p>
+                </article>
+
+                <article class="principle-item">
+                    <p class="step">02 / Listening fit</p>
+                    <h3>Prioritize sonic evidence</h3>
+                    <p>Expansion tracks are ranked primarily by listening and sonic relevance. Producer or songwriter relationships can support a choice, but cannot fill the playlist on their own.</p>
+                </article>
+
+                <article class="principle-item">
+                    <p class="step">03 / Discovery</p>
+                    <h3>Stop popularity from choosing</h3>
+                    <p>Popularity is not a positive ranking signal. Higher-recognition tracks receive a mild penalty so the engine can surface less-obvious discoveries that still fit the month.</p>
+                </article>
+
+                <article class="principle-item">
+                    <p class="step">04 / Portfolio diversity</p>
+                    <h3>Avoid one connector taking over</h3>
+                    <p>Discovery is allocated across multiple credited people and candidate artists so one prolific producer, writer, or collaborator cannot monopolize the shortlist.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section expertise-section case-study-section">
+            <div class="section-heading">
+                <p class="section-number">05</p>
+                <div>
+                    <p class="kicker">Operational controls</p>
+                    <h2>The system is designed to fail safely instead of publishing something it cannot defend.</h2>
+                </div>
+            </div>
+
+            <div class="expertise-grid">
+                <article class="expertise-item">
+                    <p class="expertise-number">01 / Approval</p>
+                    <h3 class="metric-emphasis">Human-in-the-loop</h3>
+                    <p>Research and draft generation are automated, but the editor still chooses the featured records and can manually adjust the playlist before READY approval.</p>
+                </article>
+
+                <article class="expertise-item">
+                    <p class="expertise-number">02 / Matching</p>
+                    <h3 class="metric-emphasis">Exact-ID first</h3>
+                    <p>Finalists are resolved and frozen before PICK. Duplicate Spotify IDs, ISRCs, recording fingerprints, and alternate-edition collisions are rejected before persistence.</p>
+                </article>
+
+                <article class="expertise-item">
+                    <p class="expertise-number">03 / Publishing</p>
+                    <h3 class="metric-emphasis">Best-effort cross-platform</h3>
+                    <p>Spotify receives the complete approved draft. Apple Music receives the confidently resolved subset; unavailable tracks are skipped and reported rather than replaced with uncertain matches.</p>
+                </article>
+
+                <article class="expertise-item">
+                    <p class="expertise-number">04 / State</p>
+                    <h3 class="metric-emphasis">Durable workflow history</h3>
+                    <p>Email events, recommendation runs, approvals, manual edits, publish state, and criteria versions are stored so a monthly decision can be reconstructed later.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section case-study-section">
+            <div class="section-heading">
+                <p class="section-number">06</p>
+                <div>
+                    <p class="kicker">Business value</p>
+                    <h2>One editorial decision now drives research, publishing, and the next layer of content.</h2>
+                </div>
+            </div>
+
+            <div class="outcome-grid">
+                <article class="outcome-item">
+                    <p class="step">01 / Repeatability</p>
+                    <h3>Turn a monthly task into a reusable system</h3>
+                    <p>The same workflow can be repeated from a new seed without rebuilding the research and publishing process from scratch every month.</p>
+                </article>
+
+                <article class="outcome-item">
+                    <p class="step">02 / Editorial leverage</p>
+                    <h3>Keep judgment where it matters</h3>
+                    <p>The engine handles retrieval, scoring, deduplication, provider matching, and state management while the human remains responsible for the final taste decision.</p>
+                </article>
+
+                <article class="outcome-item">
+                    <p class="step">03 / Channel reuse</p>
+                    <h3>Publish once, create around it</h3>
+                    <p>The final playlist produces a Monthly Content Packet with featured-record context, verified connections, discovery tracks, Substack framing, and YouTube talking points.</p>
+                </article>
+
+                <article class="outcome-item">
+                    <p class="step">04 / Proof of operation</p>
+                    <h3>28 Spotify / 26 Apple</h3>
+                    <p>In one completed live run, all 28 approved Spotify tracks published successfully; Apple Music resolved 26 and safely reported the two unavailable tracks instead of substituting uncertain recordings.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section about-section case-study-section">
+            <div class="section-heading">
+                <p class="section-number">07</p>
+                <div>
+                    <p class="kicker">What I learned</p>
+                    <h2>The useful automation wasn't replacing taste. It was making taste operational.</h2>
+                </div>
+            </div>
+
+            <div class="case-study-content">
+                <div class="about-copy">
+                    <p>
+                        The hardest part of the project wasn't generating recommendations. It was deciding what evidence should be allowed to influence a recommendation, how much confidence was enough to publish, and where automation should stop. Several iterations technically worked but produced playlists that were too popularity-led, too dependent on one collaborator, or too permissive about weak relationship evidence.
+                    </p>
+                    <p>
+                        The final design treats curation as a controlled decision system: deterministic research where possible, explicit uncertainty when necessary, human choice at the editorial boundary, and conservative publishing when providers disagree. That made the workflow more useful as a business system than a recommendation demo.
+                    </p>
+                </div>
+
+                <aside class="method-note">
+                    <p>
+                        <strong>Why this matters beyond music:</strong> the same architecture applies to other recurring decision workflows where research can be automated but the final judgment should remain accountable — vendor selection, lead prioritization, content planning, product research, or any process that needs evidence, approval, and auditable execution.
+                    </p>
+                </aside>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <p class="kicker">More like this</p>
+            <h2>See the rest of the work.</h2>
+            <a class="button button-light" href="../index.html#projects">Back to projects</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Oluwaseun Fadeyi</p>
+        <a href="#top">Back to top ↑</a>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>
