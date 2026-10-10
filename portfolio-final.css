@@ -1,0 +1,297 @@
+/* Final portfolio refinements — native static-site CSS; no external dependency. */
+
+/* 1. No pinned headers or floating table-of-contents bars. */
+body.glass-site .glass-header,
+.glass-header,
+.topbar {
+  position: relative !important;
+  top: auto !important;
+  inset-block-start: auto !important;
+  z-index: 90;
+}
+body.glass-case .case-index-bar,
+body.glass-case .case-index-bar:where(:hover,:focus-within),
+.creative-filter-section {
+  position: relative !important;
+  top: auto !important;
+  z-index: 10;
+}
+.scene-indicator { display: none !important; }
+body.glass-case .case-body-section { scroll-margin-top: 38px; }
+.creative-page .film-feature-section,
+.creative-page .film-grid-section,
+.creative-page .film-item { scroll-margin-top: 28px; }
+
+/* 2. Stronger, reversible homepage identity. The selection follows the visitor
+   through the whole page; it does not merely recolor the preview panel. */
+.home-intro-copy .mode-creative { display: none !important; }
+body[data-home-focus="creative"] .home-intro-copy .mode-systems { display: none !important; }
+body[data-home-focus="creative"] .home-intro-copy .mode-creative { display: block !important; }
+.home-intro-copy .mode-headline { animation: editorial-enter .48s cubic-bezier(.2,.78,.16,1) both; }
+@keyframes editorial-enter {
+  from { opacity: 0; transform: translateY(11px); filter: blur(5px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+body.glass-site[data-home-focus="creative"] {
+  --tone-a: #413049;
+  --tone-b: #35273d;
+  --tone-c: #152838;
+  --tone-base: #151421;
+  --ink: #fbf7fb;
+  --muted: #cfc2d8;
+  color: #f8f4fb;
+}
+body.glass-site[data-home-focus="creative"] .ambient-layer {
+  background:
+    radial-gradient(ellipse 60% 70% at 8% 4%,rgba(150,67,121,.33),transparent 72%),
+    radial-gradient(ellipse 60% 70% at 92% 36%,rgba(90,47,143,.25),transparent 75%),
+    linear-gradient(150deg,#131923,#1d1929 48%,#15121e);
+}
+body.glass-site[data-home-focus="creative"] .ambient-layer::before { opacity: .10; mix-blend-mode: screen; }
+body.glass-site[data-home-focus="creative"] .ambient-orb-a { background:#cf64b3;opacity:.25; }
+body.glass-site[data-home-focus="creative"] .ambient-orb-b { background:#8b61e7;opacity:.20; }
+body.glass-site[data-home-focus="creative"] .ambient-orb-c { background:#e97c97;opacity:.16; }
+body.glass-site[data-home-focus="creative"] .glass-header {
+  background:rgba(33,27,45,.76);
+  border-color:rgba(250,222,252,.15);
+  box-shadow:0 15px 50px rgba(0,0,0,.19),inset 0 1px 0 rgba(255,255,255,.13);
+}
+body.glass-site[data-home-focus="creative"] .brand,
+body.glass-site[data-home-focus="creative"] .brand-name,
+body.glass-site[data-home-focus="creative"] .nav-links a { color:#f5edf9; }
+body.glass-site[data-home-focus="creative"] .brand-symbol { color:#21162f;background:#f4daf5;border-color:#a97ea9; }
+body.glass-site[data-home-focus="creative"] .nav-links a:hover,
+body.glass-site[data-home-focus="creative"] .nav-links a[aria-current="page"] { background:rgba(229,168,232,.11);color:#ffd8fb; }
+body.glass-site[data-home-focus="creative"] .nav-links .nav-resume {background:#f2dafa;color:#2b2039;}
+body.glass-site[data-home-focus="creative"] .nav-toggle {background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.29);}
+body.glass-site[data-home-focus="creative"] .nav-toggle span {background:#f0dbf0;}
+body.glass-site[data-home-focus="creative"] .home-intro-copy .eyebrow { color:#e4badf; }
+body.glass-site[data-home-focus="creative"] .home-intro-copy h1 { color:#fff7ff; }
+body.glass-site[data-home-focus="creative"] .home-intro-copy h1 span {color:#fbaad8;}
+body.glass-site[data-home-focus="creative"] .home-intro-copy h1 em {color:#e5afe9;}
+body.glass-site[data-home-focus="creative"] .home-lede {color:#d5c9dc;}
+body.glass-site[data-home-focus="creative"] .home-resume-link {color:#f1c4ef;border-color:rgba(250,205,248,.36);}
+body.glass-site[data-home-focus="creative"] .practice-index {color:#c6bad3;border-color:rgba(244,222,244,.22);}
+body.glass-site[data-home-focus="creative"] .practice-index b {color:#f8b2e7;}
+body.glass-site[data-home-focus="creative"] .practice-index span:last-child b {color:#baabff;}
+body.glass-site[data-home-focus="creative"] .primary-action {background:#f2c3eb;color:#281a36;border-color:#f2c3eb;box-shadow:0 10px 32px rgba(249,162,228,.16);}
+body.glass-site[data-home-focus="creative"] .portfolio-home-hero::before {
+  content:'';position:absolute;pointer-events:none;inset:0;
+  background:radial-gradient(ellipse 45% 52% at 73% 33%,rgba(182,83,156,.12),transparent 72%);
+}
+body.glass-site[data-home-focus="creative"] .lens-console {
+  border-color:rgba(250,223,248,.28);
+  background:linear-gradient(146deg,rgba(56,40,68,.77),rgba(33,25,52,.58));
+  box-shadow:0 35px 92px rgba(4,2,12,.39),inset 0 1px 0 rgba(255,244,255,.12);
+}
+body.glass-site[data-home-focus="creative"] .console-index,
+body.glass-site[data-home-focus="creative"] .lens-console-foot,
+body.glass-site[data-home-focus="creative"] .console-availability {color:#ddc6e3;}
+body.glass-site[data-home-focus="creative"] .lens-controls {background:rgba(18,12,28,.47);border-color:rgba(253,228,255,.14);}
+body.glass-site[data-home-focus="creative"] .lens-button:not(.is-active) {color:#e3d2e6;}
+body.glass-site[data-home-focus="creative"] .lens-button.is-active {background:#f3ceef;color:#372441;}
+body.glass-site[data-home-focus="creative"] .lens-window {border-color:rgba(252,226,248,.19);background:#15101e;}
+body.glass-site[data-home-focus="creative"] .lens-overlay {box-shadow:0 10px 35px rgba(0,0,0,.14);}
+
+/* The user's preferred two-path section stays, but its relative emphasis and
+   materials change with the selected discipline. */
+body.glass-site[data-home-focus="creative"] .discipline-section {
+  background:linear-gradient(120deg,rgba(32,24,48,.45),rgba(72,31,72,.32) 70%,rgba(42,29,56,.2));
+}
+body.glass-site[data-home-focus="creative"] .discipline-heading h2,
+body.glass-site[data-home-focus="creative"] .project-proof-section .section-intro h2,
+body.glass-site[data-home-focus="creative"] .about-section-v3 h2 {color:#f5edf8;}
+body.glass-site[data-home-focus="creative"] .discipline-heading h2 em {color:#f4b1df;}
+body.glass-site[data-home-focus="creative"] .discipline-heading p,
+body.glass-site[data-home-focus="creative"] .discipline-heading>p,
+body.glass-site[data-home-focus="creative"] .project-proof-section .section-intro p,
+body.glass-site[data-home-focus="creative"] .about-section-v3 p {color:#d0c1d7;}
+body.glass-site[data-home-focus="creative"] .discipline-tech {filter:saturate(.65) brightness(.93);}
+body.glass-site[data-home-focus="creative"] .discipline-content {
+  outline:2px solid rgba(250,173,237,.65);
+  outline-offset:-6px;
+  box-shadow:0 30px 100px rgba(246,135,219,.16);
+}
+body.glass-site[data-home-focus="creative"] .discipline-content .discipline-info h3 {color:#fff4fc;}
+body.glass-site[data-home-focus="creative"] .project-proof-section {
+  background:linear-gradient(125deg,rgba(62,29,74,.29),rgba(30,30,47,.42));
+}
+body.glass-site[data-home-focus="creative"] .project-proof-section .proof-card {
+  background:rgba(44,35,59,.86);
+  color:#f7eff8;
+  border-color:rgba(250,221,246,.14);
+}
+body.glass-site[data-home-focus="creative"] .proof-description p {color:#d6c7d9;}
+body.glass-site[data-home-focus="creative"] .proof-description>span,
+body.glass-site[data-home-focus="creative"] .proof-description strong {color:#efb0e3;}
+body.glass-site[data-home-focus="creative"] .about-section-v3 {background:linear-gradient(140deg,rgba(53,30,62,.40),rgba(19,25,42,.35));}
+body.glass-site[data-home-focus="creative"] .about-section-v3 .eyebrow,
+body.glass-site[data-home-focus="creative"] .project-proof-section .eyebrow,
+body.glass-site[data-home-focus="creative"] .discipline-section .eyebrow {color:#ecbbeb;}
+body.glass-site[data-home-focus="creative"] .professional-quicklinks a {background:rgba(240,210,246,.12);color:#f2d8f4;border-color:rgba(250,221,246,.2);}
+body.glass-site[data-home-focus="creative"] .glass-footer {background:linear-gradient(180deg,rgba(27,21,39,.9),#171222);}
+@media (min-width: 1000px) {
+  body.glass-site[data-home-focus="creative"] .discipline-grid {grid-template-columns:.88fr 1.12fr;}
+  body.glass-site[data-home-focus="systems"] .discipline-grid {grid-template-columns:1.08fr .92fr;}
+}
+
+/* 3. Case studies: genuine clear typographic hierarchy inside diagrams.
+   Text does not collide, especially in the architecture figure submitted by the user. */
+body.glass-case .case-diagram .diagram-node,
+body.glass-case .case-architecture .diagram-node {
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:flex-start;
+  gap:9px;
+  text-align:left;
+  padding:18px 19px;
+  line-height:1.4;
+  overflow-wrap:normal;
+}
+body.glass-case .diagram-node > div { display:flex;flex-direction:column;align-items:flex-start;gap:9px;min-width:0;width:100%; }
+body.glass-case .diagram-node strong,
+body.glass-case .diagram-node span {
+  display:block;
+  width:100%;
+  margin:0;
+  white-space:normal;
+  overflow-wrap:break-word;
+}
+body.glass-case .diagram-node strong {font:700 .89rem/1.35 var(--sans);letter-spacing:-.012em;color:#273a56;}
+body.glass-case .diagram-node span {font:400 .79rem/1.5 var(--sans);color:#62748e;}
+body.glass-case .diagram-node .principle-num,
+body.glass-case .diagram-node .tier-number,
+body.glass-case .diagram-node .flow-step { width:auto;font:500 .67rem var(--mono); }
+body.glass-case .case-diagram .source-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;}
+body.glass-case .case-diagram .warehouse-flow {display:grid;grid-template-columns:minmax(0,1fr) 22px minmax(0,1.12fr) 22px minmax(0,1fr);gap:8px;align-items:stretch;}
+body.glass-case .case-diagram .warehouse-flow .diagram-node {min-width:0;}
+body.glass-case .case-diagram .warehouse-flow .diagram-arrow {align-self:center;font-size:1.15rem;}
+body.glass-case .case-diagram .match-flow,
+body.glass-case .case-diagram .redo-flow,
+body.glass-case .case-diagram .integration-flow {gap:9px;}
+body.glass-case .hero-source-grid {grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;}
+body.glass-case .hero-source-grid .diagram-node {min-height:130px;}
+body.glass-case .hero-flow {gap:11px;}
+body.glass-case .hero-flow .diagram-node {min-height:138px;}
+body.glass-case .case-architecture {max-width:1160px;}
+body.glass-case .case-architecture .diagram-label {font-size:.78rem;letter-spacing:.07em;margin-bottom:18px!important;}
+body.case-marketing #chapter-01 .case-study-content-wide {display:grid;grid-template-columns:1fr;gap:25px;}
+body.case-marketing #chapter-01 .case-study-content-wide .about-copy {max-width:820px;}
+body.case-marketing #chapter-01 .architecture-diagram {width:100%;padding:30px;}
+body.case-marketing #chapter-01 .architecture-diagram .source-grid {grid-template-columns:repeat(4,minmax(0,1fr));}
+body.case-marketing #chapter-01 .architecture-diagram .warehouse-flow {margin-top:20px;}
+body.case-marketing #chapter-01 .architecture-diagram .diagram-node {min-height:100px;}
+
+/* Extra image evidence and modeled dashboard visual (not a claimed Power BI screenshot). */
+body.glass-case .case-data-visual {margin-bottom:26px;}
+body.glass-case .case-data-visual img {display:block;width:100%;height:auto;border-radius:15px;background:#15111d;}
+body.glass-case .case-context-image {max-width:980px;}
+body.glass-case .case-routing-visual {margin-top:28px;}
+body.glass-case .case-routing-visual img {width:100%;height:auto;object-fit:contain;}
+
+/* 4. Outcomes on digital campaigns: specific, attributed carefully, visually evident. */
+.creative-page .film-content p {max-width:640px;}
+.campaign-evidence {
+  display:flex;align-items:center;gap:24px;justify-content:space-between;
+  margin:19px 0 20px;padding:15px 0 16px;
+  border-top:1px solid rgba(104,94,135,.2);
+  border-bottom:1px solid rgba(104,94,135,.2);
+}
+.campaign-evidence>div:first-child {display:flex;flex-direction:column;min-width:100px;}
+.campaign-evidence strong {font:600 clamp(1.8rem,2.5vw,2.65rem)/1 var(--display);letter-spacing:-.06em;color:#49355e;}
+.campaign-evidence span {font:.72rem/1.4 var(--mono);color:#7c708f;}
+.campaign-evidence-detail {display:flex;flex-direction:column;align-items:flex-end;gap:9px;text-align:right;}
+.campaign-evidence-detail a,
+.event-link {display:inline-flex;align-items:center;gap:9px;color:#654d9d;font:.78rem/1.4 var(--sans);font-weight:700;text-decoration:none;border-bottom:1px solid rgba(128,93,165,.34);padding-bottom:2px;}
+.campaign-evidence-detail a:hover,.event-link:hover {color:#9c4fab;border-color:currentColor;}
+.creative-page .film-feature-section .feature-video-info {display:grid;grid-template-columns:1fr auto;gap:15px 34px;align-items:center;}
+.creative-page .film-feature-section .brand-context {grid-column:1/-1;margin:0;max-width:860px;color:#d6d0e6;font-size:.95rem;line-height:1.65;}
+.creative-page .film-feature-section .event-link {grid-column:1/-1;justify-self:start;color:#f7cee9;border-color:rgba(247,206,233,.46);}
+.campaign-results {
+  padding:78px 0 91px;
+  background:linear-gradient(120deg,rgba(231,211,249,.48),rgba(232,240,255,.55));
+  border-top:1px solid rgba(120,108,162,.14);
+  border-bottom:1px solid rgba(120,108,162,.14);
+}
+.campaign-results-intro {display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.55fr);gap:20px 40px;align-items:end;margin-bottom:30px;}
+.campaign-results-intro h2 {font:600 clamp(2.3rem,4.2vw,4.9rem)/1.04 var(--display);letter-spacing:-.06em;margin:0;max-width:710px;}
+.campaign-results-intro p:last-child {margin:0;color:#66718d;line-height:1.7;font-size:.9rem;}
+.campaign-results-grid {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;}
+.campaign-results-grid a {
+  padding:23px 19px;min-width:0;min-height:160px;
+  border:1px solid rgba(248,248,255,.86);border-radius:21px;
+  background:rgba(255,255,255,.57);box-shadow:0 14px 38px rgba(63,47,106,.055);
+  display:flex;flex-direction:column;justify-content:space-between;gap:18px;text-decoration:none;
+  transition:transform .3s ease,box-shadow .3s ease;
+}
+.campaign-results-grid a:hover {transform:translateY(-4px);box-shadow:0 22px 43px rgba(63,47,106,.12);}
+.campaign-results-grid strong {font:600 clamp(2.3rem,3.2vw,3.8rem)/1 var(--display);letter-spacing:-.08em;color:#34274e;}
+.campaign-results-grid span {font:.74rem/1.5 var(--mono);color:#746984;}
+
+@media (max-width:1050px) {
+  .campaign-results-grid {grid-template-columns:repeat(2,minmax(0,1fr));}
+  .campaign-results-intro {grid-template-columns:1fr;}
+  body.glass-case .hero-source-grid {grid-template-columns:repeat(2,minmax(0,1fr));}
+  body.case-marketing #chapter-01 .architecture-diagram .source-grid {grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+@media (max-width:720px) {
+  body.glass-site[data-home-focus="creative"] .nav-links.open {background:#261f36;border-color:rgba(255,255,255,.18);}
+  body.glass-site[data-home-focus="creative"] .home-intro-copy h1 {font-size:clamp(2.95rem,10.7vw,4.6rem);}
+  body.glass-case .hero-source-grid,
+  body.case-marketing #chapter-01 .architecture-diagram .source-grid {grid-template-columns:repeat(2,minmax(0,1fr));}
+  body.glass-case .case-diagram .warehouse-flow {grid-template-columns:1fr;gap:8px;}
+  body.glass-case .case-diagram .warehouse-flow .diagram-arrow,
+  body.glass-case .hero-flow .diagram-arrow {transform:rotate(90deg);min-height:22px;}
+  body.glass-case .hero-flow {grid-template-columns:1fr;}
+  body.glass-case .diagram-node strong {font-size:.85rem;}
+  body.glass-case .diagram-node span {font-size:.75rem;}
+  body.glass-case .case-diagram .diagram-node,
+  body.glass-case .case-architecture .diagram-node {padding:12px;gap:6px;}
+  body.case-marketing #chapter-01 .architecture-diagram {padding:17px;}
+  .campaign-results {padding:60px 0;}
+  .campaign-evidence {gap:12px;flex-wrap:wrap;}
+  .campaign-evidence-detail {align-items:flex-start;text-align:left;}
+  .creative-page .film-feature-section .feature-video-info {grid-template-columns:1fr;}
+  .creative-page .film-feature-section .brand-context,
+  .creative-page .film-feature-section .event-link {grid-column:1;}
+  .campaign-results-grid a {min-height:140px;padding:18px;}
+}
+@media (max-width:420px) {
+  .campaign-results-grid {grid-template-columns:1fr 1fr;gap:8px;}
+  .campaign-results-grid a {min-height:145px;padding:13px 12px;}
+  .campaign-results-grid strong {font-size:2.25rem;}
+  .campaign-results-grid span {font-size:.68rem;}
+  body.glass-case .hero-source-grid {grid-template-columns:1fr;}
+}
+@media (prefers-reduced-motion:reduce) {
+  .home-intro-copy .mode-headline {animation:none;}
+  .campaign-results-grid a {transition:none;}
+}
+/* Solid dark chapter surfaces keep the creative-mode typography readable all
+   the way down the homepage, including browsers that layer the ambient canvas
+   behind the root background. */
+body.glass-site[data-home-focus="creative"] {background:#171522 !important;}
+body.glass-site[data-home-focus="creative"] .portfolio-home-hero {
+  background:linear-gradient(145deg,#181726 0%,#20172d 52%,#261b31 100%) !important;
+}
+body.glass-site[data-home-focus="creative"] .discipline-section {
+  background:linear-gradient(135deg,#241b32 0%,#2b2038 48%,#201e31 100%) !important;
+}
+body.glass-site[data-home-focus="creative"] .project-proof-section {
+  background:linear-gradient(150deg,#1c2331 0%,#251c34 70%,#271b32 100%) !important;
+}
+body.glass-site[data-home-focus="creative"] .about-section-v3 {
+  background:linear-gradient(145deg,#211b30 0%,#181d2b 100%) !important;
+}
+body.glass-site[data-home-focus="creative"] .discipline-heading,
+body.glass-site[data-home-focus="creative"] .section-intro,
+body.glass-site[data-home-focus="creative"] .about-v3-grid {color:#f6ecf8;}
+body.glass-site[data-home-focus="creative"] .discipline-heading p,
+body.glass-site[data-home-focus="creative"] .project-proof-section .section-intro p,
+body.glass-site[data-home-focus="creative"] .about-v3-grid p {color:#d8cbdc !important;}
+body.glass-site[data-home-focus="creative"] .discipline-info p {color:inherit;}
+body.glass-site[data-home-focus="creative"] .discipline-tech .discipline-info p {color:#536987;}
+body.glass-site[data-home-focus="creative"] .discipline-content .discipline-info p {color:#f1e4f3;}

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 830" role="img" aria-labelledby="chartTitle chartDesc">
+<title id="chartTitle">Vinyl Club feasibility model, three forward-looking scenarios</title>
+<desc id="chartDesc">Base case reaches 949 month-12 subscribers, 33,662 dollars monthly recurring revenue and 2.93 times LTV to CAC. Conservative, Base and Aggressive month-12 MRR are 13,918, 33,662 and 70,471 dollars. These are modeled projections, not actual customer results.</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#11121d"/><stop offset="1" stop-color="#231028"/></linearGradient>
+<linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#ad55d7"/><stop offset="1" stop-color="#f0a4e5"/></linearGradient>
+<linearGradient id="panel" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#272336"/><stop offset="1" stop-color="#1c182a"/></linearGradient>
+</defs>
+<rect width="1440" height="830" rx="24" fill="url(#bg)"/>
+<circle cx="1355" cy="0" r="320" fill="#9341ae" opacity=".095"/>
+<circle cx="40" cy="760" r="300" fill="#a53db1" opacity=".05"/>
+<g font-family="Arial,Helvetica,sans-serif">
+<text x="56" y="66" font-size="21" font-weight="700" fill="#e8dcea">WHO'S AUX / VINYL CLUB</text>
+<text x="56" y="105" font-size="17" fill="#b8aac0">PRE-LAUNCH FEASIBILITY / SCENARIO MODEL / 12 MONTHS</text>
+<rect x="1135" y="49" rx="18" width="247" height="38" fill="#49304f"/>
+<text x="1157" y="75" font-size="14" font-weight="700" fill="#e9c6ed">MODELED / NOT ACTUAL</text>
+<line x1="56" y1="128" x2="1382" y2="128" stroke="#8d738c" stroke-opacity=".44"/>
+<text x="56" y="188" font-size="37" font-weight="700" fill="#faf7fa">Does subscription revenue hold up?</text>
+<text x="56" y="224" font-size="19" fill="#bbb2c1">Results change materially with acquisition cost and monthly churn.</text>
+</g>
+<g font-family="Arial,Helvetica,sans-serif">
+<rect x="56" y="268" width="418" height="176" rx="20" fill="url(#panel)" stroke="#614969"/>
+<text x="84" y="312" font-size="18" fill="#cdbed4">BASE CASE / MONTH 12</text>
+<text x="84" y="382" font-size="63" font-weight="700" fill="#fff9ff">949</text>
+<text x="291" y="377" font-size="18" fill="#cdbed4">active</text><text x="291" y="403" font-size="18" fill="#cdbed4">subscribers</text>
+<rect x="493" y="268" width="418" height="176" rx="20" fill="url(#panel)" stroke="#614969"/>
+<text x="521" y="312" font-size="18" fill="#cdbed4">BASE CASE / MONTH 12</text>
+<text x="521" y="382" font-size="60" font-weight="700" fill="#fff9ff">$33,662</text>
+<text x="521" y="415" font-size="17" fill="#cdbed4">projected monthly recurring revenue</text>
+<rect x="930" y="268" width="454" height="176" rx="20" fill="url(#panel)" stroke="#614969"/>
+<text x="958" y="312" font-size="18" fill="#cdbed4">BASE CASE / UNIT ECONOMICS</text>
+<text x="958" y="382" font-size="60" font-weight="700" fill="#ffddf6">2.93×</text>
+<text x="1190" y="365" font-size="17" fill="#cdbed4">LTV:CAC</text>
+<text x="1190" y="391" font-size="17" fill="#cdbed4">vs 3× target</text>
+</g>
+<rect x="56" y="466" width="1328" height="289" rx="22" fill="#201b2b" stroke="#55415e"/>
+<g font-family="Arial,Helvetica,sans-serif">
+<text x="84" y="505" font-size="20" font-weight="700" fill="#f6e8f5">MONTH-12 MRR BY SCENARIO</text>
+<text x="84" y="541" font-size="15" fill="#bbaac1">Conservative</text>
+<text x="84" y="619" font-size="15" fill="#bbaac1">Base case</text>
+<text x="84" y="697" font-size="15" fill="#bbaac1">Aggressive</text>
+</g>
+<g>
+<rect x="265" y="520" width="1046" height="33" rx="12" fill="#352b3c"/>
+<rect x="265" y="520" width="206.7" height="33" rx="12" fill="#7a5888"/>
+<rect x="265" y="598" width="1046" height="33" rx="12" fill="#352b3c"/>
+<rect x="265" y="598" width="499.6" height="33" rx="12" fill="url(#accent)"/>
+<rect x="265" y="676" width="1046" height="33" rx="12" fill="#352b3c"/>
+<rect x="265" y="676" width="1046" height="33" rx="12" fill="#eac0ed"/>
+</g>
+<g font-family="Arial,Helvetica,sans-serif" font-size="18" font-weight="700" fill="#f4e5f5" text-anchor="end">
+<text x="1337" y="545">$13,918</text><text x="1337" y="623">$33,662</text><text x="1285" y="701" fill="#281d30">$70,471</text>
+</g>
+<text x="58" y="804" font-family="Arial,Helvetica,sans-serif" font-size="16" fill="#c6afce">MODEL BASIS: industry benchmark ranges + stated business assumptions. Not a realized launch result.</text>
+</svg>

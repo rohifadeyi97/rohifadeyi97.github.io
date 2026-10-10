@@ -1,22 +1,26 @@
-# Portfolio — hiring-focused edition
+# Portfolio - discipline-led final pass
 
-A GitHub Pages compatible static website. Extract and merge the contents of this directory into the root of the portfolio repository. Do not upload the ZIP itself. Keep the existing directory structure.
+Static site for GitHub Pages. No build step required.
 
-## Structure
-- `index.html`: new interactive two-discipline homepage. The Systems / Digital content lens uses `portfolio-polish.js`.
-- `systems.html`: BI, CRM, data integrations, and Music Ops.
-- `creative.html`: commercial content and social-first event campaigns, with accessible filters.
-- `case-studies/`: five technical case studies; `autonomous-playlists.html` redirects to `music-ops.html`.
-- `glass.css`, `studio.css`: preserved core styles. `portfolio-polish.css` applies the hiring-focused redesign.
-- `glass.js`, `portfolio-polish.js`: existing interactions and the new lens/filter controls.
-- `assets/images/`: original dashboard/diagram assets; `assets/creative/`: compressed videos and posters.
+## What changed
 
-## Notes
-- The Gyu San spot is unreleased. Confirm permission before publishing publicly.
-- The event collaborations reported strong turnout; the portfolio does not attribute attendance or conversions to the videos.
-- Power BI reports, PDFs, social links, and all local file references are preserved.
-- No video is auto-played. Motion respects reduced-motion preferences.
-- Original analytics and integration projects are described as what they actually built, not quantified with invented outcomes.
+- Removed sticky navigation and case-study chapter bars. Creative filters also scroll away.
+- The homepage discipline selector now switches the full page between a light Systems palette and a dark Creative palette, including headlines, copy, navigation, chapter colors, cards, and actions. Keyboard arrow support remains.
+- Repaired typography and layout in all architecture diagrams, particularly the Marketing Attribution Warehouse and Operational Data Integration diagrams.
+- Added a custom SVG visual summary from the documented Vinyl Club feasibility model. It is explicitly labeled modeled/not actual; the original Vinyl Club landing-page screenshot is preserved as separate brand context.
+- Added a sanitized Salesforce lead-routing Flow Builder image to the existing workflow screenshots.
+- Expanded descriptions of Gyu San and four event campaigns. Added the user's documented event-registration figures, distinguishing RSVPs from tickets sold. No claim of video-attributed conversions or attendance is made.
+- Linked every event campaign to its POSH event page and Gyu San to its official website.
+- All prior video files, screenshots, case-study URLs, and PDF deliverables are preserved.
 
-## Review
-Open the site using a local static server (`python3 -m http.server 8000` from this folder) or GitHub Pages.
+## Deployment
+
+Unzip the archive, and copy the *contents* of `portfolio-discipline-final` into the root of the `rohifadeyi97.github.io` repository, merging existing folders rather than deleting them. Then commit and push with GitHub Desktop or Git.
+
+Do not upload the ZIP itself to the repository. Video files are already web-sized MP4s. Keep the `assets/creative` directory intact. No Git LFS is required.
+
+The unreleased Gyu San commercial remains publicly visible as a portfolio preview; confirm you have permission before deploying.
+
+## QA
+
+The current pass was checked in offline Chromium at 1440px desktop and 390px mobile widths on eight pages. Menu behavior, the discipline switch, creative filters, no-overflow layouts, image references, non-sticky headers, and JavaScript errors were checked. External sites and the MP4 streams could not be fully exercised in the offline preview environment.
