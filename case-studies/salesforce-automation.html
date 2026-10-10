@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Connecting lead capture, registrations, products, pricing and ecommerce into one trustworthy operational system." name="description"/><meta content="#ecf2f8" name="theme-color"/>
+<title>Operational Data Integration — Oluwaseun Fadeyi</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="../studio.css" rel="stylesheet"/><script>document.documentElement.classList.add('has-js')</script>
+<link href="../glass.css" rel="stylesheet"/><link href="../portfolio-polish.css" rel="stylesheet"/></head><body class="glass-site salesforce casepage glass-case" id="top"><div aria-hidden="true" class="ambient-layer"><span class="ambient-orb ambient-orb-a"></span><span class="ambient-orb ambient-orb-b"></span><span class="ambient-orb ambient-orb-c"></span></div><div aria-hidden="true" class="reading-progress"></div><a class="skip-link" href="#main">Skip to content</a>
+<header class="glass-header" id="site-header">
+<nav aria-label="Primary navigation" class="nav-inner">
+<a aria-label="Oluwaseun Fadeyi — home" class="brand" href="../index.html"><span class="brand-symbol">OF<span class="brand-dot"></span></span><span class="brand-name">Oluwaseun Fadeyi</span></a>
+<button aria-controls="site-nav" aria-expanded="false" aria-label="Open navigation" class="nav-toggle" type="button"><span></span><span></span></button>
+<div class="nav-links" id="site-nav"><a aria-current="page" href="../systems.html">Systems &amp; Analytics</a><a href="../creative.html">Creative &amp; Direction</a><a class="nav-about" href="../index.html#about">About</a><a class="nav-resume" href="../resume.pdf" rel="noopener" target="_blank">Résumé <span>↗</span></a></div>
+</nav>
+</header>
+<main id="main"><section class="case-front scene-panel" data-scene="case-intro"><div class="wrap case-front-inner"><div class="case-overline micro"><span>CASE STUDY — 04 / SYSTEMS STUDY</span><span><a class="underlink" href="../systems.html">← SYSTEMS INDEX</a></span></div>
+<h1>Operational <em>Data</em> Integration</h1><div aria-label="Project summary" class="case-facts"><div class="case-fact"><span>Build</span><strong>CRM &amp; ecommerce integrations</strong></div><div class="case-fact"><span>Tools</span><strong>Salesforce / Zapier / APIs / PHP</strong></div><div class="case-fact"><span>Focus</span><strong>Lead routing, pricing &amp; products</strong></div></div><div class="intro"><p class="lede">Modernized a fragmented operating stack by connecting website leads, course registrations, product data, pricing, and ecommerce activity to a governed Salesforce-centered workflow. The goal was bigger than automation: make operational data consistent enough to route work, reconcile systems, and support better business decisions.</p><div class="case-action"><a href="../salesforce-integrations-case-study.pdf" rel="noopener" target="_blank">View sanitized project brief ↗</a><a class="secondary" href="mailto:rohifadeyi97@gmail.com?subject=Salesforce%20Integration%20and%20Automation">Discuss this project ↗</a></div></div></div></section>
+<section class="case-media-band scene-panel" data-scene="case-media"><div class="wrap"><div class="case-media-intro micro"><span>ARCHITECTURE / IN PRACTICE</span><span>SANITIZED INTEGRATION WORKFLOW</span></div><div class="case-architecture"><div aria-label="High-level integration architecture" class="hero-architecture">
+<p class="diagram-label">Operational data architecture</p>
+<div class="hero-source-grid">
+<div class="diagram-node"><strong>Lead capture</strong><span>Web forms, campaigns, events</span></div>
+<div class="diagram-node"><strong>Registrations</strong><span>Participants, courses, accounts</span></div>
+<div class="diagram-node"><strong>Products &amp; pricing</strong><span>Catalog, price books, fulfillment</span></div>
+<div class="diagram-node"><strong>Orders</strong><span>Ecommerce, payment, materials</span></div>
+</div>
+<div class="hero-flow">
+<div class="diagram-node"><strong>Normalize</strong><span>Transform arrays, multi-selects, identifiers</span></div>
+<div class="diagram-arrow">→</div>
+<div class="diagram-node key-node"><strong>Salesforce operating layer</strong><span>Relationships, routing, ownership, source-of-truth fields</span></div>
+<div class="diagram-arrow">→</div>
+<div class="diagram-node"><strong>Act &amp; interpret</strong><span>Commerce sync, follow-up, attribution, reporting</span></div>
+</div>
+</div></div></div></section><nav aria-label="Case study chapters" class="case-index-bar"><a href="#chapter-01">Overview</a><a href="#chapter-02">Approach</a><a href="#chapter-03">Operational output</a><a href="#chapter-04">What I'd do differently</a></nav>
+<section class="case-body-section scene-panel" data-scene="case-reading-soft" id="chapter-01"><div class="wrap"><div class="story-header"><span class="story-no">01 / Overview</span><h2>Why the integrations were needed</h2></div><div class="story-material"><div class="case-study-content">
+<div class="about-copy">
+<p>The organization already had functioning systems for CRM, ecommerce, course registrations, website inquiries, and marketing. Each worked for its immediate task, but the information needed to run the business was spread across separate workflows, field definitions, and identifiers.</p>
+<p>That made ordinary questions expensive to answer. A lead could arrive with useful campaign context but no consistent follow-up path. A product could exist in both CRM and ecommerce with pricing represented differently. Registration records connected people, companies, courses, and purchases, but those relationships were difficult to analyze together. The work focused on turning those transactions into one dependable operational spine.</p>
+</div>
+<div class="case-diagram">
+<p class="diagram-label">Before: valuable data, fragmented context</p>
+<div class="silo-grid">
+<div class="diagram-node"><strong>Website</strong><span>Inquiries, campaign parameters</span></div>
+<div class="diagram-node"><strong>Salesforce</strong><span>CRM records, products, relationships</span></div>
+<div class="diagram-node"><strong>Registration tools</strong><span>Courses, participants, attendance</span></div>
+<div class="diagram-node"><strong>WooCommerce</strong><span>Catalog, orders, pricing</span></div>
+</div>
+<div class="silo-converge">
+<div class="diagram-node key-node"><strong>Manual reconciliation</strong><span>Different formats, keys, ownership rules</span></div>
+<div class="diagram-arrow">→</div>
+<div class="diagram-node"><strong>Incomplete business view</strong><span>Slow answers and hidden data-quality issues</span></div>
+</div>
+</div>
+</div></div></div></section><section class="case-body-section scene-panel" data-scene="case-reading" id="chapter-02"><div class="wrap"><div class="story-header"><span class="story-no">02 / Approach</span><h2>Integration architecture</h2></div><div class="story-material"><div class="case-study-content">
+<div class="about-copy">
+<p>Salesforce became the central relationship and operational layer. Website forms captured intent and attribution, then transformed visitor-friendly values into CRM-compatible formats. Salesforce automation handled ownership, notifications, and follow-up. Product workflows queried core product and price-book data, Zapier normalized child records into explicit fields, and a custom WordPress REST endpoint validated create-versus-update behavior before writing to WooCommerce.</p>
+<p>Registration workflows followed the same principle without forcing every business object through one monolithic process: leads, products, and registrations used separate automation paths, then converged through governed identifiers and shared relationships. Names stayed descriptive; stable product, registration, contact, account, course, and order keys did the matching.</p>
+<dl class="project-details">
+<div><dt>Scope</dt><dd>Lead intake, routing, product sync, registrations, attribution</dd></div>
+<div><dt>Integrations</dt><dd>Salesforce, Zapier, WordPress REST API, WooCommerce, web forms</dd></div>
+<div><dt>Controls</dt><dd>Stable IDs, field ownership, transformation, validation, fallback rules</dd></div>
+</dl>
+</div>
+<div class="case-diagram">
+<p class="diagram-label">Integration architecture</p>
+<div class="integration-flow">
+<div class="diagram-node"><strong>Capture</strong><span>Leads, products, registrations, orders</span></div>
+<div class="diagram-arrow">→</div>
+<div class="diagram-node"><strong>Normalize</strong><span>Multi-selects, arrays, price-book rows, metadata</span></div>
+<div class="diagram-arrow">→</div>
+<div class="diagram-node key-node"><strong>Salesforce</strong><span>Records, relationships, routing, source-of-truth values</span></div>
+<div class="diagram-arrow">→</div>
+<div class="diagram-node"><strong>Downstream action</strong><span>WooCommerce, alerts, tasks, reporting</span></div>
+</div>
+<p class="diagram-caption">The automation layer handles the differences between systems so users do not have to. Complexity stays behind the scenes; business records remain reportable and traceable.</p>
+</div>
+</div></div></div></section><section class="case-body-section scene-panel" data-scene="case-reading-alt" id="implementation"><div class="wrap"><div class="story-header"><span class="story-no">EXTRA / BUILD</span><h2>Salesforce workflow example</h2></div><div class="story-material"><figure class="case-photo" style="transform:none"><img alt="Zapier workflow with Salesforce pricing lookups, JavaScript transformation and a webhook POST" src="../assets/images/salesforce.png"/><figcaption>SALESFORCE → PRICE BOOK LOOKUPS → JAVASCRIPT → WEBHOOK</figcaption></figure></div></div></section><section class="case-body-section scene-panel" data-scene="case-reading-soft" id="chapter-03"><div class="wrap"><div class="story-header"><span class="story-no">03 / Operational output</span><h2>Implemented workflows</h2></div><div class="story-material"><div class="expertise-grid">
+<article class="expertise-item">
+<p class="expertise-number">01</p>
+<h3>Lead lifecycle</h3>
+<p>One reusable intake framework captures identity, intent, topic interest, open context, and campaign attribution, then creates a Salesforce Lead, assigns ownership, alerts the right people, and creates a follow-up activity.</p>
+</article>
+<article class="expertise-item">
+<p class="expertise-number">02</p>
+<h3>Commerce &amp; pricing</h3>
+<p>Product data moves from Salesforce into WooCommerce with standard and member prices separated explicitly, product families aligned to categories, fulfillment attributes preserved, and endpoint-level create/update controls.</p>
+</article>
+<article class="expertise-item">
+<p class="expertise-number">03</p>
+<h3>Registration relationships</h3>
+<p>Participants, accounts, courses, registrations, products, and orders can be connected through stable identifiers, supporting variable attendee counts without losing the relationships needed for participation and revenue analysis.</p>
+</article>
+<article class="expertise-item">
+<p class="expertise-number">04</p>
+<h3>Attribution &amp; reporting</h3>
+<p>Campaign parameters and normalized operational fields create a bridge from marketing activity to CRM outcomes, while cleaner product and registration data supports future pipeline, demand, pricing, fulfillment, and customer analysis.</p>
+</article>
+</div></div></div></section><section class="case-body-section scene-panel" data-scene="case-reading" id="chapter-04"><div class="wrap"><div class="story-header"><span class="story-no">04 / REFLECTION</span><h2>Lessons and next steps</h2></div><div class="story-material"><div class="case-study-content">
+<div class="about-copy">
+<p>The hardest failures were rarely the API calls themselves. They came from assumptions about the data: multi-select values arriving in the wrong delimiter, child price-book records behaving like one field, line-item arrays needing explicit loops, environment-specific IDs breaking matches, and incomplete attributes quietly moving downstream.</p>
+<p>I would now front-load the data contract before building the automation: define a field dictionary, assign a source of truth to each field, choose stable cross-system identifiers, document create-versus-update rules, and decide which exceptions must be visible in reporting. I would also keep distinct business-object workflows separate. Leads, products, and registrations should not be one giant automation.</p>
+</div>
+<div class="case-diagram">
+<p class="diagram-label">Design principles carried forward</p>
+<div class="principle-grid">
+<div class="diagram-node"><span class="principle-num">01</span><strong>Model before mapping</strong><span>Define fields, types, ownership, and valid values first.</span></div>
+<div class="diagram-node"><span class="principle-num">02</span><strong>Names are not keys</strong><span>Use stable external identifiers for matching and migration.</span></div>
+<div class="diagram-node"><span class="principle-num">03</span><strong>Transform before transmit</strong><span>Normalize arrays, multi-selects, prices, and metadata before posting.</span></div>
+<div class="diagram-node"><span class="principle-num">04</span><strong>Exceptions are data</strong><span>Missing prices, links, categories, or dimensions should be measurable.</span></div>
+</div>
+</div>
+</div></div></div></section><section class="scene-panel case-end" data-scene="case-end"><div class="wrap"><div><div class="label">End of case study</div><h2>Explore more projects.</h2></div><a href="../systems.html">← ALL SYSTEMS WORK</a></div></section></main>
+<footer class="glass-footer" data-scene="footer">
+<div class="site-width">
+<div class="footer-intro"><span class="eyebrow">Contact</span><h2>Have a project in mind?</h2><p>For systems, analytics, production, or a project that sits somewhere between them.</p><a class="footer-email" href="mailto:rohifadeyi97@gmail.com">rohifadeyi97@gmail.com <span>↗</span></a></div>
+<div class="professional-links"><a href="https://github.com/issydbi" rel="noopener noreferrer" target="_blank">GitHub <span>↗</span></a><a href="https://linkedin.com/in/oluwaseun-fadeyi-31373a23b/" rel="noopener noreferrer" target="_blank">LinkedIn <span>↗</span></a></div>
+<div class="footer-bottom"><span>© 2026 Oluwaseun Fadeyi</span><span>Independent portfolio</span><a href="#top">Back to top ↑</a></div>
+</div>
+</footer>
+<script defer="" src="../glass.js"></script></body></html>
