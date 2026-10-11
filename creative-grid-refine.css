@@ -1,0 +1,44 @@
+
+/* Compact event-grid fix — visual rhythm without unused grid row. */
+@media (min-width: 960px) {
+  body.glass-site .portfolio-film-grid {align-items:stretch;}
+  body.glass-site .portfolio-film-grid #last-chance {
+    grid-column:auto;
+    width:100%;
+    max-width:none;
+    margin:0;
+    display:grid;
+    grid-template-columns:minmax(0,.92fr) minmax(0,1fr);
+    align-items:stretch;
+  }
+  body.glass-site .portfolio-film-grid #last-chance .film-media {
+    height:100%;min-height:0;max-height:100%;
+    display:flex;align-items:center;justify-content:center;overflow:hidden;
+  }
+  body.glass-site .portfolio-film-grid #last-chance .film-media video {
+    width:100%;height:auto;max-width:100%;max-height:580px;aspect-ratio:9/16;object-fit:contain;
+  }
+  body.glass-site .portfolio-film-grid #last-chance .film-content {
+    min-width:0;padding:19px 19px 23px;display:flex;flex-direction:column;justify-content:center;
+  }
+  body.glass-site .portfolio-film-grid #last-chance .film-content .film-meta-row {margin-top:auto;padding-top:13px;}
+  body.glass-site .portfolio-film-grid #last-chance .film-content h3 {font-size:clamp(1.4rem,2vw,2.2rem);}
+  body.glass-site .portfolio-film-grid #last-chance .film-content > p {font-size:.82rem;line-height:1.55;}
+}
+@media (min-width: 960px) and (max-width: 1220px) {
+  body.glass-site .portfolio-film-grid #last-chance {grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);}
+  body.glass-site .portfolio-film-grid #last-chance .film-content {padding:14px;}
+  body.glass-site .portfolio-film-grid #last-chance .film-content h3 {font-size:1.4rem;}
+}
+@media (min-width: 761px) and (max-width:959px) {
+  body.glass-site .portfolio-film-grid #last-chance {grid-column:1/-1;max-width:none;margin:0;}
+}
+@media (max-width:760px) {
+  body.glass-site .portfolio-film-grid #last-chance {max-width:none;margin:0;}
+}
+
+/* At intermediate widths, keep all events in the same single-column rhythm. */
+@media (min-width:731px) and (max-width:959px) {
+  body.glass-site .portfolio-film-grid {grid-template-columns:minmax(0,1fr);}
+  body.glass-site .portfolio-film-grid #last-chance {grid-column:auto;max-width:none;margin:0;}
+}

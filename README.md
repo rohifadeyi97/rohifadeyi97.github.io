@@ -38,3 +38,9 @@ Each included video is a web-sized H.264 MP4 (under GitHub's normal 25 MiB brows
 If they are still present from an earlier deployment, remove unused files such as `case-studies/tandem.html`, `assets/images/Vinyl.png`, and `assets/images/VinylClub.png`. They are intentionally absent from this build. This avoids leaving stale public pages and imagery behind when you merge updated files.
 
 Gyu San is still unreleased; confirm permission to exhibit it publicly.
+
+
+## 2026-10-11 update
+- Creative grid: Between Seasons and Last Chance now share the row on desktop; removed the unused gap.
+- Operational Data Integration: restored the complete story from cleanup and field mappings through lead routing, product sync, course data, consultation work, and reporting use.
+- Sanitized project brief refreshed to a concise two-page PDF.

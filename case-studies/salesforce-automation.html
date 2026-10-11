@@ -1,11 +1,12 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Case study: Salesforce lead capture, consultation engagement modeling, registration relationships and ecommerce product synchronization.">
-<meta name="theme-color" content="#ecf2f8">
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Case study: Salesforce lead capture, consultation engagement modeling, registration relationships and ecommerce product synchronization." name="description"/>
+<meta content="#ecf2f8" name="theme-color"/>
 <title>Operational Data Integration — Oluwaseun Fadeyi</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="../studio.css"><link rel="stylesheet" href="../glass.css"><link rel="stylesheet" href="../portfolio-polish.css"><link rel="stylesheet" href="../portfolio-final.css"><link rel="stylesheet" href="salesforce-case.css">
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="../studio.css" rel="stylesheet"/><link href="../glass.css" rel="stylesheet"/><link href="../portfolio-polish.css" rel="stylesheet"/><link href="../portfolio-final.css" rel="stylesheet"/><link href="salesforce-case.css" rel="stylesheet"/>
 <script>document.documentElement.classList.add('has-js')</script>
 </head>
 <body class="glass-site glass-case casepage salesforce sf-story" id="top">
@@ -19,100 +20,137 @@
 </nav>
 </header>
 <main id="main">
-  <section class="sf-hero scene-panel" data-scene="case-intro">
-    <div class="wrap">
-      <div class="sf-hero-line">
-        <span class="sf-overline">CASE STUDY / 04 — SYSTEMS &amp; OPERATIONS</span>
-        <a class="sf-back" href="../systems.html">← ALL SYSTEMS WORK</a>
-      </div>
-      <h1>Operational <em>Data</em> Integration</h1>
-      <div class="sf-hero-bottom">
-        <p class="sf-lede">I connected website inquiries, course registrations, Salesforce records, and ecommerce workflows so leads were assigned, prices stayed consistent, and staff had a clearer picture of the customer. The consultation-client pipeline grew directly out of that lead-routing work.</p>
-        <div class="sf-hero-links">
-          <a class="sf-primary" href="#workflows">See the workflows <span aria-hidden="true">↘</span></a>
-          <a class="sf-secondary" href="../salesforce-integrations-case-study.pdf" target="_blank" rel="noopener">Sanitized project brief ↗</a>
-        </div>
-      </div>
-      <div class="sf-facts" aria-label="Project details">
-        <div><span>Platforms</span><strong>Salesforce · WordPress · WooCommerce</strong></div>
-        <div><span>Implementation</span><strong>Salesforce Flow · Zapier · REST API · PHP</strong></div>
-        <div><span>Extension</span><strong>Consultation lifecycle / Salesforce sandbox</strong></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="sf-evidence scene-panel" data-scene="case-media" id="workflows" aria-labelledby="sf-evidence-heading">
-    <div class="wrap">
-      <div class="sf-section-heading">
-        <div><p class="sf-overline">01 / IMPLEMENTED AUTOMATIONS</p><h2 id="sf-evidence-heading">The workflows, in practice.</h2></div>
-        <p>Two real workflows: one routes new inquiries to the right person; the other keeps Salesforce products and ecommerce pricing aligned.</p>
-      </div>
-      <div class="sf-workflow-gallery">
-        <figure class="sf-proof sf-proof-lead">
-          <div class="sf-proof-chrome"><span class="sf-chrome-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>Salesforce Flow Builder</span><span class="sf-proof-kind">LEAD ROUTING</span></div>
-          <a class="sf-proof-image" href="../assets/images/lead-routing-flow-sanitized.png" target="_blank" rel="noopener" aria-label="Open full-size sanitized Salesforce lead routing flow screenshot">
-            <img src="../assets/images/lead-routing-flow-sanitized.png" alt="Salesforce Lead flow routes new inquiries by type, including consulting, and sends a staff notification" loading="eager">
-          </a>
-          <figcaption>
-            <span class="sf-caption-index">01</span>
-            <div><strong>Inquiry → assignment → follow-up</strong><span>Captured intent and campaign source, assigned the Lead owner by request type, and triggered staff follow-up.</span></div>
-            <a href="../assets/images/lead-routing-flow-sanitized.png" target="_blank" rel="noopener" aria-label="Expand lead flow image">↗</a>
-          </figcaption>
-        </figure>
-        <figure class="sf-proof sf-proof-sync">
-          <div class="sf-proof-chrome"><span class="sf-chrome-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>Zapier</span><span class="sf-proof-kind">COMMERCE SYNC</span></div>
-          <a class="sf-proof-image" href="../assets/images/salesforce.png" target="_blank" rel="noopener" aria-label="Open full-size original Zapier product synchronization screenshot">
-            <img src="../assets/images/salesforce-pricebook-sync-focused.png" alt="Five-step workflow from Salesforce product and price book lookups through JavaScript transformation to a webhook POST" loading="eager">
-          </a>
-          <figcaption>
-            <span class="sf-caption-index">02</span>
-            <div><strong>Products → price books → WooCommerce</strong><span>Standard and member prices were resolved separately, transformed, and posted to a custom endpoint.</span></div>
-            <a href="../assets/images/salesforce.png" target="_blank" rel="noopener" aria-label="Expand original product synchronization screenshot">↗</a>
-          </figcaption>
-        </figure>
-      </div>
-      <div class="sf-evidence-footnote"><span class="sf-proof-verified" aria-hidden="true"></span> Actual workflow screenshots, sanitized for this portfolio. Select a screenshot to view it at full resolution.</div>
-    </div>
-  </section>
-
-  <section class="sf-extension scene-panel" data-scene="case-reading-alt" id="consulting" aria-labelledby="sf-consult-title">
-    <div class="wrap">
-      <div class="sf-section-heading sf-section-heading-compact">
-        <div><p class="sf-overline">02 / THE NEXT PROBLEM</p><h2 id="sf-consult-title">From a lead to a client relationship.</h2></div>
-        <span class="sf-sandbox-label">SALESFORCE SANDBOX BUILD</span>
-      </div>
-      <div class="sf-extension-grid">
-        <div class="sf-extension-text">
-          <p>The consulting branch exposed a gap. Routing a request solved the first response, but it didn't give staff a reliable place to track ongoing consulting work.</p>
-          <p>I built the next layer in Salesforce sandbox: a consulting Lead can convert into an Account, Contact, and custom Consultation Engagement record, with a follow-up Task. Accounts hold the client status; engagements preserve the history of work; a junction relationship supports multiple points of contact at the same company.</p>
-          <p class="sf-note"><strong>Scope:</strong> the core object model, relationships, flows, pages, list views, and permissions were implemented in sandbox. Renewal reminders were a planned follow-up, not part of the production claim.</p>
-        </div>
-        <div class="sf-model" role="img" aria-label="Salesforce consultation data model: an Account is the client hub with Potential, Current and Previous status; linked Contacts, Consultation Engagement records and follow-up Tasks capture the continuing relationship.">
-          <div class="sf-model-top"><span>CONSULTATION RECORD MODEL</span><span>ACCOUNT-CENTRIC</span></div>
-          <div class="sf-account">
-            <span class="sf-model-kicker">SALESFORCE ACCOUNT</span>
-            <strong>Client / company</strong>
-            <div class="sf-status-row"><span>Potential</span><span>Current</span><span>Previous</span></div>
-          </div>
-          <div class="sf-model-rail" aria-hidden="true"><i></i><i></i><i></i></div>
-          <div class="sf-record-grid">
-            <div class="sf-record"><span>CONTACTS</span><strong>Multiple POCs</strong><small>Linked to engagements</small></div>
-            <div class="sf-record sf-record-key"><span>CONSULTATION ENGAGEMENTS</span><strong>Work history</strong><small>More than one per account</small></div>
-            <div class="sf-record"><span>ACTIVITIES</span><strong>Follow-up tasks</strong><small>Assigned next steps</small></div>
-          </div>
-          <p class="sf-model-note">Separate from course registrations · Structured for ongoing client work</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="sf-last-word scene-panel" data-scene="case-reading-soft">
-    <div class="wrap sf-last-word-inner">
-      <span class="sf-overline">03 / WHAT MADE THE SYSTEM HOLD TOGETHER</span>
-      <p>Consistent IDs, explicit field mappings, and clear record ownership. They made it possible to connect intake, registrations, product pricing, and the later consulting pipeline without rebuilding the same relationships in every tool.</p>
-      <a href="../systems.html">More systems work <span aria-hidden="true">↗</span></a>
-    </div>
-  </section>
+<section class="sf-hero scene-panel" data-scene="case-intro">
+<div class="wrap">
+<div class="sf-hero-line">
+<span class="sf-overline">CASE STUDY / 04 — SYSTEMS &amp; OPERATIONS</span>
+<a class="sf-back" href="../systems.html">← ALL SYSTEMS WORK</a>
+</div>
+<h1>Operational <em>Data</em> Integration</h1>
+<div class="sf-hero-bottom">
+<p class="sf-lede">I started by untangling data that already existed across Salesforce, web forms, course registrations, and WooCommerce. Once records, fields, and identifiers were consistent, I could automate the handoffs, preserve customer context, and build a better follow-up process — including a new consultation pipeline in Salesforce sandbox.</p>
+<div class="sf-hero-links">
+<a class="sf-primary" href="#workflows">See the workflows <span aria-hidden="true">↘</span></a>
+<a class="sf-secondary" href="../salesforce-integrations-case-study.pdf" rel="noopener" target="_blank">Sanitized project brief ↗</a>
+</div>
+</div>
+<div aria-label="Project details" class="sf-facts"><div><span>Scope</span><strong>Data cleanup · lead intake · registrations · product sync</strong></div><div><span>Stack</span><strong>Salesforce · WordPress · WooCommerce · Zapier · REST APIs</strong></div><div><span>Next phase</span><strong>Consultation engagements / Salesforce sandbox</strong></div></div>
+</div>
+</section><section aria-labelledby="sf-foundation-title" class="sf-foundation scene-panel" data-scene="case-reading-soft" id="foundation">
+<div class="wrap">
+<div class="sf-section-heading sf-section-heading-compact">
+<div><p class="sf-overline">01 / THE DATA FOUNDATION</p><h2 id="sf-foundation-title">First, I had to make the records make sense.</h2></div>
+<p>The systems were working individually. The trouble started when their records had to be matched, updated, or reported on together.</p>
+</div>
+<div class="sf-foundation-layout">
+<div class="sf-foundation-story">
+<p>Website selections didn't always match Salesforce field formats. Product prices were stored as related price-book entries, not one neat value. A registration could involve a person, employer, course, host site, and purchase. Each tool had its own way of naming those relationships.</p>
+<p>I traced the records through those handoffs, cleaned up field mappings and picklist values, and separated data that looked similar but meant different things. That included transforming multi-select form answers, keeping member and standard prices distinct, and using stable identifiers instead of relying on display names for matching.</p>
+<p>The principle was simple: a successful automation run didn't count for much if it left behind the wrong record.</p>
+</div>
+<div aria-label="Data problems and fixes" class="sf-fix-list">
+<div><span>01 / INPUTS</span><strong>Reportable lead values</strong><p>Mapped form choices to valid CRM picklists; converted grouped checkbox values into separate selections.</p></div>
+<div><span>02 / IDENTITY</span><strong>Consistent record matching</strong><p>Mapped how Accounts, Contacts, courses, and registrations relate; avoided name-only matching and duplicate records.</p></div>
+<div><span>03 / PRICING</span><strong>Separate price-book values</strong><p>Handled nested Standard and member pricing records explicitly instead of treating them as one field.</p></div>
+<div><span>04 / CONTEXT</span><strong>Keep the source attached</strong><p>Captured intent, topic interests, and campaign parameters before they could be lost downstream.</p></div>
+</div>
+</div>
+</div>
+</section>
+<section aria-labelledby="sf-evidence-heading" class="sf-evidence scene-panel" data-scene="case-media" id="workflows">
+<div class="wrap">
+<div class="sf-section-heading">
+<div><p class="sf-overline">02 / WORKFLOWS IN PRACTICE</p><h2 id="sf-evidence-heading">Then I automated the handoffs.</h2></div>
+<p>A form submission could become an assigned follow-up, and a Salesforce product update could become a correctly priced storefront item.</p>
+</div>
+<div class="sf-workflow-gallery">
+<figure class="sf-proof sf-proof-lead">
+<div class="sf-proof-chrome"><span aria-hidden="true" class="sf-chrome-dots"><i></i><i></i><i></i></span><span>Salesforce Flow Builder</span><span class="sf-proof-kind">LEAD ROUTING</span></div>
+<a aria-label="Open full-size sanitized Salesforce lead routing flow screenshot" class="sf-proof-image" href="../assets/images/lead-routing-flow-sanitized.png" rel="noopener" target="_blank">
+<img alt="Salesforce Lead flow routes new inquiries by type, including consulting, and sends a staff notification" loading="eager" src="../assets/images/lead-routing-flow-sanitized.png"/>
+</a>
+<figcaption>
+<span class="sf-caption-index">01</span>
+<div><strong>Inquiry → assignment → follow-up</strong><span>Normalized incoming interest and campaign data, assigned the right Lead owner, alerted staff, and created a follow-up Task.</span></div>
+<a aria-label="Expand lead flow image" href="../assets/images/lead-routing-flow-sanitized.png" rel="noopener" target="_blank">↗</a>
+</figcaption>
+</figure>
+<figure class="sf-proof sf-proof-sync">
+<div class="sf-proof-chrome"><span aria-hidden="true" class="sf-chrome-dots"><i></i><i></i><i></i></span><span>Zapier</span><span class="sf-proof-kind">COMMERCE SYNC</span></div>
+<a aria-label="Open full-size original Zapier product synchronization screenshot" class="sf-proof-image" href="../assets/images/salesforce.png" rel="noopener" target="_blank">
+<img alt="Five-step workflow from Salesforce product and price book lookups through JavaScript transformation to a webhook POST" loading="eager" src="../assets/images/salesforce-pricebook-sync-focused.png"/>
+</a>
+<figcaption>
+<span class="sf-caption-index">02</span>
+<div><strong>Products → price books → WooCommerce</strong><span>Retrieved Products and separate price-book entries, transformed them in Zapier, then sent a validated payload to WordPress.</span></div>
+<a aria-label="Expand original product synchronization screenshot" href="../assets/images/salesforce.png" rel="noopener" target="_blank">↗</a>
+</figcaption>
+</figure>
+</div>
+<div class="sf-evidence-footnote"><span aria-hidden="true" class="sf-proof-verified"></span> Actual workflow screenshots, sanitized for this portfolio. Select a screenshot to view it at full resolution.</div>
+</div>
+</section><section aria-labelledby="sf-connections-title" class="sf-connections scene-panel" data-scene="case-reading" id="connected-records">
+<div class="wrap">
+<div class="sf-section-heading sf-section-heading-compact">
+<div><p class="sf-overline">03 / CONNECTING OPERATIONS</p><h2 id="sf-connections-title">The same cleanup mattered beyond the first inquiry.</h2></div>
+<p>Once data could move reliably, the job became preserving the relationships behind each transaction.</p>
+</div>
+<div class="sf-operations-grid">
+<article class="sf-operation">
+<span class="sf-operation-number">A / PRODUCTS &amp; ECOMMERCE</span>
+<h3>A product needs more than a name and a price.</h3>
+<p>Salesforce held the source product records and two price books; WooCommerce handled storefront and fulfillment. I used Zapier to extract the correct prices and a custom WordPress REST endpoint to validate fields, assign categories, and create or update products. Dimensions, weight, and virtual status had to be carried through so shipping worked too.</p>
+</article>
+<article class="sf-operation">
+<span class="sf-operation-number">B / COURSES &amp; REGISTRATIONS</span>
+<h3>One registration can involve several records.</h3>
+<p>I worked with the links between Accounts, Contacts, parent and scheduled courses, and Course Registrants. Keeping those relationships explicit — including host-site and location distinctions — meant the business could understand participation by person, company, course, and related purchase instead of dealing with disconnected submissions.</p>
+</article>
+</div>
+</div>
+</section>
+<section aria-labelledby="sf-consult-title" class="sf-extension scene-panel" data-scene="case-reading-alt" id="consulting">
+<div class="wrap">
+<div class="sf-section-heading sf-section-heading-compact">
+<div><p class="sf-overline">04 / CONSULTATION LIFECYCLE</p><h2 id="sf-consult-title">Lead routing uncovered the next gap.</h2></div>
+<span class="sf-sandbox-label">SALESFORCE SANDBOX BUILD</span>
+</div>
+<div class="sf-extension-grid">
+<div class="sf-extension-text">
+<p>The consulting branch got requests to the right person, but an assigned Lead was not enough to manage work that continued for months. Staff needed to see the company, the people involved, previous engagements, and what needed attention next.</p>
+<p>I extended the model in Salesforce sandbox: the consulting Lead converts into an Account and Contact, a custom Consultation Engagement record captures the work, and follow-up Tasks make next steps visible. Multiple Contacts can be related to an engagement without duplicating the company or losing its history.</p>
+<p class="sf-note"><strong>Implementation status: </strong>Objects, relationships, flows, pages, and list views were built in sandbox. Expiration and renewal reminders were proposed as a later improvement, not a deployed feature.</p>
+</div>
+<div aria-label="Salesforce consultation data model: an Account is the client hub with Potential, Current and Previous status; linked Contacts, Consultation Engagement records and follow-up Tasks capture the continuing relationship." class="sf-model" role="img">
+<div class="sf-model-top"><span>CONSULTATION RECORD MODEL</span><span>ACCOUNT-CENTRIC</span></div>
+<div class="sf-account">
+<span class="sf-model-kicker">SALESFORCE ACCOUNT</span>
+<strong>Client / company</strong>
+<div class="sf-status-row"><span>Potential</span><span>Current</span><span>Previous</span></div>
+</div>
+<div aria-hidden="true" class="sf-model-rail"><i></i><i></i><i></i></div>
+<div class="sf-record-grid">
+<div class="sf-record"><span>CONTACTS</span><strong>Multiple POCs</strong><small>Linked to engagements</small></div>
+<div class="sf-record sf-record-key"><span>CONSULTATION ENGAGEMENTS</span><strong>Work history</strong><small>More than one per account</small></div>
+<div class="sf-record"><span>ACTIVITIES</span><strong>Follow-up tasks</strong><small>Assigned next steps</small></div>
+</div>
+<p class="sf-model-note">Separate from course registrations · Structured for ongoing client work</p>
+</div>
+</div>
+</div>
+</section>
+<section aria-labelledby="sf-use-title" class="sf-use scene-panel" data-scene="case-reading-soft" id="use">
+<div class="wrap">
+<div class="sf-use-inner">
+<div><span class="sf-overline">05 / PUTTING THE DATA TO WORK</span><h2 id="sf-use-title">Cleaner records made the next decisions easier.</h2></div>
+<div class="sf-use-copy">
+<p>Staff could respond to inquiries with the source and reason for contact already attached. Product exceptions — missing pricing or fulfillment details — were easier to spot before they affected a customer. Registration relationships could support course demand and customer-history reporting. And consulting requests now had a path toward ongoing engagement tracking instead of ending at the first follow-up.</p>
+<p>I didn't treat this as a finished BI dashboard or claim a measured revenue lift. The result was a more dependable set of operating records, with attribution and reporting fields collected early enough to be useful later.</p>
+<a href="../systems.html">More systems work <span aria-hidden="true">↗</span></a>
+</div>
+</div>
+</div>
+</section>
 </main>
 <footer class="glass-footer" data-scene="footer">
 <div class="site-width">
@@ -121,5 +159,5 @@
 <div class="footer-bottom"><span>© 2026 Oluwaseun Fadeyi</span><span>Independent portfolio</span><a href="#top">Back to top ↑</a></div>
 </div>
 </footer>
-<script src="../glass.js" defer></script><script src="../portfolio-final.js" defer></script>
+<script defer="" src="../glass.js"></script><script defer="" src="../portfolio-final.js"></script>
 </body></html>
