@@ -516,3 +516,27 @@ body.glass-site[data-home-focus="creative"] .portfolio-home-hero .lens-creative 
   body.glass-site .nav-links a {padding:10px 9px;font-size:.78rem;}
   body.glass-site .nav-links .nav-resume {margin-left:3px;}
 }
+
+
+/* Home discipline controls: keep both CTAs in a real flex row.
+   The creative-mode display override was turning its row into a block,
+   causing the resume link to collide with the primary action. */
+.home-intro-copy .home-actions {
+  align-items:center;justify-content:flex-start;
+  flex-wrap:wrap;column-gap:clamp(18px,2.4vw,32px);row-gap:16px;
+}
+body.glass-site:not([data-home-focus="creative"]) .home-intro-copy .home-actions.mode-systems,
+body.glass-site[data-home-focus="creative"] .home-intro-copy .home-actions.mode-creative {display:flex!important;}
+.home-intro-copy .home-actions .primary-action {
+  flex:0 1 auto;min-height:54px;gap:clamp(15px,2vw,28px);
+  max-width:100%;text-align:left;
+}
+.home-intro-copy .home-actions .home-resume-link {
+  flex:0 0 auto;display:inline-flex;align-items:center;gap:12px;
+  margin:0;padding:8px 0;text-decoration:none;white-space:nowrap;
+}
+@media(max-width:620px) {
+ .home-intro-copy .home-actions {align-items:flex-start;gap:18px;}
+ .home-intro-copy .home-actions .primary-action {width:100%;justify-content:space-between;}
+ .home-intro-copy .home-actions .home-resume-link {padding:4px 0 8px;}
+}

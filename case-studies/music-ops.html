@@ -18,17 +18,17 @@
 <section class="ops-big scene-panel" data-scene="case-media"><div class="wrap ops-grid music-ops-overview"><div><span class="label">INTERFACE / SYSTEM MAP</span><h2>Making automation useful<br/>to the editorial team</h2><p>The scheduled system handles research, track selection, and maintenance. The dashboard gives that work a practical interface for review, approval, and producing related content.</p>
 <div class="case-diagram"><p class="diagram-label">THREE CONNECTED AREAS</p><div class="diagram-stack"><div class="diagram-node"><strong>Runner</strong><span>Discovery, scoring, cleanup, sync, reconciliation</span></div><div class="diagram-arrow">↓</div><div class="diagram-node accent"><strong>Dashboard</strong><span>Playlists, approvals, assets, ideas, visible file flow</span></div><div class="diagram-arrow">↓</div><div class="diagram-node"><strong>Outputs</strong><span>Playlists, Vinyl Club packets, carousels, thumbnails, motion</span></div></div></div></div>
 <div aria-label="Music Ops dashboard screenshots" class="music-ops-mosaic">
-<figure class="music-shot"><img alt="Who’s AUX content library dashboard with filters, content cards, and AI proposal controls" loading="eager" src="../assets/images/music-ops-content-library.png"/><figcaption>Content library <span>Ideas, statuses, and handoff-ready briefs in one place.</span></figcaption></figure>
-<figure class="music-shot"><img alt="Who’s AUX assets page showing uploaded source artwork, video thumbnails, and search controls" loading="eager" src="../assets/images/music-ops-assets.png"/><figcaption>Assets <span>Uploads stay attached to the story, with visible provenance.</span></figcaption></figure>
-<figure class="music-shot"><img alt="Who’s AUX Vinyl Club dashboard for a monthly album feature with recommendations and publishing steps" loading="lazy" src="../assets/images/music-ops-vinyl-club.png"/><figcaption>Vinyl Club <span>The month moves from research to playlist review and publishing.</span></figcaption></figure>
-<figure class="music-shot"><img alt="Who’s AUX playlists dashboard showing multiple playlists, counts, and review links" loading="lazy" src="../assets/images/music-ops-playlists.png"/><figcaption>Playlists <span>Recurring refreshes stay visible instead of living in the background.</span></figcaption></figure>
+<figure class="music-shot music-shot-feature"><img alt="Who’s AUX content library dashboard with filters, content cards, and AI proposal controls" loading="eager" src="../assets/images/music-ops-content-library.png"/><figcaption>Content library <span>Saved ideas, review status, and the work ready for production.</span></figcaption></figure>
+
+
+
 </div></div><div class="real-dashboard-mount" id="musicops-screenshot-mount"></div></section>
 <nav aria-label="Case study chapters" class="case-index-bar"><a href="#chapter-01">EVOLUTION</a><a href="#chapter-02">PLAYLISTS</a><a href="#chapter-03">DATA LAYER</a><a href="#chapter-04">RUNNER</a><a href="#chapter-05">VINYL CLUB</a><a href="#chapter-06">OUTCOMES</a></nav>
 <section class="case-body-section scene-panel" data-scene="case-reading-soft" id="chapter-01"><div class="wrap"><div class="story-header"><span class="story-no">01 / EVOLUTION</span><h2>From maintenance to music operations</h2></div>
 <div class="story-material"><div class="case-study-content"><div class="about-copy"><p>The first goal was to reduce the repeated work behind themed playlists: finding candidates, checking identities, applying curation rules, and publishing updates on schedule.</p>
-<p>Once that workflow was established, I reused the catalog for Vinyl Club album research. As more editorial work developed around it, I added a dashboard to bring reviews, files, and content planning into one workspace.</p>
-<p>A recommendation can now move into a playlist or content brief while retaining the sources and decisions behind it.</p></div>
-<figure class="music-inline-shot"><img alt="Who’s AUX content library dashboard showing saved ideas and readiness states" loading="lazy" src="../assets/images/music-ops-content-library.png"/><figcaption>One home for the work <span>The dashboard makes the workflow easier to follow, review, and use.</span></figcaption></figure></div></div></div></section>
+<p>Once that workflow was established, I reused the catalog for Vinyl Club research. As the work expanded, I added a dashboard for reviewing playlists, managing assets, and planning the content that comes from them.</p>
+<p>The Assets view keeps uploads and finished media together, with their sources attached. That matters when a recommendation becomes a playlist, a video, or a brief someone else needs to pick up.</p></div>
+<figure class="music-inline-shot"><img alt="Music Ops Assets view with original artwork, uploaded video files, and a searchable media library" loading="lazy" src="../assets/images/music-ops-assets.png"/><figcaption>Assets and source files <span>Original media and finished work stay easy to find.</span></figcaption></figure></div></div></div></section>
 <section class="case-body-section scene-panel" data-scene="case-reading" id="chapter-02"><div class="wrap"><div class="story-header"><span class="story-no">02 / PLAYLIST ENGINE</span><h2>Operating nine playlists on shared infrastructure</h2></div><div class="story-material"><div class="case-study-content">
 <div class="about-copy">
 <p>Five Who’s AUX playlists and four Intelligent Design playlists use the same catalog, with different curation rules and schedules. The runner collects candidates, checks identity and duplication, applies theme rules, and refreshes eligible playlists.</p>
@@ -46,7 +46,18 @@
 <li><code>playlist_observed_state</code> tracks what is actually live</li>
 <li><code>vinyl_month_tracks</code> stores the approved monthly state</li>
 </ul></div>
-<figure class="music-inline-shot"><img alt="Assets dashboard showing uploaded source media, preview thumbnails, and asset search" loading="lazy" src="../assets/images/music-ops-assets.png"/><figcaption>Source retention <span>Files and source material stay attached to the workflow instead of getting buried in folders.</span></figcaption></figure>
+
+<aside aria-label="Music Ops data flow" class="music-data-map">
+<p class="music-map-label">How the data is organized</p>
+<div class="music-data-map-track">
+<div class="music-map-node"><span>01 / SOURCES</span><strong>Original observations</strong><small>Charts, seed playlists, listening signals, provider IDs</small></div>
+<span aria-hidden="true" class="music-map-arrow">↓</span>
+<div class="music-map-node is-key"><span>02 / CATALOG</span><strong>Resolved music records</strong><small>Artist and track identity, evidence, reference data</small></div>
+<span aria-hidden="true" class="music-map-arrow">↓</span>
+<div class="music-map-node"><span>03 / WORKFLOW</span><strong>Decisions and history</strong><small>Scores, approvals, manual edits, publishing state</small></div>
+</div>
+<p class="music-map-footnote">The original source is retained, even after the recording is matched to a clean catalog entry.</p>
+</aside>
 </div></div></div></section>
 <section class="case-body-section scene-panel" data-scene="case-reading-soft" id="chapter-04"><div class="wrap"><div class="story-header"><span class="story-no">04 / SCHEDULED OPERATIONS</span><h2>The scheduled workflow</h2></div><div class="story-material"><div class="detail-grid">
 <article class="detail-item">
@@ -70,7 +81,7 @@
 <p>Eligible playlists are updated, and manual changes are recorded before the next run.</p>
 </article>
 </div></div></div></section>
-<section class="case-body-section scene-panel" data-scene="case-reading" id="chapter-05"><div class="wrap"><div class="story-header"><span class="story-no">05 / VINYL CLUB</span><h2>A repeatable Vinyl Club editorial process</h2></div><div class="story-material"><div class="case-study-content"><div class="about-copy"><p>Vinyl Club uses the same research foundation for its monthly feature. An album link begins a process of discovery, companion recommendations, and a proposed playlist.</p><p>The final album selections and playlist remain subject to editorial approval. The dashboard tracks progress and makes the approved material available for related content planning.</p></div><figure class="music-inline-shot"><img alt="Vinyl Club dashboard showing the featured album, step-based workflow, and recommendation state" loading="lazy" src="../assets/images/music-ops-vinyl-club.png"/><figcaption>Monthly workflow <span>Research, recommendations, review, and publishing all live in the same place.</span></figcaption></figure></div><div class="flow">
+<section class="case-body-section scene-panel" data-scene="case-reading" id="chapter-05"><div class="wrap"><div class="story-header"><span class="story-no">05 / VINYL CLUB</span><h2>A repeatable Vinyl Club editorial process</h2></div><div class="story-material"><div class="case-study-content music-vinyl-overview"><div class="about-copy"><p>Vinyl Club uses the same research foundation for its monthly feature. An album link begins a process of discovery, companion recommendations, and a proposed playlist.</p><p>The final album selections and playlist remain subject to editorial approval. The dashboard tracks progress and makes the approved material available for related content planning.</p></div><figure class="music-inline-shot"><img alt="Vinyl Club dashboard showing the featured album, step-based workflow, and recommendation state" loading="lazy" src="../assets/images/music-ops-vinyl-club.png"/><figcaption>Vinyl Club dashboard <span>Research, selections, review, and publishing for the current month.</span></figcaption></figure></div><div class="flow music-vinyl-steps">
 <article class="diagram-node">
 <p class="flow-step">01 / EMAIL</p>
 <strong>Start with a link</strong>
