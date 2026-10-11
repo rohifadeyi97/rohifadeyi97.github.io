@@ -43,10 +43,10 @@
   const filterSummary = document.getElementById('filter-summary');
   if (filterButtons.length && commercial && eventSection) {
     const counts = {
-      all: 'Showing all five selected projects.',
+      all: 'Showing all six campaigns and eight video edits.',
       commercial: 'Showing the commercial brand advertisement.',
-      events: 'Showing four event campaigns.',
-      vertical: 'Showing the vertical social promotion.'
+      events: 'Showing five event campaigns.',
+      vertical: 'Showing two vertical-led projects.'
     };
     const setFilter = (type, scroll) => {
       commercial.hidden = !['all','commercial'].includes(type);

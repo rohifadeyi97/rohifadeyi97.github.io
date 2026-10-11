@@ -295,3 +295,216 @@ body.glass-site[data-home-focus="creative"] .about-v3-grid p {color:#d8cbdc !imp
 body.glass-site[data-home-focus="creative"] .discipline-info p {color:inherit;}
 body.glass-site[data-home-focus="creative"] .discipline-tech .discipline-info p {color:#536987;}
 body.glass-site[data-home-focus="creative"] .discipline-content .discipline-info p {color:#f1e4f3;}
+
+/* 2026-10: Focused portfolio cleanup. Real work first, interface second. */
+
+/* Homepage discipline selector: full, uncropped work, with the identity below the visual. */
+.portfolio-home-hero .lens-console { padding: 15px; }
+.portfolio-home-hero .lens-console-head { padding: 6px 5px 14px; gap: 16px; }
+.portfolio-home-hero .lens-window {
+  display: grid;
+  position: relative;
+  aspect-ratio: auto !important;
+  min-height: 0 !important;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #f6f8fc;
+}
+.portfolio-home-hero .lens-slide {
+  display: flex;
+  flex-direction: column;
+  grid-area: 1 / 1;
+  position: relative !important;
+  inset: auto !important;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transform: none !important;
+}
+.portfolio-home-hero .lens-dashboard {
+  flex: 1 0 auto;
+  height: auto !important;
+  display: block;
+  background: #fff;
+}
+.portfolio-home-hero .lens-appbar {
+  height: 30px;
+  gap: 12px;
+  font-size: .6rem;
+  padding: 0 12px;
+  background: #f6f8fc;
+}
+.portfolio-home-hero .lens-dashboard > img {
+  display: block;
+  flex: none !important;
+  min-height: 0 !important;
+  width: 100% !important;
+  height: auto !important;
+  padding: 0 !important;
+  object-fit: contain !important;
+  object-position: center;
+  background: #fff;
+}
+.portfolio-home-hero .lens-creative > img {
+  display: block;
+  flex: 1 0 auto;
+  width: 100%;
+  height: auto !important;
+  min-height: 0;
+  object-fit: contain !important;
+  object-position: center;
+}
+.portfolio-home-hero .lens-creative::before { display: none; }
+.portfolio-home-hero .lens-overlay,
+body.glass-site[data-home-focus="creative"] .portfolio-home-hero .lens-overlay {
+  position: relative !important;
+  inset: auto !important;
+  display: grid;
+  flex: 1 0 auto;
+  gap: 6px;
+  min-height: 100px;
+  margin: 0;
+  padding: 15px 19px 17px;
+  border-radius: 0;
+  border: 0;
+  border-top: 1px solid rgba(86,108,150,.13);
+  background: #f9fbff;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+.portfolio-home-hero .lens-overlay strong { font-size: clamp(1.05rem,1.35vw,1.32rem); line-height: 1.2; }
+.portfolio-home-hero .lens-overlay small { font-size: .74rem; }
+.portfolio-home-hero .lens-creative .lens-overlay,
+body.glass-site[data-home-focus="creative"] .portfolio-home-hero .lens-creative .lens-overlay {
+  background: #191424;
+  color: #fff;
+  border-color: rgba(255,255,255,.14);
+}
+.portfolio-home-hero .lens-creative .lens-overlay span,
+.portfolio-home-hero .lens-creative .lens-overlay small { color: #d6cce7; }
+.portfolio-home-hero .lens-creative .lens-overlay small b { color: #fff; }
+.portfolio-home-hero .lens-slide:not(.is-active) { pointer-events: none; }
+
+/* Case study real dashboard mount is populated only by the local Mac capture helper. */
+.real-dashboard-mount:empty { display: none; }
+.real-dashboard-mount:not(:empty) {
+  width: min(100% - 48px, 1200px);
+  margin: 20px auto 68px;
+}
+.real-dashboard-mount figure { margin: 0; }
+.real-dashboard-mount img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  border: 1px solid rgba(64,83,133,.16);
+  box-shadow: 0 24px 65px rgba(35,54,96,.14);
+}
+.real-dashboard-mount figcaption {
+  padding: 14px 3px 0;
+  color: #61728a;
+  font: 500 .7rem/1.6 var(--mono);
+  letter-spacing: .02em;
+}
+
+/* Event work: the content is the main visual, the proof and links are small. */
+.portfolio-film-grid .film-item { height: auto; }
+.portfolio-film-grid .film-content { padding: 21px 23px 24px; }
+.portfolio-film-grid .film-content h3 { margin-bottom: 9px; }
+.portfolio-film-grid .film-content > p { font-size: .9rem; line-height: 1.63; max-width: 58ch; }
+.film-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(100,87,132,.17);
+  color: #645d7c;
+  font: 500 .72rem/1.6 var(--mono);
+}
+.film-meta-row a {
+  color: #6d488e;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(109,72,142,.34);
+  padding-bottom: 2px;
+}
+.film-meta-row a:hover { color: #4a2774; border-bottom-color: currentColor; }
+
+/* Late Breakfast has three distinct releases. Keep them together as a sequence. */
+.portfolio-film-grid .late-breakfast-campaign {
+  grid-column: 1 / -1;
+  width: 100%;
+  max-width: none;
+  display: flex;
+  flex-direction: column;
+  border-radius: 25px;
+}
+.campaign-edit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 10px;
+  padding: 12px;
+  background: #12131b;
+}
+.campaign-edit {
+  min-width: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+.campaign-edit video {
+  width: 100%;
+  height: auto;
+  max-height: 580px;
+  aspect-ratio: 9 / 16;
+  object-fit: contain;
+  background: #09090d;
+  border-radius: 8px;
+}
+.campaign-edit figcaption {
+  min-height: 56px;
+  padding: 11px 7px 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  color: #d9d2e0;
+}
+.campaign-edit figcaption b { color: #fff; font: 600 .75rem/1.3 var(--sans); }
+.campaign-edit figcaption span { font: 400 .69rem/1.5 var(--mono); }
+.late-breakfast-campaign .film-content { display: block; }
+.late-breakfast-campaign .film-content h3 { margin-bottom: 10px; }
+
+/* Keep the Last Chance vertical edit full-frame within its card. */
+.portfolio-film-grid #last-chance { grid-column: 1 / -1; }
+.portfolio-film-grid #last-chance .film-media { background: #101015; }
+.portfolio-film-grid #last-chance .film-media video { max-height: 630px; }
+
+@media(max-width:760px) {
+  .portfolio-home-hero .lens-console { padding: 9px; }
+  .portfolio-home-hero .lens-console-head { align-items: flex-start; flex-direction: column; }
+  .portfolio-home-hero .lens-slide { height: auto; }
+  .portfolio-home-hero .lens-overlay,
+  body.glass-site[data-home-focus="creative"] .portfolio-home-hero .lens-overlay { padding: 12px 13px 15px; min-height: 88px; }
+  .portfolio-home-hero .lens-appbar { height: 27px; font-size: .52rem; }
+  .portfolio-home-hero .lens-overlay strong { font-size: 1rem; }
+  .portfolio-home-hero .lens-overlay small { font-size: .65rem; }
+  .campaign-edit-grid {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    padding-bottom: 18px;
+  }
+  .campaign-edit { flex: 0 0 min(72vw,290px); scroll-snap-align: start; }
+  .portfolio-film-grid #last-chance { display: grid; grid-template-columns: 1fr; }
+  .portfolio-film-grid #last-chance .film-media video { max-height: 560px; width: auto; margin-inline: auto; }
+  .real-dashboard-mount:not(:empty) { width: calc(100% - 32px); }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  .campaign-edit-grid { scroll-behavior: auto; }
+}

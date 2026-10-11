@@ -1,5 +1,4 @@
 /* Glass Studio — visual system, 2026. Static site: no dependencies or build step. */
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 @property --tone-a { syntax: '<color>'; inherits: true; initial-value: #e3efff; }
 @property --tone-b { syntax: '<color>'; inherits: true; initial-value: #eee1ff; }
