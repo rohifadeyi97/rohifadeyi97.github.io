@@ -1,22 +1,12 @@
-Portfolio update — October 11, 2026
+PORTFOLIO COPY EDIT / OCTOBER 2026
 
-This is the complete portfolio (all pages, images, videos and PDFs) with two focused updates:
+- Homepage: rewrote the introduction, discipline descriptions, project summaries, and About section.
+- Systems page: clarified the project descriptions, Music Ops overview, and approach.
+- Creative page: shortened campaign descriptions and kept the event-registration figures tied to their respective events.
+- Music Ops: kept the four supplied screenshots, tightened the explanation, and retained the technical workflow details.
+- Operational Data Integration: preserved the full timeline from data cleanup to intake, ecommerce, course records, and consultation tracking.
+- Marketing Attribution Warehouse, Who's AUX Diagnostic Analytics, and Vinyl Club Predictive Analytics: edited headings and narrative for plain language while keeping the measurements and caveats.
+- Sanitized Salesforce brief: rebuilt as a shorter two-page account.
+- All em dashes removed from the site HTML, CSS, JavaScript, and supporting copy.
 
-1. Creative page — Between Seasons and Last Chance now share the same row on desktop instead of leaving a large gap. Tablet/mobile layout remains responsive. The original videos and event figures have not changed.
-
-2. Operational Data Integration — expanded the short case study back into its actual sequence: data cleanup and field mapping, lead capture/routing, product and price-book synchronization, registration relationships, consulting engagements in Salesforce sandbox, and utilization/reporting. The real sanitized Salesforce and Zapier screenshots remain.
-
-The "Sanitized project brief" link now opens an updated two-page PDF written in more natural language. It replaces the previous six-page PDF. The project is anonymized; consulting automation is explicitly described as sandbox work.
-
-To publish the complete website: extract the ZIP, copy the contents (not the ZIP itself) into your local GitHub Pages repository, then commit/push through GitHub Desktop. Keep the existing directory structure.
-
-To use the small update: extract the patch ZIP in the root of your current portfolio (the version from portfolio-salesforce-consulting-complete.zip). Allow these exact six files to overwrite their older versions:
-
-creative.html
-creative-grid-refine.css  (new)
-portfolio-final.css
-case-studies/salesforce-automation.html
-case-studies/salesforce-case.css
-salesforce-integrations-case-study.pdf
-
-No images or MP4s are replaced, so the small patch does not require uploading the video library again.
+No known content or functionality changes are intended beyond the wording, the supporting Music Ops screenshots, and the updated brief.

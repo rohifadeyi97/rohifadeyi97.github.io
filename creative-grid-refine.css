@@ -1,5 +1,5 @@
 
-/* Compact event-grid fix — visual rhythm without unused grid row. */
+/* Compact event-grid fix | visual rhythm without unused grid row. */
 @media (min-width: 960px) {
   body.glass-site .portfolio-film-grid {align-items:stretch;}
   body.glass-site .portfolio-film-grid #last-chance {

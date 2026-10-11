@@ -1,4 +1,4 @@
-/* Glass Studio interactions — accessible, static-site friendly, motion optional. */
+/* Glass Studio interactions | accessible, static-site friendly, motion optional. */
 (() => {
   const root = document.documentElement;
   const body = document.body;

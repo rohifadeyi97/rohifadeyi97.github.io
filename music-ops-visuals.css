@@ -1,0 +1,53 @@
+/* Music Ops case study: more real product visuals, less empty space. */
+.music-ops-overview { align-items: start; }
+.music-ops-mosaic {
+ display: grid;
+ grid-template-columns: repeat(2, minmax(0, 1fr));
+ gap: 14px;
+ align-content: start;
+}
+.music-shot,
+.music-inline-shot {
+ margin: 0;
+ padding: 10px;
+ border: 1px solid rgba(77, 93, 132, .18);
+ border-radius: 22px;
+ background: rgba(255,255,255,.86);
+ box-shadow: 0 18px 42px rgba(30, 43, 76, .12);
+}
+.music-shot img,
+.music-inline-shot img {
+ display: block;
+ width: 100%;
+ height: auto;
+ border-radius: 14px;
+ border: 1px solid rgba(77, 93, 132, .12);
+}
+.music-shot figcaption,
+.music-inline-shot figcaption {
+ padding: 12px 4px 2px;
+ color: #5d6e87;
+ font: 500 .72rem/1.55 var(--mono);
+ letter-spacing: .02em;
+ text-transform: uppercase;
+}
+.music-shot figcaption span,
+.music-inline-shot figcaption span {
+ display: block;
+ margin-top: 5px;
+ color: #30415d;
+ font: 400 .86rem/1.6 var(--sans);
+ letter-spacing: 0;
+ text-transform: none;
+}
+.music-inline-shot { align-self: start; }
+.music-inline-shot img { background: #fff; }
+
+@media(max-width:960px) {
+ .music-ops-mosaic { grid-template-columns: 1fr; }
+}
+
+@media(max-width:760px) {
+ .music-shot,
+ .music-inline-shot { border-radius: 18px; }
+}
