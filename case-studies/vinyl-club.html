@@ -14,12 +14,12 @@
 </nav>
 </header>
 <main id="main"><section class="case-front scene-panel" data-scene="case-intro"><div class="wrap case-front-inner"><div class="case-overline micro"><span>CASE STUDY / 03 / PREDICTIVE STUDY</span><span><a class="underlink" href="../systems.html">← SYSTEMS INDEX</a></span></div>
-<h1>Vinyl Club <em>Predictive</em> Analytics</h1><div aria-label="Project summary" class="case-facts"><div class="case-fact"><span>Build</span><strong>12-month, 3-scenario forecast</strong></div><div class="case-fact"><span>Tools</span><strong>MySQL / Power BI / DAX</strong></div><div class="case-fact"><span>Focus</span><strong>Subscription feasibility</strong></div></div><div class="intro"><p class="lede">I built a 12-month forecast to test whether a vinyl subscription made financial sense, and whether it was a better next product than simpler alternatives.</p><div class="case-action"><a href="https://app.powerbi.com/view?r=eyJrIjoiZTA3NGJiNTYtMDQ2ZS00ZDJmLWI2MDctMmZiZjk3ZmU3OGJiIiwidCI6IjQ2YWVjMTg4LTk3ZGQtNDY5Zi1iYzRiLTcwMjNkNGYyMWM0YSJ9" rel="noopener" target="_blank">View live dashboard ↗</a></div></div></div></section>
+<h1>Vinyl Club <em>Predictive</em> Analytics</h1><div aria-label="Project summary" class="case-facts"><div class="case-fact"><span>Build</span><strong>12-month, 3-scenario forecast</strong></div><div class="case-fact"><span>Tools</span><strong>MySQL / Power BI / DAX</strong></div><div class="case-fact"><span>Focus</span><strong>Subscription feasibility</strong></div></div><div class="intro"><p class="lede">I evaluated a proposed vinyl subscription as a business opportunity, building a 12-month model to test acquisition, retention, and profitability. The goal was to inform a product decision before committing inventory, marketing spend, or operational capacity.</p><div class="case-action"><a href="https://app.powerbi.com/view?r=eyJrIjoiZTA3NGJiNTYtMDQ2ZS00ZDJmLWI2MDctMmZiZjk3ZmU3OGJiIiwidCI6IjQ2YWVjMTg4LTk3ZGQtNDY5Zi1iYzRiLTcwMjNkNGYyMWM0YSJ9" rel="noopener" target="_blank">View live dashboard ↗</a></div></div></div></section>
 <section class="case-media-band scene-panel" data-scene="case-media"><div class="wrap"><div class="case-media-intro micro"><span>MODEL / VISUAL SUMMARY</span><span>12-MONTH PROJECTIONS</span></div><figure class="case-photo case-data-visual"><img alt="Scenario model with 949 projected month-12 subscribers, 33,662 dollars of base-case MRR, and 2.93 times LTV to CAC; three modeled MRR outcomes" loading="eager" src="../assets/images/vinyl-model-scenarios.svg"/><figcaption>SCENARIO MODEL / BASE CASE, DOWNSIDE &amp; UPSIDE / PROJECTED, NOT OBSERVED</figcaption></figure></div></section><nav aria-label="Case study chapters" class="case-index-bar"><a href="#chapter-01">Overview</a><a href="#chapter-02">Process</a><a href="#chapter-03">Findings</a><a href="#chapter-04">Recommendation</a><a href="#chapter-05">What I'd do differently</a></nav>
-<section class="case-body-section scene-panel" data-scene="case-reading-soft" id="chapter-01"><div class="wrap"><div class="story-header"><span class="story-no">01 / Overview</span><h2>Was a subscription the right next product?</h2></div><div class="story-material"><div class="case-study-content">
+<section class="case-body-section scene-panel" data-scene="case-reading-soft" id="chapter-01"><div class="wrap"><div class="story-header"><span class="story-no">01 / Overview</span><h2>Evaluating a new revenue opportunity</h2></div><div class="story-material"><div class="case-study-content">
 <div class="about-copy">
-<p>Who’s AUX was relying on individual ecommerce sales. A vinyl subscription seemed like a possible way to bring in more predictable revenue, especially as order volume started to weaken.</p>
-<p>Before buying inventory or planning a launch, I wanted to see what the subscription would cost to acquire and retain, then compare it with other product ideas.</p>
+<p>Who’s AUX relied on one-time ecommerce transactions. As order volume softened, a subscription model offered a potential source of recurring revenue, but it also introduced inventory, fulfillment, and retention risks.</p>
+<p>I treated the subscription as one option among several. The model needed to compare customer economics and launch complexity against simpler opportunities, not just forecast a promising revenue line.</p>
 </div>
 <div class="case-diagram">
 <p class="diagram-label">Decision frame</p>
@@ -31,10 +31,10 @@
 <div class="diagram-node"><strong>Compare before committing</strong><span>Subscription club vs. simpler product-line opportunities</span></div>
 </div>
 </div>
-</div></div></div></section><section class="case-body-section scene-panel" data-scene="case-reading" id="chapter-02"><div class="wrap"><div class="story-header"><span class="story-no">02 / Process</span><h2>I rebuilt the first forecast</h2></div><div class="story-material"><div class="case-study-content">
+</div></div></div></section><section class="case-body-section scene-panel" data-scene="case-reading" id="chapter-02"><div class="wrap"><div class="story-header"><span class="story-no">02 / Process</span><h2>Rebuilding the model around evidence</h2></div><div class="story-material"><div class="case-study-content">
 <div class="about-copy">
-<p>My first version included seven months of synthetic subscriber history. The charts and cohort calculations worked, but I had created the very evidence I was supposed to be testing. I scrapped that version.</p>
-<p>The second model separates published benchmarks from assumptions about this specific business. I built Conservative, Base, and Aggressive forecasts for churn, customer acquisition cost, margin, subscriber growth, and LTV:CAC. I also scored Vinyl Club against three other possible product lines.</p>
+<p>An early version used seven months of synthetic subscriber history. It produced convincing cohort charts, but that history was not evidence of demand. I replaced it with a forward-looking model grounded in published benchmarks and clearly stated assumptions.</p>
+<p>I developed Conservative, Base, and Aggressive scenarios for churn, acquisition cost, margin, growth, and LTV:CAC, keeping market benchmarks separate from business-specific assumptions. A weighted scorecard compared Vinyl Club with three other product opportunities.</p>
 <dl class="project-details">
 <div><dt>Model</dt><dd>3 scenarios, 12-month projection, product-line scorecard</dd></div>
 <div><dt>Data</dt><dd>Cited market benchmarks + explicitly labeled assumptions</dd></div>
@@ -51,9 +51,9 @@
 <div class="diagram-arrow">→</div>
 <div class="diagram-node"><strong>Decision model</strong><span>Scenario economics + product-line comparison</span></div>
 </div>
-<p class="diagram-caption">The revised model could give an unfavorable result. That made it useful for an actual decision.</p>
+<p class="diagram-caption">The revised approach allowed the numbers to challenge the original idea instead of simply supporting it.</p>
 </div>
-</div></div></div></section><section class="case-body-section scene-panel" data-scene="case-reading-alt" id="chapter-03"><div class="wrap"><div class="story-header"><span class="story-no">03 / Findings</span><h2>What the scenarios showed</h2></div><div class="story-material"><div class="expertise-grid">
+</div></div></div></section><section class="case-body-section scene-panel" data-scene="case-reading-alt" id="chapter-03"><div class="wrap"><div class="story-header"><span class="story-no">03 / Findings</span><h2>The financial outlook across scenarios</h2></div><div class="story-material"><div class="expertise-grid">
 <article class="expertise-item">
 <p class="expertise-number">01 / Base case</p>
 <h3 class="finding-emphasis">949 subs / $33.7K MRR</h3>
@@ -74,7 +74,7 @@
 <h3 class="finding-emphasis">#3 of 4</h3>
 <p>Vinyl Club had the highest modeled first-year revenue at about $251.7K, but ranked third when I also weighed margin, acquisition cost, launch time, and fulfillment effort.</p>
 </article>
-</div></div></div></section><section class="case-body-section scene-panel" data-scene="case-reading-soft" id="chapter-04"><div class="wrap"><div class="story-header"><span class="story-no">04 / Recommendation</span><h2>What I recommended</h2></div><div class="story-material"><div class="recommendation-list">
+</div></div></div></section><section class="case-body-section scene-panel" data-scene="case-reading-soft" id="chapter-04"><div class="wrap"><div class="story-header"><span class="story-no">04 / Recommendation</span><h2>A staged recommendation</h2></div><div class="story-material"><div class="recommendation-list">
 <article class="recommendation-item">
 <p class="step">01</p>
 <h3>Launch accessories first</h3>
@@ -95,10 +95,10 @@
 <h3>Hold creator capsules</h3>
 <p>Revisit creator collaborations after the audience and expected margins make them more practical.</p>
 </article>
-</div></div></div></section><section class="case-body-section scene-panel" data-scene="case-reading" id="chapter-05"><div class="wrap"><div class="story-header"><span class="story-no">05 / REFLECTION</span><h2>What I would change next time</h2></div><div class="story-material"><div class="reflection-grid">
+</div></div></div></section><section class="case-body-section scene-panel" data-scene="case-reading" id="chapter-05"><div class="wrap"><div class="story-header"><span class="story-no">05 / REFLECTION</span><h2>What the rebuild clarified</h2></div><div class="story-material"><div class="reflection-grid">
 <div class="about-copy">
-<p>I spent too much time making the first version look like a business that already had subscribers. It looked convincing, but it was not evidence. The rebuild was a better way to evaluate a product that had not launched.</p>
-<p>I would separate benchmarks from assumptions from the start and compare every proposal with simpler options. The purpose of the model is to help decide what to do, not to make the original idea look good.</p>
+<p>The initial model was detailed, but it relied on a fictional operating history. Rebuilding it around scenario assumptions made the analysis more useful for deciding whether a real-world pilot was justified.</p>
+<p>The lesson I would carry forward is to label assumptions early and evaluate a proposal against alternatives. The quality of a forecast is measured by how well it supports a decision, not by how attractive its projections appear.</p>
 </div>
 <aside class="method-note">
 <p><strong>Important model caveat:</strong> the scenario outputs are forward-looking modeled results, not observed subscription performance. The addressable audience and several business-specific conversion inputs remain assumptions until a real waitlist or pilot produces first-party data.</p>

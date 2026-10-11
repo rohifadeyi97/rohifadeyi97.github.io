@@ -14,12 +14,12 @@
 </nav>
 </header>
 <main id="main"><section class="case-front scene-panel" data-scene="case-intro"><div class="wrap case-front-inner"><div class="case-overline micro"><span>CASE STUDY / 01 / DATA STUDY</span><span><a class="underlink" href="../systems.html">← SYSTEMS INDEX</a></span></div>
-<h1>Marketing <em>Attribution</em> Warehouse</h1><div aria-label="Project summary" class="case-facts"><div class="case-fact"><span>Build</span><strong>32-table attribution warehouse</strong></div><div class="case-fact"><span>Tools</span><strong>Python / SQL / Power BI</strong></div><div class="case-fact"><span>Focus</span><strong>Revenue reporting &amp; match confidence</strong></div></div><div class="intro"><p class="lede">A public, synthetic recreation of a marketing attribution system I built for a training organization. It connects email and web activity to registrations, orders, and revenue through a 32-table warehouse.</p><div class="case-action"><a href="https://app.powerbi.com/view?r=eyJrIjoiMjU2MmQxYTktMzNhMi00N2M5LThiNTctMmVmNmZmZjIzY2Q2IiwidCI6IjQ2YWVjMTg4LTk3ZGQtNDY5Zi1iYzRiLTcwMjNkNGYyMWM0YSJ9" rel="noopener" target="_blank">View live dashboard ↗</a></div></div></div></section>
+<h1>Marketing <em>Attribution</em> Warehouse</h1><div aria-label="Project summary" class="case-facts"><div class="case-fact"><span>Build</span><strong>32-table attribution warehouse</strong></div><div class="case-fact"><span>Tools</span><strong>Python / SQL / Power BI</strong></div><div class="case-fact"><span>Focus</span><strong>Revenue reporting &amp; match confidence</strong></div></div><div class="intro"><p class="lede">I built a marketing attribution and reporting system to connect campaign engagement with customer outcomes. It gives the organization a more credible way to evaluate which activities influenced registrations and revenue. This public case study recreates the model with synthetic data.</p><div class="case-action"><a href="https://app.powerbi.com/view?r=eyJrIjoiMjU2MmQxYTktMzNhMi00N2M5LThiNTctMmVmNmZmZjIzY2Q2IiwidCI6IjQ2YWVjMTg4LTk3ZGQtNDY5Zi1iYzRiLTcwMjNkNGYyMWM0YSJ9" rel="noopener" target="_blank">View live dashboard ↗</a></div></div></div></section>
 <section class="case-media-band scene-panel" data-scene="case-media"><div class="wrap"><div class="case-media-intro micro"><span>DOCUMENT / VISUAL EVIDENCE</span><span>DASHBOARD VIEW / SYNTHETIC PUBLIC MODEL</span></div><figure class="case-photo"><img alt="Marketing Attribution Warehouse Power BI dashboard showing email-assisted revenue and match-type breakdown" loading="eager" src="../assets/images/warehouse.png"/><figcaption>DASHBOARD VIEW / SYNTHETIC PUBLIC MODEL / FULL VIEW, NO CROP</figcaption></figure></div></section><nav aria-label="Case study chapters" class="case-index-bar"><a href="#chapter-01">Overview</a><a href="#chapter-02">Approach</a><a href="#chapter-03">Model output</a><a href="#chapter-04">What I'd do differently</a></nav>
-<section class="case-body-section scene-panel" data-scene="case-reading-soft" id="chapter-01"><div class="wrap"><div class="story-header"><span class="story-no">01 / Overview</span><h2>Connecting marketing activity to registrations and sales</h2></div><div class="story-material"><div class="case-study-content case-study-content-wide">
+<section class="case-body-section scene-panel" data-scene="case-reading-soft" id="chapter-01"><div class="wrap"><div class="story-header"><span class="story-no">01 / Overview</span><h2>Connecting marketing performance to revenue</h2></div><div class="story-material"><div class="case-study-content case-study-content-wide">
 <div class="about-copy">
-<p>Email, web analytics, Salesforce, and WooCommerce all tracked different parts of the customer journey. There was no reliable ID linking a campaign click to a registration or order. I built a warehouse that brings those records together and keeps the match evidence with each result.</p>
-<p>The original work used live organizational data. This public version uses generated records, but keeps the warehouse structure and matching rules so the report can be shown without exposing anyone’s information.</p>
+<p>Marketing, CRM, and ecommerce teams each had a view of the customer journey, but those records did not connect cleanly. I designed a warehouse that joins engagement, registration, and purchase data, while recording how each link was established.</p>
+<p>The original implementation used live organizational data. For the portfolio, I recreated the structure and attribution rules with generated records so the approach can be reviewed without exposing private information.</p>
 </div>
 <figure aria-labelledby="overview-diagram-title" class="case-diagram architecture-diagram">
 <figcaption class="diagram-label" id="overview-diagram-title">System architecture</figcaption>
@@ -37,11 +37,11 @@
 <div class="diagram-node"><div><strong>Power BI</strong><span>Revenue reporting</span></div></div>
 </div>
 </figure>
-</div></div></div></section><section class="case-body-section scene-panel" data-scene="case-reading" id="chapter-02"><div class="wrap"><div class="story-header"><span class="story-no">02 / Approach</span><h2>Matching records with a confidence level</h2></div><div class="story-material"><div class="case-study-content">
+</div></div></div></section><section class="case-body-section scene-panel" data-scene="case-reading" id="chapter-02"><div class="wrap"><div class="story-header"><span class="story-no">02 / Approach</span><h2>Making attribution credible</h2></div><div class="story-material"><div class="case-study-content">
 <div>
 <div class="about-copy">
-<p>I try an exact email match first. When that is not available, the model can fall back to a company-domain match. The match type stays attached to the result, so someone reading the report can tell a direct connection from a weaker one.</p>
-<p>A Python loader creates and populates the 32-table warehouse, including the attribution fact table that Power BI reads. Keeping the schema consistent matters because the report depends on specific fields and relationships.</p>
+<p>Attribution is only useful when the matching rules are clear. The model gives exact email matches higher confidence than company-domain matches, and it keeps the match type with each result so analysts can distinguish stronger evidence from estimates.</p>
+<p>I used Python and SQL to load a 32-table model, including the attribution fact table used by Power BI. The reporting layer follows the warehouse schema, keeping the measures consistent as source data changes.</p>
 </div>
 <dl class="project-details">
 <div><dt>Sources</dt><dd>Constant Contact, GA4, Salesforce, WooCommerce</dd></div>
@@ -58,9 +58,9 @@
 <div aria-hidden="true" class="diagram-arrow">→</div>
 <div class="diagram-node match-tier warehouse-node"><span class="tier-number">03 / output</span><strong>Attributed outcome</strong><span>Registration, order, or revenue</span></div>
 </div>
-<p class="match-note">The dashboard shows match type and confidence alongside attributed revenue. That distinction matters when a campaign looks successful but the underlying connection is indirect.</p>
+<p class="match-note">The report shows revenue alongside attribution confidence, so the organization can review campaign influence without treating every match as equally certain.</p>
 </figure>
-</div></div></div></section><section class="case-body-section scene-panel" data-scene="case-reading-alt" id="chapter-03"><div class="wrap"><div class="story-header"><span class="story-no">03 / Model output</span><h2>What the public report shows</h2></div><div class="story-material"><div class="expertise-grid">
+</div></div></div></section><section class="case-body-section scene-panel" data-scene="case-reading-alt" id="chapter-03"><div class="wrap"><div class="story-header"><span class="story-no">03 / Model output</span><h2>What the model demonstrates</h2></div><div class="story-material"><div class="expertise-grid">
 <article class="expertise-item">
 <p class="expertise-number">01</p>
 <h3>22.43%</h3>
@@ -81,8 +81,8 @@
 <h3>~75% / 25%</h3>
 <p>Approximate split of exact-email and company-domain matches.</p>
 </article>
-</div></div></div></section><section class="case-body-section scene-panel" data-scene="case-reading-soft" id="chapter-04"><div class="wrap"><div class="story-header"><span class="story-no">04 / REFLECTION</span><h2>What I learned while making it public</h2></div><div class="story-material"><div class="about-copy">
-<p>My first public loader produced a schema that was close to production, but not close enough for the existing Power BI report. Later, I removed some fields during sanitization that the revenue charts still needed. I went back and separated fields I could safely rename from fields the model depended on. That distinction now comes up much earlier whenever I prepare data for sharing.</p>
+</div></div></div></section><section class="case-body-section scene-panel" data-scene="case-reading-soft" id="chapter-04"><div class="wrap"><div class="story-header"><span class="story-no">04 / REFLECTION</span><h2>Preserving the model when sharing the work</h2></div><div class="story-material"><div class="about-copy">
+<p>The first public recreation preserved the overall logic but changed fields the Power BI report still depended on. I revised the sanitization process to keep the required schema intact while replacing sensitive values. It was a useful reminder that the data structure and the reporting layer need to be maintained together.</p>
 </div></div></div></section></main>
 <footer class="glass-footer" data-scene="footer">
 <div class="site-width">

@@ -1,23 +1,27 @@
-# Portfolio: copy-edited edition
+# Portfolio | Professional positioning edition
 
-Static website with two paths: Systems & Analytics and Creative & Direction.
+A static portfolio with two connected disciplines: Systems & Analytics and Creative & Direction.
 
-This edition includes a line-by-line copy edit of the homepage, both portfolio pages, all five technical case studies, and the two-page sanitized Salesforce project brief. Project visuals, videos, case-study links, and the homepage discipline switch are unchanged. Music Ops includes four actual dashboard screenshots supplied for the portfolio.
+## What's new
+
+The homepage now introduces the wider professional practice before presenting individual projects. The Systems page leads with CRM architecture, automation, data integration, and business intelligence. The Creative page leads with marketing strategy, creative direction, and production.
+
+All five technical case studies have been revised to explain the business question, the work completed, and what it enabled before going into implementation details. The two-page sanitized Operational Data Integration PDF uses the same voice. Existing project metrics, reporting caveats, images, videos, and links are retained.
 
 ## Publishing
 
-1. Unzip the complete package.
-2. Copy the site files into the root of your GitHub Pages repository, keeping the `assets/`, `case-studies/`, and `tools/` folders intact.
-3. Commit and push the extracted files with GitHub Desktop or Git. Do not upload the ZIP itself.
-4. Review the pages live, especially video playback, external report links, and any images that may contain private information.
+1. Extract the ZIP. Do not upload the ZIP itself to GitHub Pages.
+2. Copy its contents into your local portfolio repository, keeping the folder structure intact.
+3. Commit and push using GitHub Desktop or Git.
+4. Review the live site, including external Power BI reports and creative video playback.
 
-For incremental updates, use the smaller patch ZIP instead of re-uploading the MP4 files. Extract the patch over your existing portfolio folder and keep its relative paths.
+If you are already running the previous version, the small patch contains only updated HTML, the PDF, and these notes. It does not require re-uploading videos or images.
 
-## Notes
+## Public-portfolio notes
 
-- The Vinyl Club figures are scenario forecasts, not observed subscriber performance.
-- The Marketing Attribution Warehouse public dashboard uses synthetic data.
-- The Salesforce consultation extension is marked as sandbox work; it is not presented as a production rollout.
-- Event registration counts come from supplied event listings, not measured attribution to the videos.
-- Gyu San remains marked as unreleased. Check that it may be shown publicly before publishing.
-- `tools/capture-music-ops-mac.sh` is optional. The Music Ops case study already includes screenshots. If used again, review its captured image for sensitive information before pushing.
+- Marketing Attribution Warehouse uses synthetic public reporting data.
+- Vinyl Club results are modeled scenarios, not observed subscriber performance.
+- The Salesforce consultation extension is labeled as sandbox work.
+- Event RSVP and ticket figures describe event response, not content-specific attribution.
+- Gyu San is still marked unreleased. Confirm permission to feature it publicly.
+- The Music Ops screenshots are actual supplied application views. Review all imagery for sensitive information before publishing.

@@ -1,12 +1,16 @@
-PORTFOLIO COPY EDIT / OCTOBER 2026
+PROFESSIONAL POSITIONING PASS / OCT 2026
 
-- Homepage: rewrote the introduction, discipline descriptions, project summaries, and About section.
-- Systems page: clarified the project descriptions, Music Ops overview, and approach.
-- Creative page: shortened campaign descriptions and kept the event-registration figures tied to their respective events.
-- Music Ops: kept the four supplied screenshots, tightened the explanation, and retained the technical workflow details.
-- Operational Data Integration: preserved the full timeline from data cleanup to intake, ecommerce, course records, and consultation tracking.
-- Marketing Attribution Warehouse, Who's AUX Diagnostic Analytics, and Vinyl Club Predictive Analytics: edited headings and narrative for plain language while keeping the measurements and caveats.
-- Sanitized Salesforce brief: rebuilt as a shorter two-page account.
-- All em dashes removed from the site HTML, CSS, JavaScript, and supporting copy.
+Copy and framing:
+- Homepage: broader identity as a systems builder, automation specialist, and analytical creative marketer.
+- Systems: capability-first introduction, followed by more decision-focused technical project summaries.
+- Creative: campaign strategy and direction positioned alongside production; original event counts retained.
+- Marketing Attribution: the reporting problem, match confidence, and business use appear before implementation detail.
+- Who's AUX Diagnostic Analytics: cross-channel business analysis now leads the story.
+- Vinyl Club Predictive Analytics: feasibility and decision-making are the focus, with scenario caveats preserved.
+- Music Ops: positioned as an operations and editorial platform supported by actual dashboard screenshots.
+- Operational Data Integration: the story runs from data quality through workflow automation to ongoing client tracking.
+- Sanitized Salesforce PDF: two-page rewrite aligned with the case-study narrative.
 
-No known content or functionality changes are intended beyond the wording, the supporting Music Ops screenshots, and the updated brief.
+No intended changes to the existing design, JavaScript interactions, image assets, video files, dashboard links, or resume.
+
+Use the small patch ZIP for an incremental update, or the complete ZIP for a clean copy of the site.

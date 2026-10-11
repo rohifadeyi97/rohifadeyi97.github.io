@@ -28,7 +28,7 @@
 </div>
 <h1>Operational <em>Data</em> Integration</h1>
 <div class="sf-hero-bottom">
-<p class="sf-lede">The records were already spread across web forms, Salesforce, course registrations, and WooCommerce. I cleaned up the fields and relationships first, then built the automations around them. That work also led to a consultation-tracking model in Salesforce sandbox.</p>
+<p class="sf-lede">I redesigned the data and workflows connecting customer inquiries, training operations, and ecommerce. The work began with inconsistent records and grew into a set of integrations that improved lead follow-up, product management, and reporting readiness. It also led to a consultation-tracking model in Salesforce sandbox.</p>
 <div class="sf-hero-links">
 <a class="sf-primary" href="#workflows">See the workflows <span aria-hidden="true">↘</span></a>
 <a class="sf-secondary" href="../salesforce-integrations-case-study.pdf" rel="noopener" target="_blank">Sanitized project brief ↗</a>
@@ -39,14 +39,14 @@
 </section><section aria-labelledby="sf-foundation-title" class="sf-foundation scene-panel" data-scene="case-reading-soft" id="foundation">
 <div class="wrap">
 <div class="sf-section-heading sf-section-heading-compact">
-<div><p class="sf-overline">01 / THE DATA FOUNDATION</p><h2 id="sf-foundation-title">The first job was cleaning up the data.</h2></div>
-<p>Each system had useful information. The trouble came when that information had to move between them.</p>
+<div><p class="sf-overline">01 / THE DATA FOUNDATION</p><h2 id="sf-foundation-title">Building a reliable data foundation</h2></div>
+<p>The organization had tools for its website, CRM, registrations, and storefront, but the underlying records did not always agree. Automating the handoffs before fixing the data would have carried the same problems into more systems.</p>
 </div>
 <div class="sf-foundation-layout">
 <div class="sf-foundation-story">
-<p>Form answers sometimes reached Salesforce in the wrong format. Member and standard prices sat in related records. One course registration could involve a student, employer, location, course, and purchase. I had to sort out which fields belonged where before connecting anything else.</p>
-<p>I fixed the form mappings, normalized picklist values, separated price-book entries, and mapped the relationships between Accounts, Contacts, courses, and registrants. I also looked for stable keys so the automations were not relying on a name that could change.</p>
-<p>A successful run was not enough. The record had to be right when it arrived.</p>
+<p>The issues were practical: incompatible form values, separate member and standard pricing, and registration records that needed to connect people, employers, courses, and locations. Each required a clear data model before an integration could be trusted.</p>
+<p>I mapped source fields to Salesforce, standardized picklists and record relationships, and established stable matching keys. I also separated price-book entries so the correct pricing could be carried into ecommerce.</p>
+<p>The goal was accurate records at each step, not simply a successful automation run.</p>
 </div>
 <div aria-label="Data problems and fixes" class="sf-fix-list">
 <div><span>01 / INPUTS</span><strong>Reportable lead values</strong><p>Mapped form choices to valid CRM picklists; converted grouped checkbox values into separate selections.</p></div>
@@ -60,8 +60,8 @@
 <section aria-labelledby="sf-evidence-heading" class="sf-evidence scene-panel" data-scene="case-media" id="workflows">
 <div class="wrap">
 <div class="sf-section-heading">
-<div><p class="sf-overline">02 / WORKFLOWS IN PRACTICE</p><h2 id="sf-evidence-heading">Then I connected the workflows.</h2></div>
-<p>One flow assigned incoming leads. Another kept product and price information consistent between Salesforce and the store.</p>
+<div><p class="sf-overline">02 / WORKFLOWS IN PRACTICE</p><h2 id="sf-evidence-heading">Automating the core workflows</h2></div>
+<p>With consistent fields in place, I automated inquiry routing and product synchronization. These workflows reduced the need for staff to re-enter information and made the next action clearer.</p>
 </div>
 <div class="sf-workflow-gallery">
 <figure class="sf-proof sf-proof-lead">
@@ -92,19 +92,19 @@
 </section><section aria-labelledby="sf-connections-title" class="sf-connections scene-panel" data-scene="case-reading" id="connected-records">
 <div class="wrap">
 <div class="sf-section-heading sf-section-heading-compact">
-<div><p class="sf-overline">03 / CONNECTING OPERATIONS</p><h2 id="sf-connections-title">Registrations and products needed their own rules.</h2></div>
-<p>The goal was to preserve the useful details behind every sale or registration, not just move records from one system to another.</p>
+<div><p class="sf-overline">03 / CONNECTING OPERATIONS</p><h2 id="sf-connections-title">Connecting customer, course, and product records</h2></div>
+<p>The systems needed more than a data transfer. They needed to preserve the relationships and business rules behind each registration and purchase.</p>
 </div>
 <div class="sf-operations-grid">
 <article class="sf-operation">
 <span class="sf-operation-number">A / PRODUCTS &amp; ECOMMERCE</span>
-<h3>Keeping the catalog in sync</h3>
-<p>Salesforce held product information and two price books. WooCommerce handled the storefront and shipping. I used Zapier to look up the correct prices, then sent the product through a custom WordPress REST endpoint. The endpoint handled matching, categories, and create-or-update logic. Weight, dimensions, and virtual status had to come through too.</p>
+<h3>Synchronizing the product catalog</h3>
+<p>I linked Salesforce product records and both price books to WooCommerce using Zapier and a custom WordPress REST endpoint. The integration handles matching and updates, category mapping, shipping details, and the distinction between member and standard pricing.</p>
 </article>
 <article class="sf-operation">
 <span class="sf-operation-number">B / COURSES &amp; REGISTRATIONS</span>
-<h3>Connecting course and student records</h3>
-<p>I worked with the links between Accounts, Contacts, parent courses, scheduled courses, and Course Registrants. I also kept host site and location separate where they meant different things. Those relationships are what make it possible to report on attendance by person, company, or course.</p>
+<h3>Maintaining course and participant relationships</h3>
+<p>Course records needed to support scheduling and attendance analysis across people and employers. I mapped the relationships between Accounts, Contacts, parent and scheduled courses, and registrants, keeping host-site and location fields separate where they represented different information.</p>
 </article>
 </div>
 </div>
@@ -112,13 +112,13 @@
 <section aria-labelledby="sf-consult-title" class="sf-extension scene-panel" data-scene="case-reading-alt" id="consulting">
 <div class="wrap">
 <div class="sf-section-heading sf-section-heading-compact">
-<div><p class="sf-overline">04 / CONSULTATION LIFECYCLE</p><h2 id="sf-consult-title">Consulting needed more than a lead.</h2></div>
+<div><p class="sf-overline">04 / CONSULTATION LIFECYCLE</p><h2 id="sf-consult-title">Managing consulting work beyond the initial inquiry</h2></div>
 <span class="sf-sandbox-label">SALESFORCE SANDBOX BUILD</span>
 </div>
 <div class="sf-extension-grid">
 <div class="sf-extension-text">
-<p>The consulting lead flow solved the first response, but staff also needed to track the work after that call. An assigned lead could not show the full history of a company relationship.</p>
-<p>In Salesforce sandbox, I built an Account-based model with a custom Consultation Engagement record, related Contacts, and follow-up Tasks. It supports more than one engagement per company and more than one point of contact without creating duplicate client records.</p>
+<p>The consultation branch of lead routing revealed a second requirement: a way to manage ongoing client work after an inquiry became a relationship. A lead alone could not represent repeat engagements and multiple contacts at the same company.</p>
+<p>I extended the model in Salesforce sandbox with Account-based consultation engagements, related Contacts, and follow-up Tasks. The structure supports multiple engagements and points of contact while retaining a single client history.</p>
 <p class="sf-note"><strong>Implementation status: </strong>Objects, relationships, flows, pages, and list views were built in sandbox. Expiration and renewal reminders were proposed as a later improvement, not a deployed feature.</p>
 </div>
 <div aria-label="Salesforce consultation data model: an Account is the client hub with Potential, Current and Previous status; linked Contacts, Consultation Engagement records and follow-up Tasks capture the continuing relationship." class="sf-model" role="img">
@@ -142,10 +142,10 @@
 <section aria-labelledby="sf-use-title" class="sf-use scene-panel" data-scene="case-reading-soft" id="use">
 <div class="wrap">
 <div class="sf-use-inner">
-<div><span class="sf-overline">05 / PUTTING THE DATA TO WORK</span><h2 id="sf-use-title">The data became easier to work with.</h2></div>
+<div><span class="sf-overline">05 / PUTTING THE DATA TO WORK</span><h2 id="sf-use-title">More useful data for operations and reporting</h2></div>
 <div class="sf-use-copy">
-<p>Staff could see the reason for a new inquiry and where it came from. Products had the fields needed for pricing and shipping. Course records kept clearer links to the people and companies involved. The consulting model gave staff a place to track later work with the same client.</p>
-<p>This was a set of practical improvements to the operating data, not a claim of increased revenue. Collecting consistent source and relationship fields also made future reporting and attribution more feasible.</p>
+<p>Lead records preserved inquiry intent and campaign source, products carried the details needed for ecommerce, and registrations retained links to the right people and organizations. The consultation extension provided a structured way to continue work with existing clients.</p>
+<p>These changes improved the quality and usefulness of operational records. They also created a stronger foundation for segmentation, follow-up, and future attribution reporting. I have not attributed a measured revenue increase to the project.</p>
 <a href="../systems.html">More systems work <span aria-hidden="true">↗</span></a>
 </div>
 </div>
