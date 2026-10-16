@@ -1,0 +1,48 @@
+name: Archive November 2026 CRSC Canva Promo Artwork
+on:
+  push:
+    branches: [crsc-maotiec-assets-2026]
+    paths: [.github/workflows/crsc-november-2026-promos.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Import original Canva PNGs
+        env:
+          CANVA_ETD: "https://media.canva.com/v2/document-image/hash:-1868252990/height:316/id:DAHYJfh5B0A/type:B/width:632?brand=BADmfU2P6IM&csig=AAAAAAAAAAAAAAAAAAAAAIYSh1zXZbHb6im135wU124xJsTkLX6tJcp75t3VQLpT&exp=1792131066&fallback=https%3A%2F%2Fs3.amazonaws.com%2Fdocument-export-us1.canva.com%2Fh5B0A%2FDAHYJfh5B0A%2F1%2Fthumbnail%2F0001.png%3FX-Amz-Algorithm%3DAWS4-HMAC-SHA256%26X-Amz-Credential%3DAKIAQYCGKMUHUBTCC4VT%252F20261016%252Fus-east-1%252Fs3%252Faws4_request%26X-Amz-Date%3D20261016T022100Z%26X-Amz-Expires%3D16506%26X-Amz-Signature%3De9cd6b50cd2c2acb95f87c792fb9ff6ab04e375a4b12a2b263ba8cbe145f0466%26X-Amz-SignedHeaders%3Dhost%26response-expires%3DFri%252C%252016%2520Oct%25202026%252006%253A56%253A06%2520GMT&fallbackstale=T&osig=AAAAAAAAAAAAAAAAAAAAAKrcsV45Y5pZit5yA-Vz0ld-moTBJ25hE_D1dbnes3TB&page=1&signed=brand%2Cfallback%2Cfallbackstale%2Cpage%2Cversion&signer=document-rpc&version=2"
+          CANVA_FIRSTAID: "https://media.canva.com/v2/document-image/hash:991107306/height:316/id:DAHYJfh5B0A/type:B/width:632?brand=BADmfU2P6IM&csig=AAAAAAAAAAAAAAAAAAAAANg-yt3hnp60Jv0rwskAmhznpVWOZNFNFRTD78suU1o_&exp=1792131066&fallback=https%3A%2F%2Fs3.amazonaws.com%2Fdocument-export-us1.canva.com%2Fh5B0A%2FDAHYJfh5B0A%2F1%2Fthumbnail%2F0002.png%3FX-Amz-Algorithm%3DAWS4-HMAC-SHA256%26X-Amz-Credential%3DAKIAQYCGKMUHUBTCC4VT%252F20261015%252Fus-east-1%252Fs3%252Faws4_request%26X-Amz-Date%3D20261015T172919Z%26X-Amz-Expires%3D48407%26X-Amz-Signature%3D1a9d7d64db3c0b02e04768c752798cd02ee20786bcc127ac2e47bec884301eb3%26X-Amz-SignedHeaders%3Dhost%26response-expires%3DFri%252C%252016%2520Oct%25202026%252006%253A56%253A06%2520GMT&fallbackstale=T&osig=AAAAAAAAAAAAAAAAAAAAAJDvts9pC59qvuhKI0CzS4jprmUigDmK7L1EvefhX_Fp&page=2&signed=brand%2Cfallback%2Cfallbackstale%2Cpage%2Cversion&signer=document-rpc&version=2"
+        run: |
+          python3 - <<'PY'
+          import os, pathlib, urllib.request, urllib.parse
+          out=pathlib.Path("assets/crsc/promotions/november-2026")
+          out.mkdir(parents=True,exist_ok=True)
+          for code,filename in [("ETD","etd-nov12-13.png"),("FIRSTAID","first-aid-nov9.png")]:
+              url=os.environ["CANVA_"+code]
+              urls=[url]
+              qs=urllib.parse.parse_qs(urllib.parse.urlsplit(url).query)
+              if qs.get("fallback"): urls.append(qs["fallback"][0])
+              content=None
+              for candidate in urls:
+                  try:
+                      req=urllib.request.Request(candidate,headers={"User-Agent":"Mozilla/5.0"})
+                      with urllib.request.urlopen(req,timeout=35) as resp: content=resp.read()
+                      if content[:8]!=bytes([137,80,78,71,13,10,26,10]): raise ValueError("Not a PNG")
+                      break
+                  except Exception as err:
+                      print(code,"source fallback:",type(err).__name__,str(err)[:180])
+                      content=None
+              if not content: raise RuntimeError("Cannot retrieve Canva PNG for "+code)
+              target=out/filename
+              target.write_bytes(content)
+              print(target,len(content),"bytes")
+          
+          PY
+          git config user.name "CRSC Newsletter Assets"
+          git config user.email "actions@users.noreply.github.com"
+          git add assets/crsc/promotions/november-2026
+          git commit -m "Archive Canva ETD and First Aid November 2026 artwork"
+          git push origin HEAD:crsc-maotiec-assets-2026
