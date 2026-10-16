@@ -1,0 +1,53 @@
+name: Import MAOTIEC Canva newsletter artwork
+on:
+  push:
+    branches: [crsc-maotiec-assets-2026]
+    paths: [.github/workflows/crsc-maotiec-assets-2026.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Save Canva PNG artwork
+        env:
+          CANVA_511: "https://media.canva.com/v2/document-image/hash:400816824/height:316/id:DAHYI8YmIL8/type:B/width:632?brand=BADmfU2P6IM&csig=AAAAAAAAAAAAAAAAAAAAACqumoCL-DpThUx3gvFRIulozKPjeypvv4MwlBrwd2RQ&exp=1792122270&fallback=https%3A%2F%2Fs3.amazonaws.com%2Fdocument-export-us1.canva.com%2FYmIL8%2FDAHYI8YmIL8%2F2%2Fthumbnail%2F0001.png%3FX-Amz-Algorithm%3DAWS4-HMAC-SHA256%26X-Amz-Credential%3DAKIAQYCGKMUHUBTCC4VT%252F20261015%252Fus-east-1%252Fs3%252Faws4_request%26X-Amz-Date%3D20261015T150028Z%26X-Amz-Expires%3D48542%26X-Amz-Signature%3Ddeb543a07a016a5907a5db17ed13517ac594dfa9ab2c78159e483dbcba9d082e%26X-Amz-SignedHeaders%3Dhost%26response-expires%3DFri%252C%252016%2520Oct%25202026%252004%253A29%253A30%2520GMT&osig=AAAAAAAAAAAAAAAAAAAAAJ0qtJ1VN6YQnB89AYwWxlxZPIpJxeLe4FBMYbWk__3O&page=1&signed=brand%2Cfallback%2Cpage%2Cversion&signer=document-rpc&version=2"
+          CANVA_500: "https://media.canva.com/v2/document-image/hash:-349431134/height:316/id:DAHYI8YmIL8/type:B/width:632?brand=BADmfU2P6IM&csig=AAAAAAAAAAAAAAAAAAAAAG4kIE4W6AihsuCa-4B2P1ynGPOcW8YkSwp0BvRgAuCn&exp=1792122270&fallback=https%3A%2F%2Fs3.amazonaws.com%2Fdocument-export-us1.canva.com%2FYmIL8%2FDAHYI8YmIL8%2F2%2Fthumbnail%2F0002.png%3FX-Amz-Algorithm%3DAWS4-HMAC-SHA256%26X-Amz-Credential%3DAKIAQYCGKMUHUBTCC4VT%252F20261015%252Fus-east-1%252Fs3%252Faws4_request%26X-Amz-Date%3D20261015T194647Z%26X-Amz-Expires%3D31363%26X-Amz-Signature%3D68e09ba95301f3c2a219807538340e62ad302119241c699962d58315fdb19a13%26X-Amz-SignedHeaders%3Dhost%26response-expires%3DFri%252C%252016%2520Oct%25202026%252004%253A29%253A30%2520GMT&osig=AAAAAAAAAAAAAAAAAAAAAPvtepPR-7T4371bq7UK77f72pFEUjvJxFQE8VVJrGSY&page=2&signed=brand%2Cfallback%2Cpage%2Cversion&signer=document-rpc&version=2"
+          CANVA_2045: "https://media.canva.com/v2/document-image/hash:-1146191695/height:316/id:DAHYI8YmIL8/type:B/width:632?brand=BADmfU2P6IM&csig=AAAAAAAAAAAAAAAAAAAAAHxivFMs65hy7ZFdQ-iNsIlTKRx6B8QrTIbq865BdF7H&exp=1792122270&fallback=https%3A%2F%2Fs3.amazonaws.com%2Fdocument-export-us1.canva.com%2FYmIL8%2FDAHYI8YmIL8%2F2%2Fthumbnail%2F0003.png%3FX-Amz-Algorithm%3DAWS4-HMAC-SHA256%26X-Amz-Credential%3DAKIAQYCGKMUHUBTCC4VT%252F20261015%252Fus-east-1%252Fs3%252Faws4_request%26X-Amz-Date%3D20261015T180014Z%26X-Amz-Expires%3D37756%26X-Amz-Signature%3Dee5e20b5e86ab123e51577e327995f2015b24e60575bef7692ba65cfd2a135fe%26X-Amz-SignedHeaders%3Dhost%26response-expires%3DFri%252C%252016%2520Oct%25202026%252004%253A29%253A30%2520GMT&osig=AAAAAAAAAAAAAAAAAAAAAEf0uKlYlXftVk1NIRc8qCIWETS5A9q1iWCZvXzYwHiv&page=3&signed=brand%2Cfallback%2Cpage%2Cversion&signer=document-rpc&version=2"
+          CANVA_3115: "https://media.canva.com/v2/document-image/hash:185440356/height:316/id:DAHYI8YmIL8/type:B/width:632?brand=BADmfU2P6IM&csig=AAAAAAAAAAAAAAAAAAAAAHocS6y3KlsjxQ1PF6DgwUHZut__OYOKYgbeBdb9f2no&exp=1792122270&fallback=https%3A%2F%2Fs3.amazonaws.com%2Fdocument-export-us1.canva.com%2FYmIL8%2FDAHYI8YmIL8%2F2%2Fthumbnail%2F0004.png%3FX-Amz-Algorithm%3DAWS4-HMAC-SHA256%26X-Amz-Credential%3DAKIAQYCGKMUHUBTCC4VT%252F20261015%252Fus-east-1%252Fs3%252Faws4_request%26X-Amz-Date%3D20261015T034514Z%26X-Amz-Expires%3D89056%26X-Amz-Signature%3Df1254b037517d82248ffc1a3bb0e32d3318ed8cc40d3a991aff0fa19cd64b930%26X-Amz-SignedHeaders%3Dhost%26response-expires%3DFri%252C%252016%2520Oct%25202026%252004%253A29%253A30%2520GMT&osig=AAAAAAAAAAAAAAAAAAAAAMAr9DtrHR6sPsW7-t0IHjesB9vP8tOeQfoctRE09avk&page=4&signed=brand%2Cfallback%2Cpage%2Cversion&signer=document-rpc&version=2"
+        run: |
+          python3 - <<'PY'
+          import os, pathlib, urllib.request, urllib.parse
+          out = pathlib.Path("assets/crsc/maotiec-2026")
+          out.mkdir(parents=True, exist_ok=True)
+          for code in ("511","500","2045","3115"):
+              url = os.environ["CANVA_"+code]
+              urls = [url]
+              qs = urllib.parse.parse_qs(urllib.parse.urlsplit(url).query)
+              if qs.get("fallback"):
+                  urls.append(qs["fallback"][0])
+              content = None
+              for candidate in urls:
+                  try:
+                      req = urllib.request.Request(candidate, headers={"User-Agent":"Mozilla/5.0"})
+                      with urllib.request.urlopen(req, timeout=35) as response:
+                          content = response.read()
+                      if content.startswith(b"\x89PNG\r\n\x1a\n"):
+                          break
+                      raise ValueError("Unexpected non-PNG response")
+                  except Exception as err:
+                      print("Retry source for", code, type(err).__name__, str(err)[:140])
+                      content = None
+              if not content:
+                  raise RuntimeError("Could not download verified Canva art for OSHA "+code)
+              path = out/("osha-"+code+".png")
+              path.write_bytes(content)
+              print("Saved", path, len(content), "bytes")
+          PY
+          git config user.name "CRSC Newsletter Assets"
+          git config user.email "actions@users.noreply.github.com"
+          git add assets/crsc/maotiec-2026
+          git commit -m "Store four corrected MAOTIEC Canva class graphics"
+          git push origin HEAD:crsc-maotiec-assets-2026
