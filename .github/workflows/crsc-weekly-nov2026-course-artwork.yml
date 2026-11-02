@@ -1,0 +1,37 @@
+name: Archive November weekly CRSC course artwork
+on:
+  push:
+    branches: [crsc-maotiec-assets-2026]
+    paths: [.github/workflows/crsc-weekly-nov2026-course-artwork.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    env:
+      CANVA_STSC: "https://s3.amazonaws.com/document-export-us1.canva.com/gYbIw/DAHZySgYbIw/1/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH545XFSWX%2F20261101%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261101T174129Z&X-Amz-Expires=89829&X-Amz-Signature=db2776ad5257561e7de27079f6424f7c152198bb1a6bac0b87ae7499bc7c5eac&X-Amz-SignedHeaders=host&response-expires=Mon%2C%2002%20Nov%202026%2018%3A38%3A38%20GMT"
+      CANVA_CHST: "https://s3.amazonaws.com/document-export-us1.canva.com/y2rDE/DAHZyVy2rDE/1/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH545XFSWX%2F20261102%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261102T040836Z&X-Amz-Expires=53220&X-Amz-Signature=619a555a93c43478aa53e2d85294118827c579e8b706731c0e696593dbd34035&X-Amz-SignedHeaders=host&response-expires=Mon%2C%2002%20Nov%202026%2018%3A55%3A36%20GMT"
+      CANVA_ASC: "https://s3.amazonaws.com/document-export-us1.canva.com/bxo04/DAHZySbxo04/1/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH545XFSWX%2F20261102%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261102T103603Z&X-Amz-Expires=31146&X-Amz-Signature=a8bff6063ee7321a4d3a5a02f4e30445d0177d8e17a34419a5a5d480f51ebfe3&X-Amz-SignedHeaders=host&response-expires=Mon%2C%2002%20Nov%202026%2019%3A15%3A09%20GMT"
+    steps:
+      - uses: actions/checkout@v4
+      - name: Archive approved Canva PNGs without altering originals
+        run: |
+          python3 - <<'PY'
+          import os,pathlib,urllib.request,struct
+          dest=pathlib.Path("assets/crsc/promotions/november-2026")
+          dest.mkdir(parents=True,exist_ok=True)
+          for key,name in [("CANVA_STSC","stsc-nov13-2026-canva.png"),("CANVA_CHST","chst-dec1-3-2026-canva.png"),("CANVA_ASC","advanced-safety-certificate-program-canva.png")]:
+              req=urllib.request.Request(os.environ[key],headers={"User-Agent":"Mozilla/5.0"})
+              with urllib.request.urlopen(req,timeout=45) as response: data=response.read()
+              if not data.startswith(bytes([137,80,78,71,13,10,26,10])): raise ValueError("Not PNG "+name)
+              width,height=struct.unpack(">II",data[16:24])
+              if width<560 or height<280: raise ValueError("Image below email minimum "+name)
+              (dest/name).write_bytes(data)
+              print(name,width,height,len(data))
+          PY
+          git config user.name "CRSC Newsletter Assets"
+          git config user.email "actions@users.noreply.github.com"
+          git add assets/crsc/promotions/november-2026/
+          git commit -m "Archive approved Canva exam-prep and ASC promotional graphics"
+          git push origin HEAD:crsc-maotiec-assets-2026
