@@ -135,3 +135,27 @@ body.glass-case.music .music-ops-overview .diagram-arrow {
   body.glass-case.music .music-ops-overview .diagram-stack .diagram-node {min-height:0;}
   body.glass-case.music .music-ops-overview .diagram-arrow {transform:none;}
 }
+
+/* The desktop overview is a three-step sequence, not a long vertical stack. */
+.music-process-flow {
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) 26px minmax(0,1fr) 26px minmax(0,1fr);
+  align-items:stretch;
+  gap:8px;
+}
+.music-process-flow>.diagram-node {
+  min-height:150px;
+  padding:16px 14px;
+  border-radius:16px;
+}
+.music-process-flow>.diagram-arrow {
+  align-self:center;
+  transform:rotate(-90deg);
+  color:#6a81d5;
+}
+.music-create-detail {margin-top:28px;}
+@media(max-width:860px) {
+  .music-process-flow {grid-template-columns:1fr;gap:8px;}
+  .music-process-flow>.diagram-node {min-height:0;}
+  .music-process-flow>.diagram-arrow {transform:none;}
+}

@@ -566,3 +566,15 @@ body.glass-case.tandem .tandem-interface {
 body.glass-case.tandem .tandem-interface img {
   max-height:760px;
 }
+
+.data-disclaimer {
+  margin:0 0 24px;
+  padding:17px 20px;
+  border:1px solid rgba(91,113,171,.24);
+  border-left:4px solid #6b6fca;
+  border-radius:14px;
+  background:linear-gradient(135deg,rgba(236,241,255,.9),rgba(255,255,255,.78));
+  color:#465a78;
+}
+.data-disclaimer strong {display:block;margin-bottom:5px;color:#304467;font:500 .68rem/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;}
+.data-disclaimer p {margin:0!important;max-width:78ch;font:400 .88rem/1.65 var(--sans);}
