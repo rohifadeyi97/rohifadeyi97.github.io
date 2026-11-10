@@ -540,3 +540,11 @@ body.glass-site[data-home-focus="creative"] .home-intro-copy .home-actions.mode-
  .home-intro-copy .home-actions .primary-action {width:100%;justify-content:space-between;}
  .home-intro-copy .home-actions .home-resume-link {padding:4px 0 8px;}
 }
+
+/* Real product captures within the established glass surfaces. */
+.product-capture {margin:0;padding:12px;min-width:0;overflow:hidden;}
+.product-capture img {width:100%;height:auto;border-radius:14px;}
+.product-capture figcaption {padding:12px 7px 3px;color:var(--muted);font:400 .75rem/1.6 var(--sans);}
+.case-evidence-note {max-width:72ch;}
+body.glass-site[data-home-focus="creative"] .home-intro-copy .practice-index.mode-creative {display:grid!important;}
+body.case-marketing .architecture-diagram {margin-inline:0;}
