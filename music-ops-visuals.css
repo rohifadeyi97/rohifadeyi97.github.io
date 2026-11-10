@@ -106,3 +106,32 @@ body.glass-case.music #chapter-05 .music-vinyl-steps .flow-step {margin-bottom:1
  body.glass-case.music #chapter-05 .music-vinyl-steps>.diagram-node:last-child {grid-column:1;}
  body.glass-case.music #chapter-05 .music-vinyl-overview .about-copy {max-width:none;}
 }
+
+/* Balance the Music Ops overview: a compact process line beside the real UI. */
+body.glass-case.music .music-ops-overview {
+  grid-template-columns:minmax(0,.96fr) minmax(0,1.04fr);
+  gap:clamp(24px,3vw,54px);
+  align-items:center;
+}
+body.glass-case.music .music-ops-overview .diagram-stack {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 22px minmax(0,1fr) 22px minmax(0,1fr);
+  align-items:stretch;
+  gap:8px;
+}
+body.glass-case.music .music-ops-overview .diagram-stack .diagram-node {
+  min-height:148px;
+  padding:16px 14px;
+  border-radius:16px;
+}
+body.glass-case.music .music-ops-overview .diagram-arrow {
+  align-self:center;
+  transform:rotate(-90deg);
+  color:#6a81d5;
+}
+@media(max-width:860px) {
+  body.glass-case.music .music-ops-overview {grid-template-columns:1fr;align-items:start;}
+  body.glass-case.music .music-ops-overview .diagram-stack {grid-template-columns:1fr;gap:8px;}
+  body.glass-case.music .music-ops-overview .diagram-stack .diagram-node {min-height:0;}
+  body.glass-case.music .music-ops-overview .diagram-arrow {transform:none;}
+}
