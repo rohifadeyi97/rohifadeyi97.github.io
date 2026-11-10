@@ -61,6 +61,17 @@
     for (const scene of scenes) {
       if (scene.getBoundingClientRect().top <= marker) active = scene.dataset.scene;
     }
+    if (!reduceMotion) {
+      const viewportCenter = window.innerHeight * 0.5;
+      document.querySelectorAll('.proof-visual').forEach((visual) => {
+        const rect = visual.getBoundingClientRect();
+        const distance = Math.abs((rect.top + rect.height * 0.5) - viewportCenter);
+        const focus = Math.max(0, 1 - distance / (window.innerHeight * 0.9));
+        const zoom = 1.025 + focus * 0.055;
+        visual.style.setProperty('--scroll-zoom', zoom.toFixed(3));
+        visual.style.setProperty('--scroll-zoom-hover', (zoom + 0.025).toFixed(3));
+      });
+    }
     if (body.dataset.scene !== active) body.dataset.scene = active;
     if (sceneLabel) sceneLabel.textContent = sceneNames[active] || 'Selected work';
     if (sceneIndicator) sceneIndicator.classList.toggle('is-active', y > 400);

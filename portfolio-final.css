@@ -578,3 +578,47 @@ body.glass-case.tandem .tandem-interface img {
 }
 .data-disclaimer strong {display:block;margin-bottom:5px;color:#304467;font:500 .68rem/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;}
 .data-disclaimer p {margin:0!important;max-width:78ch;font:400 .88rem/1.65 var(--sans);}
+
+/* Give the case-study chapter navigation a real content-width rail instead
+   of leaving a small floating capsule centered in the page. */
+body.glass-case .case-index-bar {
+  width:min(calc(100% - 88px),1210px);
+  max-width:none;
+  justify-content:space-between;
+  margin-inline:auto;
+}
+body.glass-case .case-index-bar a {
+  flex:1 0 auto;
+  text-align:center;
+}
+
+/* Selected-project captures share one edge-to-edge frame. A light scroll
+   zoom gives the stills the same sense of motion as the 5K campaign card. */
+.proof-visual {
+  height:clamp(270px,27vw,360px);
+  padding:0;
+  background:#e8eef8;
+}
+.proof-visual>img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transform:scale(var(--scroll-zoom,1.035));
+  transform-origin:center;
+  transition:transform .12s linear;
+  will-change:transform;
+}
+.proof-image-contain {padding:0;background:#e8eef8;}
+.proof-card:hover .proof-visual>img {transform:scale(var(--scroll-zoom-hover,1.065));}
+@media(max-width:860px) {
+  body.glass-case .case-index-bar {width:calc(100% - 44px);}
+  .proof-visual {height:clamp(250px,42vw,330px);}
+}
+@media(max-width:620px) {
+  body.glass-case .case-index-bar {width:calc(100% - 32px);}
+  body.glass-case .case-index-bar a {flex:0 0 auto;}
+  .proof-visual {height:250px;}
+}
+@media(prefers-reduced-motion:reduce) {
+  .proof-visual>img {transform:none!important;transition:none!important;will-change:auto;}
+}
