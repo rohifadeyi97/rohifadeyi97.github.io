@@ -548,3 +548,21 @@ body.glass-site[data-home-focus="creative"] .home-intro-copy .home-actions.mode-
 .case-evidence-note {max-width:72ch;}
 body.glass-site[data-home-focus="creative"] .home-intro-copy .practice-index.mode-creative {display:grid!important;}
 body.case-marketing .architecture-diagram {margin-inline:0;}
+
+/* Tandem launch film: keep the portfolio's glass case-study frame while
+   letting the finished video, rather than an interface mockup, lead the page. */
+body.glass-case.tandem .tandem-film video {
+  display:block;
+  width:100%;
+  height:auto;
+  aspect-ratio:16/9;
+  object-fit:contain;
+  border-radius:12px;
+  background:#11131b;
+}
+body.glass-case.tandem .tandem-interface {
+  margin:36px 0 0;
+}
+body.glass-case.tandem .tandem-interface img {
+  max-height:760px;
+}
